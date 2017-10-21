@@ -158,58 +158,6 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-gulp简单用法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-04-18 09:36:07" datetime="2017-04-18T01:36:07.000Z"  itemprop="datePublished">2017-04-18</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/04/18/gulp简单用法/">gulp简单用法</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        gulp简单用法不说原理，直接开干
-需了解node稍微介绍一下node：
-
-package.json(node项目配置文件)，形式如下：
-
-12345678910111213141516171819202122232425262728293031323334353637   &#123;  "name": "32000", //项目名  "version": "0.0.1", //版本号  ...
-    
-
-        <a href="/2017/04/18/gulp简单用法/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-完美解决Hexo多台电脑同步问题"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -259,7 +207,57 @@ package.json(node项目配置文件)，形式如下：
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-http"
+            <article id="post-安卓中抓包方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android开发/">Android开发</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/安卓中抓包方法/">android抓包方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        安卓中抓包方法5.0 以上机型因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：
+带PIE的tcpdump下载
+前提手机一定要root！
+通过adb将tcpdump拷入手机12adb push tcpdump /system/bin/tcpdump  adb shell chmod 6755 /system...
+    
+
+        <a href="/2017/02/12/安卓中抓包方法/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-http协议笔记"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -277,7 +275,7 @@ package.json(node项目配置文件)，形式如下：
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/http/">http协议（一）</a>
+      <a class="post-title-link" href="/2017/02/12/http协议笔记/">http协议（二）</a>
     </h3>
   
 
@@ -287,16 +285,11 @@ package.json(node项目配置文件)，形式如下：
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        http协议http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。
-http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。
-http是无状态的，对于事务处理没有记忆能力。
-http请求消息：
-请求方法 url 协议版本字段名 值空行内容
-响应消息：
-协议版本 状态码 状态值字段名 值空行...
+        HTTP协议HTTP Request
+协议格式GET/sample.jsp HTTP/1.1Accept:image/gif.image/jpeg,/Accept-Language:zh-cnConnection:Keep-AliveHost:localhostUser-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)Accept-Enco...
     
 
-        <a href="/2017/02/12/http/" class="post-more waves-effect waves-button">
+        <a href="/2017/02/12/http协议笔记/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
@@ -304,125 +297,6 @@ http请求消息：
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Hexo+GitHub构建博客"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/Hexo+GitHub构建博客/">Hexo+GitHub构建个人博客</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        什么是Hexo？Hexo是一个快速，简单和强大的博客框架。你可以在短时间内利用markdown标记语言通过Hexo生成一份拥有漂亮主题的博客。
-安装Hexo需要的安装环境安装Hexo非常容易。但是，你需要先安装几个其他的东西：
-
-Node.js
-Git
-
-安装Node.js最好是通过nvm来安装Node.js。
-cURL:
-$ curl https://raw.githubuserconte...
-    
-
-        <a href="/2017/02/12/Hexo+GitHub构建博客/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-网络层次结构"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/网络层次结构/">OSI网络模型</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        OSI七层模型：
-
-物理层
-数据链路层
-网络层
-传输层
-会话层
-表示层
-应用层
-
-tcp协议：
-
-链路层
-网络层
-传输层
-应用层
-
-
-    
-
-        <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
 
     </div>
     
@@ -484,56 +358,6 @@ def xxx(*num):
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-java/">python java</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-安卓中抓包方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android开发/">Android开发</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/安卓中抓包方法/">android抓包方法</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        安卓中抓包方法5.0 以上机型因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：
-带PIE的tcpdump下载
-前提手机一定要root！
-通过adb将tcpdump拷入手机12adb push tcpdump /system/bin/tcpdump  adb shell chmod 6755 /system...
-    
-
-        <a href="/2017/02/12/安卓中抓包方法/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 
     </div>
     
@@ -639,6 +463,177 @@ path - 定义服...
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-http"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/http/">http协议（一）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        http协议http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。
+http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。
+http是无状态的，对于事务处理没有记忆能力。
+http请求消息：
+请求方法 url 协议版本字段名 值空行内容
+响应消息：
+协议版本 状态码 状态值字段名 值空行...
+    
+
+        <a href="/2017/02/12/http/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-网络层次结构"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/网络层次结构/">OSI网络模型</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        OSI七层模型：
+
+物理层
+数据链路层
+网络层
+传输层
+会话层
+表示层
+应用层
+
+tcp协议：
+
+链路层
+网络层
+传输层
+应用层
+
+
+    
+
+        <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-JS语法突击"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/JS语法突击/">js语法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        JS 语法突击检查
+知道continue吧？那你知道label语句吗？请说明使用方法。 continue后跟label可以跳出到label所在的循环。
+
+基本类型有哪些？ Undefined,Null,Boolean,Number,String
+
+js的字符串是引用类型吗？ js的字符串不是，在大多数语言中，字符串被当做对象，是引用类型，但js放弃了这一传统。
+
+函数传参是按什么传递？ 全部...
+    
+
+        <a href="/2017/02/12/JS语法突击/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </div>
     

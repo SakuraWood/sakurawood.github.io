@@ -208,52 +208,6 @@ css中的一个基本概念是盒模型，可见元素会在页面中占据一�
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-gradle学习笔记"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-15 15:54:07" datetime="2017-08-15T07:54:07.000Z"  itemprop="datePublished">2017-08-15</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/08/15/gradle学习笔记/">gradle 学习笔记</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        gradle上路篇作为写Android的人（虽然现在重心已经偏向js），当遇上gradle编译时各种各样的错误，，你却不知道怎么办，有时虽然解决了却不知道所以然，我想这样的经历绝不只有我一个。
-如果说为什么对gradle始终很糊涂，那么Android Studio将要背很大的锅，因为IDE为你生成好了构建脚本，所以你无需花很多精力去了解它，你的任务更多只是在业务代码本身，事实上，学习grad...
-    
-
-        <a href="/2017/08/15/gradle学习笔记/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-一道位操作题引发的思考"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -425,6 +379,56 @@ nodejs先稍微聊聊nodejs。gulp是基于nodejs的，而nodejs的流非常强�
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-LRU cache的简单实现"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-25 15:54:07" datetime="2017-06-25T07:54:07.000Z"  itemprop="datePublished">2017-06-25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/25/LRU cache的简单实现/">LRU cache的简单实现</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。
+实现思路链表+哈希表
+java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。
+1234567891011121314...
+    
+
+        <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-红黑树"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -496,56 +500,6 @@ nodejs先稍微聊聊nodejs。gulp是基于nodejs的，而nodejs的流非常强�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-LRU cache的简单实现"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-25 15:54:07" datetime="2017-06-25T07:54:07.000Z"  itemprop="datePublished">2017-06-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/25/LRU cache的简单实现/">LRU cache的简单实现</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。
-实现思路链表+哈希表
-java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。
-1234567891011121314...
-    
-
-        <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     
@@ -732,6 +686,58 @@ java中的this因为之前是码java的，所以我想和之前的OO语言做个
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-gulp简单用法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-04-18 09:36:07" datetime="2017-04-18T01:36:07.000Z"  itemprop="datePublished">2017-04-18</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/04/18/gulp简单用法/">gulp简单用法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        gulp简单用法不说原理，直接开干
+需了解node稍微介绍一下node：
+
+package.json(node项目配置文件)，形式如下：
+
+12345678910111213141516171819202122232425262728293031323334353637   &#123;  "name": "32000", //项目名  "version": "0.0.1", //版本号  ...
+    
+
+        <a href="/2017/04/18/gulp简单用法/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
 
     </div>
     
