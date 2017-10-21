@@ -16,6 +16,8 @@
     <title>SakuraWood&#39;s blogs | Welcome to my personal site!硕硕的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content="Android Front-end">
     <meta name="description" content="sharing IT tech &amp; skills , include Android and Front-end">
@@ -32,8 +34,8 @@
     
         <link rel="alternate" type="application/atom+xml" title="SakuraWood&#39;s blogs" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.6.16">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -49,10 +51,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/sakurawood.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">SakuraWood(Lee Sure)</h5>
@@ -62,6 +64,48 @@
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/SakuraWood" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                About
+              </a>
+            </li>
         
         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=446512123&auto=1&height=66"></iframe>
       </ul>
@@ -77,6 +121,20 @@
         </a>
         <div class="flex-col header-title ellipsis">SakuraWood&#39;s blogs</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -129,11 +187,13 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        问题使用Hexo的时候遇到这样一个问题，如何在多台电脑...
+        问题使用Hexo的时候遇到这样一个问题，如何在多台电脑之间同步自己的博客？要知道Hexo在部署博客到GitHub上时，只推了/public文件夹中的内容，如果从办公室回到家中，想要继续写博客，该怎么办呢？
+思路事实上，Hexo博客文件夹里，从.gitignore中可以看到，它刻意屏蔽掉了/public文件夹，如果你懂Git，相信聪明的你已经有解决办法了。
+解决办法从你的本地博客文件夹下，创建...
     
 
         <a href="/2017/02/13/完美解决Hexo多台电脑同步问题/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -176,11 +236,14 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        安卓中抓包方法5.0 以上机型因为android L ...
+        安卓中抓包方法5.0 以上机型因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：
+带PIE的tcpdump下载
+前提手机一定要root！
+通过adb将tcpdump拷入手机12adb push tcpdump /system/bin/tcpdump  adb shell chmod 6755 /system...
     
 
         <a href="/2017/02/12/安卓中抓包方法/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -224,11 +287,11 @@
 
     
         HTTP协议HTTP Request
-协议格式GET/...
+协议格式GET/sample.jsp HTTP/1.1Accept:image/gif.image/jpeg,/Accept-Language:zh-cnConnection:Keep-AliveHost:localhostUser-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)Accept-Enco...
     
 
         <a href="/2017/02/12/http协议笔记/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -271,11 +334,17 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        http协议http是无连接的协议，指的是每次连接只处...
+        http协议http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。
+http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。
+http是无状态的，对于事务处理没有记忆能力。
+http请求消息：
+请求方法 url 协议版本字段名 值空行内容
+响应消息：
+协议版本 状态码 状态值字段名 值空行...
     
 
         <a href="/2017/02/12/http/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -318,11 +387,13 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        最短路径算法初次接触算法的人，或多或少了解过最短路径算...
+        最短路径算法初次接触算法的人，或多或少了解过最短路径算法，也听过迪杰斯特拉算法。
+其实我并不想一上来就直接解释Dijkstra算法，我一开始接触到这算法时，想的是为什么产生了这样的算法？有的算法书上一直说，bfs（广度优先搜索）是基础，它特别重要，事实上，Dijkstra算法也是基于bfs。
+假设一个无权图，让你找它其中的最短路径，该怎么找？很显然，广度优先遍历就可以找出来。而Dijkstr...
     
 
         <a href="/2017/02/12/单源最短路径/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -367,11 +438,23 @@
     
         python对比java
 python函数可返回多个
-...
+
+函数返回的是一个tuple
+
+函数参数还有默认参数这么一说
+
+def xxx(a,b=2):    …
+
+可变参数的写法
+
+def xxx(*num):
+注意，list和tuple前面加上*也可以表示可变参数
+
+关键字参数def person(name, age, **kw): print ‘name:’, name, ‘age:’, ...
     
 
         <a href="/2017/02/12/python/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -415,11 +498,17 @@ python函数可返回多个
 
     
         JS 语法突击检查
-知道continue吧？那你知道l...
+知道continue吧？那你知道label语句吗？请说明使用方法。 continue后跟label可以跳出到label所在的循环。
+
+基本类型有哪些？ Undefined,Null,Boolean,Number,String
+
+js的字符串是引用类型吗？ js的字符串不是，在大多数语言中，字符串被当做对象，是引用类型，但js放弃了这一传统。
+
+函数传参是按什么传递？ 全部...
     
 
         <a href="/2017/02/12/JS语法突击/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -462,11 +551,16 @@ python函数可返回多个
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        无向图的建立和遍历(邻接矩阵法)图的定义图就是由一组顶...
+        无向图的建立和遍历(邻接矩阵法)图的定义图就是由一组顶点和一组能连接各个顶点间的边组成。
+连通图：如果从任意一个顶点都存在一条路径到达另一个任意顶点，就称为连通图，一个非连通图由若干连通的部分组成，都称为极大连通子图。
+无向图：即连接两个顶点的边是没有方向的。
+图的表示图在数据结构上可以用邻接表和邻接矩阵表示。我选择邻接矩阵，为啥？不为啥，就是因为我懒，邻接矩阵简单。
+
+          ...
     
 
         <a href="/2017/02/12/无向图的建立和遍历/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -509,11 +603,17 @@ python函数可返回多个
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        URL- 同一资源定位器语法规则：scheme://h...
+        URL- 同一资源定位器语法规则：scheme://host.domain:port/path/filename
+
+scheme - 定义因特网服务的类型。最常见的类型是 http
+host - 定义域主机（http 的默认主机是 www）
+domain - 定义因特网域名，比如 runoob.com
+:port - 定义主机上的端口号（http 的默认端口号是 80）
+path - 定义服...
     
 
         <a href="/2017/02/12/URL/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -561,11 +661,23 @@ python函数可返回多个
 物理层
 数据链路层
 网络层
-传输层...
+传输层
+会话层
+表示层
+应用层
+
+tcp协议：
+
+链路层
+网络层
+传输层
+应用层
+
+
     
 
         <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -594,12 +706,21 @@ python函数可返回多个
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -617,21 +738,106 @@ python函数可返回多个
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/page/2/&title=SakuraWood's blogs&pic=http://sakurawood.github.io/img/sakurawood.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/page/2/&title=SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/page/2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=SakuraWood's blogs&url=http://sakurawood.github.io/page/2/&via=http://sakurawood.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/page/2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sakurawood.github.io/page/2/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.6.16"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'waiting for you...';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'welcome back!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 
