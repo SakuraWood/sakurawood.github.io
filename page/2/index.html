@@ -124,7 +124,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -156,234 +156,6 @@
 <div class="container body-wrap">
 
     <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-LRU cache的简单实现"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-25 15:54:07" datetime="2017-06-25T07:54:07.000Z"  itemprop="datePublished">2017-06-25</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/25/LRU cache的简单实现/">LRU cache的简单实现</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。
-实现思路链表+哈希表
-java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。
-1234567891011121314...
-    
-
-        <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
-            閱讀全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-哈希表"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-15 15:54:07" datetime="2017-06-15T07:54:07.000Z"  itemprop="datePublished">2017-06-15</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/15/哈希表/">哈希表</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        哈希表与红黑树哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？
-哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（Hashing algorithms）计算出来的资料指纹（data fingerprint），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia
-哈希函数所有的哈希函数都具有如下一个基本特性：如果两个散列值是不相同的（根据同一函数），那么这两个散列值的原始输入也是不相同的。这个特性是散列函数具有确定性的结果，具有这种性质的散列函数称为单向散列函数。
-哈希表
-若关键字为k，则其值存放在f(k)的存储位置上。由此，不需比较便可直接取得所查记录。称这个对应关系f为散列函数，按这个思想建立的表为散列表。
-
-对不同的关键字可能得到同一散列地址，即k1≠k2，而f(k1)=f(k2)，这种现象称为冲突。具有相同函数值的关键字对该散列函数来说称做同义词。综上所述，根据散列函数f(k)和处理冲突的方法将一组关键字映射到一个有限的连续的地址集（区间）上，并以关键字在地址集中的“像”作为记录在表中的存储位置，这种表便称为散列表，这一映射过程称为散列造表或散列，所得的存储位置称散列地址。
-
-若对于关键字集合中的任一个关键字，经散列函数映象到地址集合中任何一个地址的概率是相等的，则称此类散列函数为均匀散列函数（Uniform Hash function），这就是使关键字经过散列函数得到一个“随机的地址”，从而减少冲突。
-
-
-建立哈希表这看了一堆概念，老衲甚为头疼。总的来说，哈希表就是一个具备映射关系的表，你可以通过映射关系由键找到值。有没有现成的例子？当然有，不过你直接用就没意思了。
-反正就是要实现f(k)，即实现key-value的映射关系。我们试着自己实现以下：
-12345678910111213class Map:    def __init__(self):        self.items=[]        def put(self,k,v):        self.items.append((k,v))        def get(self,k):        for key,value in self.items:            if(k==key):                return value
-这样实现的Map，查找的时间复杂度为O(n)。“这看上去与key没什么关系啊，这不是顺序查找么，逗我呢？”这只是一个热身，好吧，下面我们根据定义，来搞一个有映射函数的：
-12345678910111213class Map:    def __init__(self):        self.items=[None]*100        def hash(self,a):        return a*1+0        def put(self,k,v):        self.items[hash(k)]=v    def get(self,k):        hashcode=hash(k)        return self.items[hashcode]
-“这hash函数有点简单啊”是的，它是简单，但简单不代表它不是哈希函数，事实上，它叫直接定址法，是一个线性函数：hash(k)= a*k+b
-“为啥初始化就指定了100容量？”必须要指出的是，这个是必须的。你想通过下标存储并访问，对于数组来说，这不可避免。在JDK源码里，你也可以看到，Java的HashMap的初始容量设成了16。你可能说，你这hash函数，我只要key设为100以上，这程序就废了。是啊，它并不完美。这涉及到扩容的事情，稍后再讲。
-直接定址法的优点很明显，就是它不会产生重复的hash值。但由于它与键值本身有关系，所以当键值分布很散的时候，会浪费大量的存储空间。所以一般是不会用到直接定址法的。
-    
-
-        <a href="/2017/06/15/哈希表/" class="post-more waves-effect waves-button">
-            閱讀全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-八大排序算法（python实现）"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 15:54:07" datetime="2017-06-13T07:54:07.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/八大排序算法（python实现）/">八大排序算法（python描述）</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这个仁者见仁吧。。。
-
-基本思想： 两两比较，然后决定是否交换
-
-代码如下：123456789def bubble_sort(lists):    length=len(lists)    for i in range(0,length):        for j in range(i+1,length):            if(lists[i]&gt;lists[j]):                temp=lists[i]                lists[i]=lists[j]                lists[j]=temp    return lists
-再来分析一波时间复杂度，嗯，这个时间复杂度应该为：0+1+2+3+······+n-1即n的累加，等于n*(n-1)/2。时间复杂度为O(n²)
-直接选择排序好吧，我只是单纯认为这个是最简单的排序。设想一下吧，假如给你一套扑克牌，从A到K一共13张乱序的牌，你会怎么把它排好序？我想你应该是这样，先把A选出来，再把2选出来，以此类推，最后把K选出来。你难道不是这样？别告诉我你是按照冒泡那样排的，如果你真那样做的，我服你=。=
-
-基本思想： 第1趟，在待排序记录r[1] ~ r[n]中选出最小的记录，将它与r[1]交换；第2趟，在待排序记录r[2] ~ r[n]中选出最小的记录，将它与r[2]交换；以此类推，第i趟在待排序记录r[i] ~ r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕。
-
-代码如下：12345678910111213def select_sort(lists):    length=len(lists)    index =0     while(index&lt;length):        min=index        for i in range(index,length):            if(lists[i]&lt;lists[min]):                min=i        temp=lists[index]        lists[index]=lists[min]        lists[min]=temp        index+=1    return lists
-时间复杂度：这看上去和冒泡排序是一样的，所以复杂度也是O(n²)
-插入排序现在要看得是插入排序，怎么个插入法？
-
-基本思想： 通俗点讲，就是在已经排好序的数组中，插入将要插入的数，使得这个数组依然有序。
-
-Wtf？我为什么要插入？数组就在那而已嘛。。。百科上有张图可以让你理解一下:
-
-                
-                    
-                    
-                
-                insert_sort
-            
-代码如下：12345678910111213def insert_sort(lists):    length=len(lists)    for i in range(1,length):        j=i-1        key=lists[i]        while j&gt;=0 and lists[j]&gt;key:            # while j&gt;=0:                # if(lists[j]&gt;key): 注意了，有些哥们儿是这样写的，但其实这样浪费了比较操作，显得比冒泡还慢                # 其实终止条件是遇上前面第一个小的就停止循环，因为之前的都是排好序的            lists[j+1]=lists[j]            lists[j]=key            j-=1    return lists
-时间复杂度：这东西一看，时间复杂度也是O(n²),在最坏的情况下，和冒泡是一样的，但是万一没那么坑爹(不需要每趟都要和之前的所有元素都比较)，它就比冒泡要快一点。
-    
-
-        <a href="/2017/06/13/八大排序算法（python实现）/" class="post-more waves-effect waves-button">
-            閱讀全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-浅谈this关键字"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-05-06 09:42:07" datetime="2017-05-06T01:42:07.000Z"  itemprop="datePublished">2017-05-06</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/05/06/浅谈this关键字/">浅谈JS中this关键字指向的对象</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        浅谈JS中this关键字指向的对象学习js三个月了，现在来谈一下this关键字，做个总结。
-java中的this因为之前是码java的，所以我想和之前的OO语言做个比较。所以如果之前你敲过java，对这样的代码应该不会陌生：
-1234567public class Test1&#123;    private int i=1;    public void Test1()&#123;    ...
-    
-
-        <a href="/2017/05/06/浅谈this关键字/" class="post-more waves-effect waves-button">
-            閱讀全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
     
         <li class="post-list-item fade">
             <article id="post-gulp简单用法"
@@ -421,7 +193,7 @@ package.json(node项目配置文件)，形式如下：
     
 
         <a href="/2017/04/18/gulp简单用法/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            阅读全文…
         </a>
     </div>
     
@@ -468,7 +240,7 @@ package.json(node项目配置文件)，形式如下：
     
 
         <a href="/2017/02/13/完美解决Hexo多台电脑同步问题/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            阅读全文…
         </a>
     </div>
     
@@ -519,7 +291,7 @@ http请求消息：
     
 
         <a href="/2017/02/12/http/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            阅读全文…
         </a>
     </div>
     
@@ -572,13 +344,182 @@ $ curl https://raw.githubuserconte...
     
 
         <a href="/2017/02/12/Hexo+GitHub构建博客/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-网络层次结构"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/网络层次结构/">OSI网络模型</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        OSI七层模型：
+
+物理层
+数据链路层
+网络层
+传输层
+会话层
+表示层
+应用层
+
+tcp协议：
+
+链路层
+网络层
+传输层
+应用层
+
+
+    
+
+        <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-python"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/python/">python与java比较</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        python对比java
+python函数可返回多个
+
+函数返回的是一个tuple
+
+函数参数还有默认参数这么一说
+
+def xxx(a,b=2):    …
+
+可变参数的写法
+
+def xxx(*num):
+注意，list和tuple前面加上*也可以表示可变参数
+
+关键字参数def person(name, age, **kw): print ‘name:’, name, ‘age:’, ...
+    
+
+        <a href="/2017/02/12/python/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-java/">python java</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-安卓中抓包方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/安卓中抓包方法/">android抓包方法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        安卓中抓包方法5.0 以上机型因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：
+带PIE的tcpdump下载
+前提手机一定要root！
+通过adb将tcpdump拷入手机12adb push tcpdump /system/bin/tcpdump  adb shell chmod 6755 /system...
+    
+
+        <a href="/2017/02/12/安卓中抓包方法/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 
     </div>
     
@@ -623,13 +564,63 @@ path - 定义服...
     
 
         <a href="/2017/02/12/URL/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/url/">url</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-无向图的建立和遍历"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/无向图的建立和遍历/">无向图的建立与遍历</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        无向图的建立和遍历(邻接矩阵法)图的定义图就是由一组顶点和一组能连接各个顶点间的边组成。
+连通图：如果从任意一个顶点都存在一条路径到达另一个任意顶点，就称为连通图，一个非连通图由若干连通的部分组成，都称为极大连通子图。
+无向图：即连接两个顶点的边是没有方向的。
+图的表示图在数据结构上可以用邻接表和邻接矩阵表示。我选择邻接矩阵，为啥？不为啥，就是因为我懒，邻接矩阵简单。
+
+          ...
+    
+
+        <a href="/2017/02/12/无向图的建立和遍历/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     
@@ -670,7 +661,7 @@ path - 定义服...
     
 
         <a href="/2017/02/12/单源最短路径/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            阅读全文…
         </a>
     </div>
     
@@ -713,7 +704,7 @@ path - 定义服...
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
