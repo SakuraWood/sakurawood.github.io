@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>八大排序算法（python描述） | SakuraWood&#39;s blogs | Welcome to my personal site!硕硕的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这个仁者见仁吧。。。  基本思想： 两两比较，然后决定是否交换  代码如下：123456789def bubble_sort(lists):    length=len(lists)    for i in range(0,length):">
+<meta name="keywords" content="Android Front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="八大排序算法（python描述）">
+<meta property="og:url" content="http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/index.html">
+<meta property="og:site_name" content="SakuraWood&#39;s blogs">
+<meta property="og:description" content="八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这个仁者见仁吧。。。  基本思想： 两两比较，然后决定是否交换  代码如下：123456789def bubble_sort(lists):    length=len(lists)    for i in range(0,length):">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://sakurawood.github.io/images/insert_sort.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/shell_sort.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_6.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_1.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_2.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_3.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_4.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_5.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_6.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_7.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_8.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_9.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_10.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_11.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_12.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_13.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_14.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/heap_15.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_50.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_200.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_1000.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_5000.png">
+<meta property="og:updated_time" content="2017-06-30T02:27:06.484Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="八大排序算法（python描述）">
+<meta name="twitter:description" content="八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这个仁者见仁吧。。。  基本思想： 两两比较，然后决定是否交换  代码如下：123456789def bubble_sort(lists):    length=len(lists)    for i in range(0,length):">
+<meta name="twitter:image" content="http://sakurawood.github.io/images/insert_sort.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="SakuraWood&#39;s blogs" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">SakuraWood(Lee Sure)</h5>
+          <a href="mailto:smartadelesure@gmail.com" title="smartadelesure@gmail.com" class="mail">smartadelesure@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/SakuraWood" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">八大排序算法（python描述）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">八大排序算法（python描述）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-13T07:54:07.000Z" itemprop="datePublished" class="page-time">
+  2017-06-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#八大排序算法（python描述）"><span class="post-toc-number">1.</span> <span class="post-toc-text">八大排序算法（python描述）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#冒泡排序"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">冒泡排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#直接选择排序"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">直接选择排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入排序"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">插入排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#希尔排序"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">希尔排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速排序"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">快速排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#堆排序"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">堆排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二叉堆的定义"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">二叉堆的定义</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#归并排序"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">归并排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基数排序"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">基数排序</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PK"><span class="post-toc-number">2.</span> <span class="post-toc-text">PK</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-八大排序算法（python实现）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">八大排序算法（python描述）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-13 15:54:07" datetime="2017-06-13T07:54:07.000Z"  itemprop="datePublished">2017-06-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="八大排序算法（python描述）"><a href="#八大排序算法（python描述）" class="headerlink" title="八大排序算法（python描述）"></a>八大排序算法（python描述）</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。<br>什么，你说哪个是最简单的？这个仁者见仁吧。。。</p>
+<ul>
+<li>基本思想： 两两比较，然后决定是否交换</li>
+</ul>
+<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</div><div class="line">            <span class="keyword">if</span>(lists[i]&gt;lists[j]):</div><div class="line">                temp=lists[i]</div><div class="line">                lists[i]=lists[j]</div><div class="line">                lists[j]=temp</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
+<p>再来分析一波时间复杂度，嗯，这个时间复杂度应该为：<br>0+1+2+3+······+n-1<br>即n的累加，等于n*(n-1)/2。时间复杂度为O(n²)</p>
+<h2 id="直接选择排序"><a href="#直接选择排序" class="headerlink" title="直接选择排序"></a>直接选择排序</h2><p>好吧，我只是单纯认为这个是最简单的排序。<br>设想一下吧，假如给你一套扑克牌，从A到K一共13张乱序的牌，你会怎么把它排好序？<br>我想你应该是这样，先把A选出来，再把2选出来，以此类推，最后把K选出来。<br>你难道不是这样？别告诉我你是按照冒泡那样排的，如果你真那样做的，我服你=。=</p>
+<ul>
+<li>基本思想： 第1趟，在待排序记录r[1] ~ r[n]中选出最小的记录，将它与r[1]交换；<br>第2趟，在待排序记录r[2] ~ r[n]中选出最小的记录，将它与r[2]交换；<br>以此类推，第i趟在待排序记录r[i] ~ r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕。</li>
+</ul>
+<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    index =<span class="number">0</span> </div><div class="line">    <span class="keyword">while</span>(index&lt;length):</div><div class="line">        min=index</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(index,length):</div><div class="line">            <span class="keyword">if</span>(lists[i]&lt;lists[min]):</div><div class="line">                min=i</div><div class="line">        temp=lists[index]</div><div class="line">        lists[index]=lists[min]</div><div class="line">        lists[min]=temp</div><div class="line">        index+=<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
+<p>时间复杂度：<br>这看上去和冒泡排序是一样的，所以复杂度也是O(n²)</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>现在要看得是插入排序，怎么个插入法？</p>
+<ul>
+<li>基本思想： 通俗点讲，就是在已经排好序的数组中，插入将要插入的数，使得这个数组依然有序。</li>
+</ul>
+<p>Wtf？我为什么要插入？数组就在那而已嘛。。。百科上有张图可以让你理解一下:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/insert_sort.png" alt="insert_sort" title="">
+                </div>
+                <div class="image-caption">insert_sort</div>
+            </figure>
+<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,length):</div><div class="line">        j=i<span class="number">-1</span></div><div class="line">        key=lists[i]</div><div class="line">        <span class="keyword">while</span> j&gt;=<span class="number">0</span> <span class="keyword">and</span> lists[j]&gt;key:</div><div class="line">            <span class="comment"># while j&gt;=0:</span></div><div class="line">                <span class="comment"># if(lists[j]&gt;key): 注意了，有些哥们儿是这样写的，但其实这样浪费了比较操作，显得比冒泡还慢</span></div><div class="line">                <span class="comment"># 其实终止条件是遇上前面第一个小的就停止循环，因为之前的都是排好序的</span></div><div class="line">            lists[j+<span class="number">1</span>]=lists[j]</div><div class="line">            lists[j]=key</div><div class="line">            j-=<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
+<p>时间复杂度：<br>这东西一看，时间复杂度也是O(n²),在最坏的情况下，和冒泡是一样的，但是万一没那么坑爹(不需要每趟都要和之前的所有元素都比较)，<br>它就比冒泡要快一点。</p>
+<a id="more"></a>
+<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>希尔排序是一个叫希尔的人发明的，它是直接插入排序的进化版本。</p>
+<ul>
+<li>基本思想：对数组按增量分组，组内再进行直接插入排序</li>
+</ul>
+<p>什么增量分组？还是直接从百科上借张图来可能好理解一点：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/shell_sort.jpg" alt="insert_sort" title="">
+                </div>
+                <div class="image-caption">insert_sort</div>
+            </figure>
+<p>所以，这个增量怎么确定？其实关于这个增量，都够人研究的了，有专门的论文讨论哪个增量序列好。<br>我们在这里假设起始增量为数组长度的一半，后面则除以2取整，直到1结束。</p>
+<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">shell_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    step=length/<span class="number">2</span></div><div class="line">    <span class="keyword">while</span> step&gt;=<span class="number">1</span>:                      <span class="comment"># 比起直接选择排序，就多了这一层</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(step,length):</div><div class="line">            j=i-step</div><div class="line">            key=lists[i]</div><div class="line">            <span class="keyword">while</span> j&gt;=<span class="number">0</span> <span class="keyword">and</span> lists[j]&gt;key:</div><div class="line">                lists[j+step]=lists[j]</div><div class="line">                lists[j]=key</div><div class="line">                j-=step</div><div class="line">        step/=<span class="number">2</span></div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
+<p>时间复杂度:<br>“喂，这看上去多了一层while循环了，还搞个毛啊。。。”<br>没错，这确实是多了一层while循环，但是你想，你不用每趟都像增量为1的直接插入排序那样交换那么多次啊。。。<br>本质上讲，希尔排序算法是直接插入排序算法的一种改进，减少了其复制的次数，速度要快很多。 原因是，当n值很大时数据项每一趟排序需要移动的个数很少，但数据项的距离很长。当n值减小时每一趟需要移动的数据增多，此时已经接近于它们排序后的最终位置。 正是这两种情况的结合才使希尔排序效率比插入排序高很多。</p>
+<p>你把代码复制过去，自己跑一跑，会发现到后面，最里层的while循环会很快跳出，甚至都进不去，实际的数据交换操作是比普通的直接插入排序要少很多的。希尔排序的时间复杂度取决于增量序列的选取，在本例中这个增量序列条件下（此增量序列叫希尔增量），希尔排序的时间复杂度为O(n²)。当然还有更好的增量序列，不过，希尔排序时间复杂度的下界是nlog2n。<br>“什么，不都三层循环了么，你逗我呢？”<br>“。。。”<br>呃，你可以看下代码里的增量序列，每次都除以2。。。不知道你们之前学数学有没有接触过1+2+4+8+······+m    =。=<br>而这个m就是你设置的起始增量。你看，其实最外层while的次数就是m以2为底的对数log2(m)。<br>“那岂不是O(n²logn)?”<br>“好吧，我承认这比较难。”<br>这个确实困扰到我了，上面说了，希尔排序算法的性能与所选取的增量序列有很大关系。只对特定的待排序记录序列，可以准确地估算关键词的比较次数和对象移动次数。不知道有谁可以分析出在有增量序列的情况下，while循环内的操作时间复杂度如何计算？内层的while的break触发是否与增量有关系？</p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>好了，终于到了大名鼎鼎的快排了。顾名思义，它就是快。</p>
+<ul>
+<li>基本思想：  通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，<br>然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</li>
+</ul>
+<p>举例说明一下吧，这个可能不是太好理解。假设要排序的序列为</p>
+<p>16,7,3,20,17,8,19,54,12</p>
+<p>游戏规则：</p>
+<ul>
+<li>首先，取第一个数作为key，同时你有两个指针，一个左指针，一个右指针，右指针从最右边往左扫描，左指针则从最左往右扫描，从右指针开始；</li>
+<li>右指针往左扫描过程中，遇上比key大的，则跳过，右指针左移。遇上比key小的，则把右指针的数换到左指针所在的位置，然后，比较操作切换成左指针；</li>
+<li>左指针往右扫描过程中，遇上比key小的，则跳过，左指针右移。遇上比key大的，则把左指针的数换到右指针所在的位置，然后，比较操作切换成右指针；</li>
+<li>左指针和右指针下标相遇，停止，将key放到该位置；<br>估计还是不明白，好吧，开始跑:</li>
+</ul>
+<p><strong>key: 16</strong>     16,7,3,20,17,8,19,54,<strong>12</strong> 第一个数是16吧？右指针开始了，遇到12，根据规则，12比16小，直接换到左边，切换操作到左指针；</p>
+<p><strong>key: 16</strong>     12,<strong>7</strong>,3,20,17,8,19,54,<strong>12</strong> 好，这下从左边看7，7比16小，根据规则，不用换，但左指针右移；</p>
+<p><strong>key: 16</strong>     12,7,<strong>3</strong>,20,17,8,19,54,<strong>12</strong> 继续看3，3还是比16小，根据规则，不用换，左指针左移；</p>
+<p><strong>key: 16</strong>     12,7,3,<strong>20</strong>,17,8,19,54,<strong>12</strong> 继续看20，20比16大，直接换到右边，切换操作到右指针；</p>
+<p><strong>key: 16</strong>     12,7,3,<strong>20</strong>,17,8,19,54,<strong>20</strong> 看20，20比16大，根据规则，不用换，右指针左移；</p>
+<p><strong>key: 16</strong>     12,7,3,<strong>20</strong>,17,8,19,<strong>54</strong>,20 看54，54比16大，不用换，右指针左移；</p>
+<p><strong>key: 16</strong>     12,7,3,<strong>20</strong>,17,8,<strong>19</strong>,54,20 19也比16大，继续左移；</p>
+<p><strong>key: 16</strong>     12,7,3,<strong>20</strong>,17,<strong>8</strong>,19,54,20 8比16小，根据规则，直接换到左边，切换操作到左指针；</p>
+<p><strong>key: 16</strong>     12,7,3,<strong>8</strong>,17,<strong>8</strong>,19,54,20  再来看左边，8比16小，根据规则，不用换，左指针右移；</p>
+<p><strong>key: 16</strong>     12,7,3,8,<strong>17</strong>,<strong>8</strong>,19,54,20  17比16大，直接换，切换操作到右指针；</p>
+<p><strong>key: 16</strong>     12,7,3,8,<strong>17</strong>,<strong>17</strong>,19,54,20 再来看右边，17比16大，不用换，右指针左移，额(⊙o⊙)…这么一换，和左指针相遇了哦</p>
+<p><strong>key: 16</strong>     12,7,3,8,<strong>17</strong>,17,19,54,20     终于相遇了，那就根据规则把key：16 放到这吧。</p>
+<p>一趟之后的最终结果：<br><strong>key: 16</strong>     12,7,3,8,<strong>16</strong>,17,19,54,20 </p>
+<p>这样子走了一趟后，你可以看到key：16把整个数组分成了两部分。知道接下来干嘛了吧？没错，就是递归，对这两个子区间分别都这样再跑，直到分解的部分长度为1。</p>
+<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    low= <span class="number">0</span></div><div class="line">    high=len(lists)<span class="number">-1</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">quick_sort_helper</span><span class="params">(lists,low,high)</span>:</span></div><div class="line">        left=low</div><div class="line">        right=high</div><div class="line">        key=lists[low]    <span class="comment"># 选择第一个元素作为key</span></div><div class="line">        <span class="keyword">while</span>(left&lt;right):</div><div class="line">            <span class="keyword">while</span>(list[right]&gt;=key <span class="keyword">and</span> left&lt;right):</div><div class="line">                right-=<span class="number">1</span></div><div class="line">            lists[left]=lists[right]</div><div class="line">            <span class="keyword">while</span>(list[left]&lt;=key <span class="keyword">and</span> left&lt;right):</div><div class="line">                left+=<span class="number">1</span></div><div class="line">            lists[right]=lists[left]</div><div class="line">        lists[left]=key</div><div class="line">        <span class="keyword">if</span>(low&lt;left):</div><div class="line">            quick_sort_helper(lists,low,left<span class="number">-1</span>)</div><div class="line">        <span class="keyword">if</span>(high&gt;left):</div><div class="line">            quick_sort_helper(lists,left+<span class="number">1</span>,high)</div><div class="line">    quick_sort_helper(lists,low,high)</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
+<p>分析一波时间复杂度，假设每次划分子区间都平均，为n/2，那意味着快排结束的越早，时间复杂度为O(nlogn)。当然最坏情况自然是O(n²)了（数据恰好是倒序就是这种情况，你可以试试）。</p>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>堆排序是啥？堆排序是针对具有堆结构的数据进行的排序。</p>
+<h3 id="二叉堆的定义"><a href="#二叉堆的定义" class="headerlink" title="二叉堆的定义"></a>二叉堆的定义</h3><p>二叉堆是完全二叉树或者是近似完全二叉树。</p>
+<p>二叉堆满足二个特性：</p>
+<p>1．父结点的键值总是大于或等于（小于或等于）任何一个子节点的键值。</p>
+<p>2．每个结点的左子树和右子树都是一个二叉堆（都是最大堆或最小堆）。</p>
+<p>当父结点的键值总是大于或等于任何一个子节点的键值时为<strong>最大堆</strong>。当父结点的键值总是小于或等于任何一个子节点的键值时为<strong>最小堆</strong>。</p>
+<p>最大堆示例图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_6.png" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure>
+<ul>
+<li><p>基本思想：堆排序其实也是一种选择排序，是一种树形选择排序。只不过直接选择排序中，为了从R[1…n]中选择最大记录，需比较n-1次，然后从R[1…n-2]中选择最大记录需比较n-2次。事实上这n-2次比较中有很多已经在前面的n-1次比较中已经做过，而树形选择排序恰好利用树形的特点保存了部分前面的比较结果，因此可以减少比较次数。</p>
+</li>
+<li><p>步骤：</p>
+</li>
+</ul>
+<ol>
+<li>建堆</li>
+<li>调整堆</li>
+<li>排序<br>排序的时候，根据最大堆或最小堆的定义，堆顶元素永远最大或最小，与堆顶元素交换，并实时调整堆，最后可使整个数组有序。事实上，排序的过程也是一个不断在调整堆的过程。</li>
+</ol>
+<p>可能有点晦涩难懂，还是上图吧，假设需要排序的数组为：[12,56,32,17,6,39,25]，要构造的堆是最大堆。</p>
+<ol>
+<li><p>建堆：<br>原始是这样的：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_1.png" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure>
+</li>
+<li><p>调整堆：<br>从倒数第一个非叶节点开始，</p>
+</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_2.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure>
+<p>倒数第二个，56比10和6都大，此左子树符合最大堆定义，不用动：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_3.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>12比56和39小，选较大的，调整节点：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_4.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>你该不会以为这样就完了吧？可以看到把56换到根节点后，12这个节点又在搞事，还需调整：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_5.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>调整完毕，构造了一个最大堆：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_6.png" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<ol>
+<li>排序：<br>记住，堆排序的过程，不仅仅是单纯地和堆顶元素进行交换，每交换之后都要检查一遍，对整个堆进行调整。</li>
+</ol>
+<p>那么继续，25比56小，直接换，请注意，你已经把最大的元素拿下来了，所以，56就被此最大堆“开除”了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_7.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>然后你发现，这一换不得了，堆顶不符合最大堆定义了，需要调整堆:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_8.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>这么一调，除了56外，重新符合了最大堆的定义，那么再从25开始，继续替换堆顶元素：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_9.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>这样，39被“开除”，但此时又不符合最大堆定义，又得调整：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_10.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>之后的操作，我用图来演示，估计你也能看得懂了：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_11.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_12.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_13.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_14.jpg" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>所以，最终结果就是：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/heap_15.png" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure></p>
+<p>其实不是“开除”，而是把元素一个一个选出来，有些人直接看定义看不明白，看图总知道怎么选的了吧？我知道有疑问，估计是，为什么在创建堆的时候，调整堆的策略跟后面堆排序时调整堆的策略看上去有点不一样？</p>
+<p>有一点，要搞明白，在创建堆之后，我的目的是要这整个堆调整成一个最大堆；而后面堆排序，我是要利用最大堆的性质，不断地把堆顶元素选出来，同时把未选的剩下元素调整成最大堆。</p>
+<p>什么？这两步调整堆的策略不一样？其实是一样的，调整堆，其实就在递归纠正整个树的过程，你只需要关心以某个节点为根节点的树及其子树是否满足最大堆而已，是就不调整，不是就调整。</p>
+<ul>
+<li>创建堆的时候，是从第一个非叶节点开始，倒序一直调整到根节点，当然每一步调整都用到递归；</li>
+<li>堆排序的时候，调整的对象一直是根节点，当然每一步调整也都用到递归；</li>
+</ul>
+<p>具体代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">heap_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_heap</span><span class="params">(lists,length)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length/<span class="number">2</span>)[::<span class="number">-1</span>]: <span class="comment">#创建堆调整的时候，是从非叶节点开始的哦！！！</span></div><div class="line">            adjust_heap(lists,i,length)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adjust_heap</span><span class="params">(lists,i,length)</span>:</span></div><div class="line">        lchild = i*<span class="number">2</span>+<span class="number">1</span></div><div class="line">        rchild=i*<span class="number">2</span>+<span class="number">2</span></div><div class="line">        max=i</div><div class="line">        <span class="keyword">if</span>(lchild&lt;length <span class="keyword">and</span> lists[max]&lt;lists[lchild]):</div><div class="line">            max = lchild</div><div class="line">        <span class="keyword">if</span>(rchild&lt;length <span class="keyword">and</span> lists[max]&lt;lists[rchild]):</div><div class="line">            max = rchild</div><div class="line">        <span class="keyword">if</span> max!=i:</div><div class="line">            lists[i],lists[max]=lists[max],lists[i]</div><div class="line">            adjust_heap(lists,max,length)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heap_sort_helper</span><span class="params">(lists)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length)[::<span class="number">-1</span>]:</div><div class="line">            lists[<span class="number">0</span>],lists[i]=lists[i],lists[<span class="number">0</span>]</div><div class="line">            adjust_heap(lists,<span class="number">0</span>,i)          <span class="comment"># 这一步，就是不断开除，不断调整节点的意思</span></div><div class="line">    create_heap(lists,length</div><div class="line">    heap_sort_helper(lists)</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
+<p>最后，还是要分析一波时间复杂度，<br>先是建堆，这是一个从非叶节点开始调整的过程，假设树的高度为K（编号1到k层），那总共的元素，至多为2^k-1。从k-1层开始调整，第k-1层的元素数量是2^(k-2)，这个应该没有疑问，在这一层上的元素，所需调整的次数为1；而每往上一层，次数就要加1。所以，总共时间可以归结为：<br>S= 2^(k-2)<em>1+ 2^(k-3)</em>2+ 2^(k-4)<em>3+……+1</em>(k-1)</p>
+<p>这种数列求和，就用错位相减法，先两边都乘以2：</p>
+<p>2S= 2^(k-1)+2^(k-2)<em>2+ 2^(k-3)</em>3+……+2*(k-1)</p>
+<p>再减去原来的式子，刚好得到：<br>S= 2^(k-1)+2^(k-2)+……+1-k</p>
+<p>除去最后一项，是一个等比数列求和，根据求和公式，可以得到：S= 2^k-1-k<br>如果节点数量为n，那么n与k的关系就是n=2^k-1,k=log(n+1),所以，S=n-log(n+1),<br>∴建立最大堆的时间复杂度为O(n)。</p>
+<p>明白了这个，那么排序的时间复杂度，应该也好计算。因为交换之后始终调整的是根节点，由上可知，根节点需要调整的次数是k-1，而且你要知道，每一步交换还“开除”了一个元素，当然，我们也不用算那么精准了，直接<br>S= n<em>(k-1)=n</em>(log(n+1)-1)<br>∴排序的时间复杂度为O(nlogn)。</p>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><ul>
+<li><p>思想：建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。</p>
+</li>
+<li><p>过程： 比较a[i]和b[j]的大小，若a[i]≤b[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；否则将第二个有序表中的元素b[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。</p>
+</li>
+</ul>
+<p>看这些定义，总是没那么形象，所以还是按照快排那样子，一步一步演示一下吧，继续拿上边的数组,<br>[12,56,32,17,6,39,25]</p>
+<p><strong>[12 56 32 17 6 39 25]</strong>               初始数组</p>
+<p><strong>[[12 56 32][17 6 39 25]]</strong>            分而治之，分成两部分，一部分[12 56 32]，一部分[17 6 39 25]</p>
+<p><strong>[[[12][56 32]][17 6 39 25]]</strong>         先只关心左边（强调一下，你当然可以同时操作右边，我只想说在串行操作下，算法是怎么跑的），对[12 56 32]继续划分，12被划分出来了，在只有一个元素的子部分，当然也就排好序了</p>
+<p><strong>[[[12][[56][32]]][17 6 39 25]]</strong>      只要还没有划分到只有一个元素，就继续划分</p>
+<p><strong>[[[12][32 56]][17 6 39 25]]</strong>        合并56和32，并排好序</p>
+<p><strong>[[12 32 56][17 6 39 25]]</strong>            合并[12]跟[32 56]，并排好序</p>
+<p><strong>[[12 32 56][[17 6] [39 25]]]</strong>        再来看刚才右边的部分，和左边一样，划分</p>
+<p><strong>[[12 32 56][[[17] [6]] [39 25]]</strong>     划分</p>
+<p><strong>[[12 32 56][[6 17] [39 25]]]</strong>       合并17和6，并排好序</p>
+<p><strong>[[12 32 56][[6 17] [[39] [25]]]]</strong>    划分</p>
+<p><strong>[[12 32 56][[6 17] [25 39]]]</strong>        合并39合25，并排好序</p>
+<p><strong>[[12 32 56][6 17 25 39]]</strong>            合并[6 17]和[25 39]，并排好序</p>
+<p><strong>[6 12 17 25 32 39 56]</strong>              合并[12 32 56]和[6 17 25 39]，并排好序</p>
+<p>这样走下来，整个数组就排完序了。</p>
+<p>乍一看，貌似还挺费劲的，划分然后又合并，折不折腾。。。<br>好吧，我先不上代码，来分析一下它的时间复杂度。可以看出，只要是划分了多少次，就要合并多少次。划分的次数不用看，当然是n了，有多少个就要分到底嘛=。=但是你这样二分法下来，二分了多少次，才确保全部子区间都划分成了只包含一个元素？logn。很显然啊，如果你看了前面几种排序，这应该是很简单的，2^k=n,k=logn。</p>
+<p>时间复杂度为O(nlogn)。嗯，毫无疑问。可能有些疑问说你咋知道{12 32 56}和{6 17 25 39}合并排序的时候，比较次数就是7，而不是3*4=12？拜托，这俩子区间本身已经排好序了好不好？根据上面的过程描述，一路向右比较有疑问？那我直接上代码，自己跑跑便知：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(left, right)</span>:</span></div><div class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></div><div class="line">        result = []</div><div class="line">        <span class="keyword">while</span> i &lt; len(left) <span class="keyword">and</span> j &lt; len(right):</div><div class="line">            <span class="keyword">if</span> left[i] &lt;= right[j]:</div><div class="line">                result.append(left[i])</div><div class="line">                i += <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                result.append(right[j])</div><div class="line">                j += <span class="number">1</span></div><div class="line">        result += left[i:]</div><div class="line">        result += right[j:]</div><div class="line">        <span class="keyword">return</span> result</div><div class="line">    <span class="keyword">if</span> len(lists) &lt;= <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> lists</div><div class="line">    num = len(lists) / <span class="number">2</span></div><div class="line">    left = merge_sort(lists[:num])</div><div class="line">    right = merge_sort(lists[num:])</div><div class="line">    <span class="keyword">return</span> merge(left, right)</div></pre></td></tr></table></figure>
+<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><p>其实，八大排序（传统版本，不包含优化）里速度能够跟快排相比（其实归并就跟快排不多快了）甚至超过快排的就是基排了。它相当的快，在我写的这些python排序程序里，它几乎每次都比快排要快，在数据量大的情况下，甚至比快排快一倍，后面我会贴图看看这些排序算法的运行时间。</p>
+<ul>
+<li>思想：基排的思想非常简单，它不像其他算法那样，都是基于直接的数值比较，它是基于数字在不同位数上的排序。<br>思想是分配k个桶，编号0到k-1,从数值第0位开始按照桶编号对号入座（相当于在排序），以此类推直到最高位排序完毕。</li>
+</ul>
+<p>举个例子吧，这次来个稍长一点的，[4,2,5,54,23,24,11,3234,3432,56,21,33,663,22,341,52]。</p>
+<p>一般我们表示的是10进制数，假设我们给十进制数分配10个桶，编号0~9。</p>
+<p>先来排个位数的，对号入座：</p>
+<p><strong>0</strong>    </p>
+<p><strong>1</strong>           11,21,341,</p>
+<p><strong>2</strong>           2,3432,22,52,</p>
+<p><strong>3</strong>           23,33,663,</p>
+<p><strong>4</strong>           4,54,24,3234,</p>
+<p><strong>5</strong>           5,</p>
+<p><strong>6</strong>           56,</p>
+<p><strong>7</strong></p>
+<p><strong>8</strong></p>
+<p><strong>9</strong></p>
+<p>排完个位数之后，数组变为：[11,21,341,2,3432,22,52,23,33,663,4,54,24,3234,5,56]</p>
+<p>接着是十位数上的排序，继续对号入座：</p>
+<p><strong>0</strong>           2,4,5,  </p>
+<p><strong>1</strong>           11,</p>
+<p><strong>2</strong>           21,22,23,24,</p>
+<p><strong>3</strong>           3432,33,3234,</p>
+<p><strong>4</strong>           341,</p>
+<p><strong>5</strong>           52,54,56,</p>
+<p><strong>6</strong>           663</p>
+<p><strong>7</strong></p>
+<p><strong>8</strong></p>
+<p><strong>9</strong></p>
+<p>排完十位数之后，数组变为：[2,4,5,11,21,22,23,24,3432,33,3234,341,52,54,56,663]</p>
+<p>接着百位数的：</p>
+<p><strong>0</strong>           2,4,5,11,21,22,23,24,33,52,54,56,    </p>
+<p><strong>1</strong>           </p>
+<p><strong>2</strong>           3234,</p>
+<p><strong>3</strong>           341,</p>
+<p><strong>4</strong>           3432,</p>
+<p><strong>5</strong>           </p>
+<p><strong>6</strong>           663,</p>
+<p><strong>7</strong></p>
+<p><strong>8</strong></p>
+<p><strong>9</strong></p>
+<p>排完百位数之后，数组变为：[2,4,5,11,21,22,23,24,33,52,54,56,3234,341,3432,663]</p>
+<p>接着千位数的：</p>
+<p><strong>0</strong>           2,4,5,11,21,22,23,24,33,52,54,56,341,663    </p>
+<p><strong>1</strong>           </p>
+<p><strong>2</strong>           </p>
+<p><strong>3</strong>           3234,3432</p>
+<p><strong>4</strong>           </p>
+<p><strong>5</strong>           </p>
+<p><strong>6</strong>           </p>
+<p><strong>7</strong></p>
+<p><strong>8</strong></p>
+<p><strong>9</strong></p>
+<p>得到结果：[2,4,5,11,21,22,23,24,33,52,54,56,341,663,3234,3432]</p>
+<p>基数排序一看，就跟其他排序不一样，它属于“分配式”排序，根据数组元素数值上的部分信息在当前阶段分配到有序的桶里，再通过不同阶段的分配后使数组有序。</p>
+<p>让我们分析一下它的时间复杂度，假设有n个元素，那么每个阶段分配到桶里时间就是n。那究竟跑了多少趟？这个显然与数组中的最大数值的位数有关。假设为k，那么就是k<em>n。当然还有一个时间是收集时间，从桶里面把元素拿出来再组成一个一维数组，这个又与桶的数量有关，假设桶的数量为d,那么就是k</em>d。所以时间复杂度为：O(k*(n+d))。</p>
+<p>哎哟，这么一看，这基排还挺不错的，貌似比之前的都要强啊。但是基排也有缺点，就是空间开销比较大，你看它申请的这个桶数组还是二次元的，不是一维的，除此之外还有一个额外的数组用来收集。空间复杂度为O(kd+n)。</p>
+<p>直接上程序吧：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> math</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">radix_sort</span><span class="params">(lists,radix=<span class="number">2</span>)</span>:</span></div><div class="line">    bits=int(math.ceil(math.log(max(lists),radix)))</div><div class="line">    bucket=[[]<span class="keyword">for</span> i <span class="keyword">in</span> range(radix)]</div><div class="line">    index=<span class="number">0</span></div><div class="line">    <span class="keyword">while</span> index&lt;bits:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> lists:</div><div class="line">            bucket[i&gt;&gt;index&amp;<span class="number">0x1</span>].append(i)</div><div class="line">        <span class="keyword">del</span> lists[:]</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> bucket:</div><div class="line">            lists+=j</div><div class="line">            <span class="keyword">del</span> j[:]</div><div class="line">        index+=<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure>
+<p>后来我分析了一下，我这个基排为什么会快一些，是因为我只分配了两个桶，即0和1，我把所有数都当做二进制数，这本来也是计算机喜欢的处理方式。然后按照移位处理，便可获取到位数上的值（0或1）进行对号入座。</p>
+<h1 id="PK"><a href="#PK" class="headerlink" title="PK"></a>PK</h1><p>写了这么些排序函数，还是来PK一下吧：</p>
+<p>无序数组（随机，长度50）：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/sort_pk_50.png" alt="sort_pk" title="">
+                </div>
+                <div class="image-caption">sort_pk</div>
+            </figure></p>
+<p>无序数组（随机，长度200）：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/sort_pk_200.png" alt="sort_pk" title="">
+                </div>
+                <div class="image-caption">sort_pk</div>
+            </figure></p>
+<p>无序数组（随机，长度1000）：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/sort_pk_1000.png" alt="sort_pk" title="">
+                </div>
+                <div class="image-caption">sort_pk</div>
+            </figure></p>
+<p>无序数组（随机，长度5000）：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/sort_pk_5000.png" alt="sort_pk" title="">
+                </div>
+                <div class="image-caption">sort_pk</div>
+            </figure></p>
+<p>当然单位都是秒，可以看到，数组数量都还很少的时候，大家都差不多；当数量变大的时候，可以看到快排和基排都是最快的两个（我承认在此例中，基排简直逆天）；到最后，长度达到5000，我想你明白了O(n²)和O(nlogn)的差距了=。=</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-06-30T02:27:06.484Z" itemprop="dateUpdated">2017-06-30 10:27:06</time>
+</span><br>
+
+
+        
+        © 2017 SakuraWood(Lee Sure) Powered by indigo
+        
+    </div>
+    <footer>
+        <a href="http://sakurawood.github.io">
+            <img src="/img/avatar.jpg" alt="SakuraWood(Lee Sure)">
+            SakuraWood(Lee Sure)
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/&title=《八大排序算法（python描述）》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/&title=《八大排序算法（python描述）》 — SakuraWood's blogs&source=八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《八大排序算法（python描述）》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/&via=http://sakurawood.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/15/哈希表/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">哈希表</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/06/浅谈this关键字/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">浅谈JS中this关键字指向的对象</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>SakuraWood(Lee Sure) &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/&title=《八大排序算法（python描述）》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/&title=《八大排序算法（python描述）》 — SakuraWood's blogs&source=八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《八大排序算法（python描述）》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/&via=http://sakurawood.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sakurawood.github.io/2017/06/13/八大排序算法（python实现）/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

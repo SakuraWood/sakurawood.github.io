@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Gulp构建工具 | SakuraWood&#39;s blogs | Welcome to my personal site!硕硕的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Gulp构建工具gulp与webpack gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，sass编译 替代手工实现自动化工作 webpack是文件打包工具，可以把项目的各种js文、css文件等打包合并成一个或多个文件，主要用于模块化方案，预编译模块的方案  其实webpack很多功能gulp都能做，gulp甚至能够配置webpack，所以这两者之间是没有冲突的。 举个例子，说">
+<meta name="keywords" content="Android Front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp构建工具">
+<meta property="og:url" content="http://sakurawood.github.io/2017/06/27/gulp构建工具/index.html">
+<meta property="og:site_name" content="SakuraWood&#39;s blogs">
+<meta property="og:description" content="Gulp构建工具gulp与webpack gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，sass编译 替代手工实现自动化工作 webpack是文件打包工具，可以把项目的各种js文、css文件等打包合并成一个或多个文件，主要用于模块化方案，预编译模块的方案  其实webpack很多功能gulp都能做，gulp甚至能够配置webpack，所以这两者之间是没有冲突的。 举个例子，说">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_1.jpg">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_2.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_3.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_4.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_5.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_6.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_10.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_11.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_12.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_13.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_14.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_15.png">
+<meta property="og:image" content="http://sakurawood.github.io/images/gulp_16.png">
+<meta property="og:updated_time" content="2017-07-01T02:40:20.279Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp构建工具">
+<meta name="twitter:description" content="Gulp构建工具gulp与webpack gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，sass编译 替代手工实现自动化工作 webpack是文件打包工具，可以把项目的各种js文、css文件等打包合并成一个或多个文件，主要用于模块化方案，预编译模块的方案  其实webpack很多功能gulp都能做，gulp甚至能够配置webpack，所以这两者之间是没有冲突的。 举个例子，说">
+<meta name="twitter:image" content="http://sakurawood.github.io/images/gulp_1.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="SakuraWood&#39;s blogs" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">SakuraWood(Lee Sure)</h5>
+          <a href="mailto:smartadelesure@gmail.com" title="smartadelesure@gmail.com" class="mail">smartadelesure@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/SakuraWood" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Gulp构建工具</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Gulp构建工具</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-27T07:54:07.000Z" itemprop="datePublished" class="page-time">
+  2017-06-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Gulp构建工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">Gulp构建工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#gulp与webpack"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">gulp与webpack</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#nodejs"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">nodejs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#I-O（题外话）"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">I/O（题外话）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js中的异步"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">js中的异步</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#gulp"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">gulp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#nodejs安装"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">nodejs安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp安装"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">gulp安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp速览"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">gulp速览</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-task-names-deps-fn"><span class="post-toc-number">1.3.3.1.</span> <span class="post-toc-text">gulp.task(names[,deps,fn])</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-src-globs-options"><span class="post-toc-number">1.3.3.2.</span> <span class="post-toc-text">gulp.src(globs[,options])</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-dest-path-options"><span class="post-toc-number">1.3.3.3.</span> <span class="post-toc-text">gulp.dest(path[,options])</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-watch-glob-opts-tasks"><span class="post-toc-number">1.3.3.4.</span> <span class="post-toc-text">gulp.watch(glob[,opts],tasks)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp插件的使用"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">gulp插件的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-sourcemaps"><span class="post-toc-number">1.3.4.1.</span> <span class="post-toc-text">gulp-sourcemaps</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-uglify"><span class="post-toc-number">1.3.4.2.</span> <span class="post-toc-text">gulp-uglify</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-clean-css"><span class="post-toc-number">1.3.4.3.</span> <span class="post-toc-text">gulp-clean-css</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-htmlmin"><span class="post-toc-number">1.3.4.4.</span> <span class="post-toc-text">gulp-htmlmin</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-imagemin与pngquant"><span class="post-toc-number">1.3.4.5.</span> <span class="post-toc-text">gulp-imagemin与pngquant</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-sass"><span class="post-toc-number">1.3.4.6.</span> <span class="post-toc-text">gulp-sass</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-sequence"><span class="post-toc-number">1.3.4.7.</span> <span class="post-toc-text">gulp-sequence</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-concat"><span class="post-toc-number">1.3.4.8.</span> <span class="post-toc-text">gulp-concat</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-jsdoc3"><span class="post-toc-number">1.3.4.9.</span> <span class="post-toc-text">gulp-jsdoc3</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-jasmine"><span class="post-toc-number">1.3.4.10.</span> <span class="post-toc-text">gulp-jasmine</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gulp-webpack"><span class="post-toc-number">1.3.4.11.</span> <span class="post-toc-text">gulp-webpack</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jenkins与gulp配合"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">jenkins与gulp配合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jenkins安装"><span class="post-toc-number">1.3.5.1.</span> <span class="post-toc-text">jenkins安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jenkins配置"><span class="post-toc-number">1.3.5.2.</span> <span class="post-toc-text">jenkins配置</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-gulp构建工具"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Gulp构建工具</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-27 15:54:07" datetime="2017-06-27T07:54:07.000Z"  itemprop="datePublished">2017-06-27</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Gulp构建工具"><a href="#Gulp构建工具" class="headerlink" title="Gulp构建工具"></a>Gulp构建工具</h1><h2 id="gulp与webpack"><a href="#gulp与webpack" class="headerlink" title="gulp与webpack"></a>gulp与webpack</h2><ul>
+<li>gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，sass编译 替代手工实现自动化工作</li>
+<li>webpack是文件打包工具，可以把项目的各种js文、css文件等打包合并成一个或多个文件，主要用于模块化方案，预编译模块的方案</li>
+</ul>
+<p>其实webpack很多功能gulp都能做，gulp甚至能够配置webpack，所以这两者之间是没有冲突的。</p>
+<p>举个例子，说到js压缩，现在的人都用uglify，如果有多个要压缩的文件，咋办？你总不能一个一个去压缩吧。所以好事者就写脚本，写个.sh或者.bat什么的。幸运的是，gulp有uglify的插件，你就不用重复造轮子了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 压缩js</span></div><div class="line">gulp.task(<span class="string">'jszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.js'</span>),</div><div class="line">            uglify(&#123;</div><div class="line">                mangle: <span class="literal">true</span>,<span class="comment">//类型：Boolean 默认：true 是否修改变量名</span></div><div class="line">                compress: <span class="literal">true</span><span class="comment">//类型：Boolean 默认：true 是否完全压缩</span></div><div class="line">            &#125;),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面就是一个例子，把app文件夹下的js文件都压缩并打包到dist文件夹里。是不是很方便？</p>
+<p>“看上去很牛逼，倒是讲讲怎么安装啊”</p>
+<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><p>先稍微聊聊nodejs。gulp是基于nodejs的，而nodejs的流非常强大。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_1.jpg" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure>
+<p>“你说强大就强大，理由呢？”</p>
+<p>当初的node还不叫nodejs，还在那纠结到底放到哪个语言上比较好。当时的语言，一遍观望下来，几乎都自带了一套I/O接口，而且是阻塞式的。<br>node的设计者对这些都不太满意，但他们又不想重新发明一种语言，然后他们瞄上了js，js几乎是完美的选择，天然的异步方式，加上没有I/O接口，node果断加入了js阵营。异步非阻塞的模型是nodejs强大的根本原因。</p>
+<a id="more"></a>
+<h3 id="I-O（题外话）"><a href="#I-O（题外话）" class="headerlink" title="I/O（题外话）"></a>I/O（题外话）</h3><p>“异步非阻塞怎么就强大了？wtf？”</p>
+<p>我想问的是，你明白I/O吗？<br>“I/O不就是输入输出嘛，有什么大不了的。”<br>所以说，写操作系统的人是真正的大神，深藏功与名，因为他们已经为你准备好了一切。</p>
+<p>从gulp讲到了I/O，感觉完全跑题了。。。呃，我本来就不是为了单纯介绍gulp构建工具，有兴趣的可以看看，再说，复习复习I/O没什么不好，不是吗=。=</p>
+<p>I/O操作大致可以分为两部分:</p>
+<ol>
+<li>发出请求</li>
+<li>结果完成</li>
+</ol>
+<p>I/O在操作系统中的四种模型（图来自Unix网络编程）：</p>
+<ul>
+<li>Blocking I/O 阻塞式I/O<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_2.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure>
+</li>
+</ul>
+<p>计算机里要完成I/O操作，就会使用系统调用。</p>
+<p>“系统调用是什么？”<br>额，这个就不讲了，否则越讲越偏。不要过多纠结在操作系统层面，这些模型是怎么实现的。<br>上图中的用户程序调用了recvfrom这个系统调用，kernel就开始了I/O的第一个阶段：准备数据。这个时候，kernel一直在等待足够的数据到达，与此同时，整个用户进程被阻塞。等准备好了之后，kernel返回结果，进程解除被block的状态。可以明显看到，kernel的两个状态，进程都是被阻塞的。</p>
+<p>java里面的I/O处理：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream in = newConnection.getInputStream();</div><div class="line">InputStreamReader reader = <span class="keyword">new</span> InputStreamReader(in);</div><div class="line">BufferedReader buffer = <span class="keyword">new</span> BufferedReader(reader);</div><div class="line">Request request = <span class="keyword">new</span> Request();</div><div class="line"><span class="keyword">while</span>(!request.isComplete()) &#123;</div><div class="line">    String line = buffer.readLine();<span class="comment">//阻塞</span></div><div class="line">        request.addLine(line);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>readLine()</code>是一个阻塞操作。</p>
+<ul>
+<li>Non-Blocking I/O 非阻塞式I/O<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_3.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure>
+</li>
+</ul>
+<p>当用户进程发出read操作并调用系统调用，如果kernel中的数据还没准备好，此时它会马上返回一个结果，不会阻塞当前用户进程。一旦数据准备好，此时又再次收到了系统调用，那它就可以立即返回。唯一消耗的是，用户进程是在不断的主动询问kernel准备好数据没有。</p>
+<ul>
+<li>I/O multiplexing I/O复用</li>
+</ul>
+<p>大名鼎鼎的I/O复用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_4.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure></p>
+<p>I/O多路复用 (单个线程，通过记录跟踪每个I/O流(sock)的状态，来同时管理多个I/O流 。)<br>当用户进程调用了select，那么整个进程会被block，而同时，kernel会“监视”所有select负责的socket，当任何一个socket中的数据准备好了，select就会返回。这个时候用户进程再调用read操作，将数据从kernel拷贝到用户进程。<br>这个图和blocking IO的图其实并没有太大的不同，事实上，还更差一些。因为这里需要使用两个system call (select 和 recvfrom)，而blocking I/O只调用了一个system call (recvfrom)。但是，用select的优势在于它可以同时处理多个connection。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_5.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure>
+<p>就像拨码开关，哪里有数据拨向哪里。</p>
+<ul>
+<li>Asynchronous I/O 异步I/O</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_6.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure>
+<p>可以看到，系统调用之后，并没有阻塞，而是依靠通知机制，当copy完了之后通知用户进程，可见这是纯异步的。发出后就不用任何等待，可以执行其他操作。</p>
+<p>看到上面的解释，这些“异步”玩意儿，几乎都是操作系统层面的东西。那么nodejs所谓的异步非阻塞I/O是哪种？<br>还用说嘛，那不就是第四种。。。<br>但是你现在知道了，所谓的异步，是需要操作系统层面的支持的。如果没有或者有缺陷，就需要模拟。<br>Linux下有一个异步I/O的库，叫libeio，libeio实质上是采取线程池与阻塞式I/O模拟出来的异步I/O。<br>Windows下有独有的内核级异步I/O方案：IOCP。IOCP的思路是真正的异步I/O方案，调用异步方法，然后等待I/O完成通知。IOCP内部依旧是通过线程实现，不同在于这些线程由系统内核接手管理。IOCP的异步模型与Node.js的异步调用模型已经十分近似。<br>以上两种方案则正是Node.js选择的异步I/O方案。由于Windows平台和Unix平台的差异，Node.js提供了libuv来作为抽象封装层，使得所有平台兼容性的判断都由这一层次来完成，保证上层的Node.js与下层的libeio/libev及IOCP之间各自独立。Node.js在编译期间会判断平台条件，选择性编译unix目录或是win目录下的源文件到目标程序中。</p>
+<h3 id="js中的异步"><a href="#js中的异步" class="headerlink" title="js中的异步"></a>js中的异步</h3><p>明确一点：</p>
+<ul>
+<li>js能异步是因为它用能调用的模块是异步的。js都是单线程的。而且只有一个事件队列（也可以理解成任务队列），他之所以异步是是因为某些的模块是异步的。当发送一个异步网络请求后，js的主线程不会一直等待这个请求返回，而是执行事件队列里下一个事件。请注意，js并没有实现如何发送网络请求，js只是调用了某个能发送网络请求的模块，而这个模块是通过c++或其他语言实现。然后这个模块在等待请求的结果，当得到响应后，便把响应成功这个事件添加到js的事件队列的队尾。网络请求发送的同时，js依然在执行，这显然是异步的。</li>
+</ul>
+<p>可以通俗地认为，nodejs的函数基本都是默认异步的。</p>
+<p>（ps：听上去很屌的样子，写个复制看看？不用写了，光是比复制怎么比得过嘛。再凶也凶不过系统原生的copy啊。。。有些人写复制来证明node很快，蛋疼不蛋疼？实测比系统复制慢一倍。）</p>
+<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><p>一般通用的web app项目结构:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_10.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure>
+<h3 id="nodejs安装"><a href="#nodejs安装" class="headerlink" title="nodejs安装"></a>nodejs安装</h3><p><a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a></p>
+<p>装完之后，就有了NPM包管理器。像这样的：</p>
+<p>可以执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure></p>
+<p>这个用来初始化你的package.json。</p>
+<p>这是我项目里的package.json配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"vrf"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">"vrf project"</span>,</div><div class="line">  <span class="attr">"main"</span>: <span class="string">"gulpfile.js"</span>,</div><div class="line">  <span class="attr">"scripts"</span>: &#123;</div><div class="line">    <span class="attr">"start"</span>: <span class="string">"webpack"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"repository"</span>: &#123;</div><div class="line">    <span class="attr">"type"</span>: <span class="string">"git"</span>,</div><div class="line">    <span class="attr">"url"</span>: <span class="string">"http://xxxxx/susan/xxx.git"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"keywords"</span>: [</div><div class="line">    <span class="string">"vrf"</span></div><div class="line">  ],</div><div class="line">  <span class="attr">"author"</span>: <span class="string">"susan,hwb,leesure"</span>,</div><div class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;</div><div class="line">    <span class="attr">"babel-preset-es2015"</span>: <span class="string">"^6.24.1"</span>,</div><div class="line">    <span class="attr">"browser-sync"</span>: <span class="string">"^2.18.8"</span>,</div><div class="line">    <span class="attr">"cheerio"</span>: <span class="string">"^1.0.0-rc.1"</span>,</div><div class="line">    <span class="attr">"child_process"</span>: <span class="string">"^1.0.2"</span>,</div><div class="line">    <span class="attr">"css-loader"</span>: <span class="string">"^0.28.0"</span>,</div><div class="line">    <span class="attr">"del"</span>: <span class="string">"^2.2.2"</span>,</div><div class="line">    <span class="attr">"gulp"</span>: <span class="string">"^3.9.1"</span>,</div><div class="line">    <span class="attr">"gulp-babel"</span>: <span class="string">"^6.1.2"</span>,</div><div class="line">    <span class="attr">"gulp-clean-css"</span>: <span class="string">"^3.0.4"</span>,</div><div class="line">    <span class="attr">"gulp-concat"</span>: <span class="string">"^2.6.1"</span>,</div><div class="line">    <span class="attr">"gulp-htmlmin"</span>: <span class="string">"^3.0.0"</span>,</div><div class="line">    <span class="attr">"gulp-if"</span>: <span class="string">"^2.0.2"</span>,</div><div class="line">    <span class="attr">"gulp-imagemin"</span>: <span class="string">"^3.2.0"</span>,</div><div class="line">    <span class="attr">"gulp-jasmine"</span>: <span class="string">"^2.4.2"</span>,</div><div class="line">    <span class="attr">"gulp-jasmine-browser"</span>: <span class="string">"^1.7.1"</span>,</div><div class="line">    <span class="attr">"gulp-jsdoc3"</span>: <span class="string">"^1.0.1"</span>,</div><div class="line">    <span class="attr">"gulp-jsduck"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="attr">"gulp-minify-css"</span>: <span class="string">"^1.2.4"</span>,</div><div class="line">    <span class="attr">"gulp-qunit"</span>: <span class="string">"^1.5.0"</span>,</div><div class="line">    <span class="attr">"gulp-rename"</span>: <span class="string">"^1.2.2"</span>,</div><div class="line">    <span class="attr">"gulp-sequence"</span>: <span class="string">"^0.4.6"</span>,</div><div class="line">    <span class="attr">"gulp-uglify"</span>: <span class="string">"^2.1.2"</span>,</div><div class="line">    <span class="attr">"gulp-useref"</span>: <span class="string">"^3.1.2"</span>,</div><div class="line">    <span class="attr">"gulp-util"</span>: <span class="string">"^3.0.8"</span>,</div><div class="line">    <span class="attr">"gulp-watch"</span>: <span class="string">"^4.3.11"</span>,</div><div class="line">    <span class="attr">"gulp-webserver"</span>: <span class="string">"^0.9.1"</span>,</div><div class="line">    <span class="attr">"jsdoc"</span>: <span class="string">"^3.4.3"</span>,</div><div class="line">    <span class="attr">"jsduck"</span>: <span class="string">"^1.1.2"</span>,</div><div class="line">    <span class="attr">"jsx-loader"</span>: <span class="string">"^0.13.2"</span>,</div><div class="line">    <span class="attr">"merge-stream"</span>: <span class="string">"^1.0.1"</span>,</div><div class="line">    <span class="attr">"pngquant"</span>: <span class="string">"^1.2.0"</span>,</div><div class="line">    <span class="attr">"pump"</span>: <span class="string">"^1.0.2"</span>,</div><div class="line">    <span class="attr">"qunit"</span>: <span class="string">"^1.0.0"</span>,</div><div class="line">    <span class="attr">"run-sequence"</span>: <span class="string">"^1.2.2"</span>,</div><div class="line">    <span class="attr">"sass-loader"</span>: <span class="string">"^6.0.3"</span>,</div><div class="line">    <span class="attr">"style-loader"</span>: <span class="string">"^0.16.1"</span>,</div><div class="line">    <span class="attr">"url-loader"</span>: <span class="string">"^0.5.8"</span>,</div><div class="line">    <span class="attr">"webpack-stream"</span>: <span class="string">"^3.2.0"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"directories"</span>: &#123;</div><div class="line">    <span class="attr">"doc"</span>: <span class="string">"docs"</span>,</div><div class="line">    <span class="attr">"test"</span>: <span class="string">"test"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">    <span class="attr">"gulp-obfuscate"</span>: <span class="string">"^0.2.9"</span>,</div><div class="line">    <span class="attr">"gulp-uglify"</span>: <span class="string">"^2.1.2"</span>,</div><div class="line">    <span class="attr">"uglify"</span>: <span class="string">"^0.1.5"</span>,</div><div class="line">    <span class="attr">"uglify-js"</span>: <span class="string">"^3.0.18"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个json相当于依赖配置文件，项目根据它里面定义所依赖的第三方包进行配置。<br>不明白？好，android的gradle懂吧？iOS的CocoaPods懂吧？</p>
+<h3 id="gulp安装"><a href="#gulp安装" class="headerlink" title="gulp安装"></a>gulp安装</h3><ol>
+<li>全局安装 gulp：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --global gulp</div></pre></td></tr></table></figure>
+<ol>
+<li>作为项目的开发依赖（devDependencies）安装：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev gulp</div></pre></td></tr></table></figure>
+<ol>
+<li>在项目根目录下创建一个名为 gulpfile.js 的文件：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 将你的默认的任务代码放在这</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>运行 gulp：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gulp</div></pre></td></tr></table></figure>
+<p>默认的名为 default 的任务（task）将会被运行，在这里，这个任务并未做任何事情。</p>
+<p>想要单独执行特定的任务（task），请输入 gulp &lt;<em>task</em>&gt; &lt;<em>othertask</em>&gt;。</p>
+<h3 id="gulp速览"><a href="#gulp速览" class="headerlink" title="gulp速览"></a>gulp速览</h3><p>其实，gulp的操作都是一些插件的运用，你只需要知道四个东西：</p>
+<ol>
+<li>gulp.task()</li>
+<li>gulp.src()</li>
+<li>gulp.dest()</li>
+<li>gulp.watch()</li>
+</ol>
+<h4 id="gulp-task-names-deps-fn"><a href="#gulp-task-names-deps-fn" class="headerlink" title="gulp.task(names[,deps,fn])"></a>gulp.task(names[,deps,fn])</h4><p>gulp.task方法用来定义任务，<br>name 为任务名，<br>deps 是当前定义的任务需要依赖的其他任务，<br>为一个数组。当前定义的任务会在所有依赖的任务执行完毕后才开始执行。<br>如果没有依赖，则可省略这个参数，<br>fn 为任务函数，我们把任务要执行的代码都写在里面。该参数也是可选的。</p>
+<h4 id="gulp-src-globs-options"><a href="#gulp-src-globs-options" class="headerlink" title="gulp.src(globs[,options])"></a>gulp.src(globs[,options])</h4><p>gulp.src()方法正是用来获取流的，但要注意这个流里的内容不是原始的文件流，而是一个虚拟文件对象流，这个虚拟文件对象中存储着原始文件的路径、文件名、内容等信息，本文暂不对文件流进行展开，你只需简单的理解可以用这个方法来读取你需要操作的文件就行了，globs参数是文件匹配模式(类似正则表达式)，用来匹配文件路径(包括文件名)，当然这里也可以直接指定某个具体的文件路径。当有多个匹配模式时，该参数可以为一个数组。<br>options为可选参数。通常情况下我们不需要用到，暂不考虑。</p>
+<p>文件匹配模式<br>Gulp内部使用了node-glob模块来实现其文件匹配功能。我们可以使用下面这些特殊的字符来匹配我们想要的文件：</p>
+<p><code>*</code> 匹配文件路径中的0个或多个字符，但不会匹配路径分隔符，除非路径分隔符出现在末尾<br><code>**</code> 匹配路径中的0个或多个目录及其子目录,需要单独出现，即它左右不能有其他东西了。如果出现在末尾，也能匹配文件。<br><code>?</code>匹配文件路径中的一个字符(不会匹配路径分隔符)<br><code>[...]</code> 匹配方括号中出现的字符中的任意一个，当方括号中第一个字符为^或!时，则表示不匹配方括号中出现的其他字符中的任意一个，类似js正则表达式中的用法!(pattern|pattern|pattern)匹配任何与括号中给定的任一模式都不匹配的<br><code>?(pattern|pattern|pattern)</code>匹配括号中给定的任一模式0次或1次，类似于js正则中的(pattern|pattern|pattern)?<br><code>+(pattern|pattern|pattern)</code>匹配括号中给定的任一模式至少1次，类似于js正则中的(pattern|pattern|pattern)+<br><code>*(pattern|pattern|pattern)</code>匹配括号中给定的任一模式0次或多次，类似于js正则中的(pattern|pattern|pattern)*<br><code>@(pattern|pattern|pattern)</code>匹配括号中给定的任一模式1次，类似于js正则中的(pattern|pattern|pattern)<br>文件匹配列子：</p>
+<p><code>*</code> 能匹配 reeoo.js,reeoo.css,reeoo,reeoo/,但不能匹配reeoo/reeoo.js<br><code>*.*</code>能匹配 reeoo.js,reeoo.css,reeoo.html<br><code>*/*/*.js</code>能匹配 r/e/o.js,a/b/c.js,不能匹配a/b.js,a/b/c/d.js<br><code>**</code>能匹配 reeoo,reeoo/reeoo.js,reeoo/reeoo/reeoo.js,reeoo/reeoo/reeoo,reeoo/reeoo/reeoo/reeoo.co,能用来匹配所有的目录和文件<br><code>**/*.js</code>能匹配 reeoo.js,reeoo/reeoo.js,reeoo/reeoo/reeoo.js,reeoo/reeoo/reeoo/reeoo.js<br><code>reeoo/**/co</code>能匹配 reeoo/co,reeoo/ooo/co,reeoo/a/b/co,reeoo/d/g/h/j/k/co<br><code>reeoo/**b/co</code>能匹配 reeoo/b/co,reeoo/sb/co,但不能匹配reeoo/x/sb/co,因为只有单**单独出现才能匹配多级目录<br><code>?.js</code>能匹配 reeoo.js,reeoo1.js,reeoo2.js<br><code>reeoo??</code>能匹配 reeoo.co,reeooco,但不能匹配reeooco/,因为它不会匹配路径分隔符<br><code>[reo].js</code>只能匹配 r.js,e.js,o.js,不会匹配re.js,reo.js等,整个中括号只代表一个字符<br><code>[^reo].js</code>能匹配 a.js,b.js,c.js等,不能匹配r.js,e.js,o.js<br>当有多种匹配模式时可以使用数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用数组的方式来匹配多种文</span></div><div class="line">gulp.src([<span class="string">'js/*.js'</span>,<span class="string">'css/*.css'</span>,<span class="string">'*.html'</span>])</div></pre></td></tr></table></figure>
+<p>使用数组的方式还有一个好处就是可以很方便的使用排除模式，在数组中的单个匹配模式前加上!即是排除模式，它会在匹配的结果中排除这个匹配，要注意一点的是不能在数组中的第一个元素中使用排除模式</p>
+<p><code>gulp.src([*.js,&#39;!r*.js&#39;])</code> 匹配所有js文件，但排除掉以r开头的js文件<br><code>gulp.src([&#39;!r*.js&#39;,*.js])</code> 不会排除任何文件，因为排除模式不能出现在数组的第一个元素中<br>此外，还可以使用展开模式。展开模式以花括号作为定界符，根据它里面的内容，会展开为多个模式，最后匹配的结果为所有展开的模式相加起来得到的结果。展开的例子如下：</p>
+<p><code>r{e,o}c</code>会展开为 rec,roc<br><code>r{e,}o</code>会展开为 reo,ro<br><code>r{0..3}o</code>会展开为 r0o,r1do,r2o,r3o</p>
+<h4 id="gulp-dest-path-options"><a href="#gulp-dest-path-options" class="headerlink" title="gulp.dest(path[,options])"></a>gulp.dest(path[,options])</h4><p>gulp.dest()方法是用来写文件的，path为写入文件的路径,options为一个可选的参数对象，通常我们不需要用到，暂不考虑。<br>要想使用好gulp.dest()这个方法，就要理解给它传入的路径参数与最终生成的文件的关系。<br>gulp的使用流程一般是这样子的：首先通过gulp.src()方法获取到我们想要处理的文件流，然后把文件流通过pipe方法导入到gulp的插件中，最后把经过插件处理后的流再通过pipe方法导入到gulp.dest()中，gulp.dest()方法则把流中的内容写入到文件中，这里首先需要弄清楚的一点是，我们给gulp.dest()传入的路径参数，只能用来指定要生成的文件的目录，而不能指定生成文件的文件名，它生成文件的文件名使用的是导入到它的文件流自身的文件名，所以生成的文件名是由导入到它的文件流决定的，即使我们给它传入一个带有文件名的路径参数，然后它也会把这个文件名当做是目录名，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line">gulp.src(<span class="string">'script/jquery.js'</span>)</div><div class="line">    .pipe(gulp.dest(<span class="string">'dist/foo.js'</span>));</div><div class="line"><span class="comment">//最终生成的文件路径为 dist/foo.js/jquery.js,而不是dist/foo.js</span></div></pre></td></tr></table></figure></p>
+<p>要想改变文件名，可以使用插件gulp-rename</p>
+<p>下面说说生成的文件路径与我们给gulp.dest()方法传入的路径参数之间的关系。<br>gulp.dest(path)生成的文件路径是我们传入的path参数后面再加上gulp.src()中有通配符开始出现的那部分路径。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = reruire(<span class="string">'gulp'</span>);</div><div class="line"><span class="comment">//有通配符开始出现的那部分路径为 **/*.js</span></div><div class="line">gulp.src(<span class="string">'script/**/*.js'</span>)</div><div class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>)); <span class="comment">//最后生成的文件路径为 dist/**/*.js</span></div><div class="line"><span class="comment">//如果 **/*.js 匹配到的文件为 jquery/jquery.js ,则生成的文件路径为 dist/jquery/jquery.js</span></div></pre></td></tr></table></figure></p>
+<p>再举更多一点的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">gulp.src(<span class="string">'script/avalon/avalon.js'</span>) <span class="comment">//没有通配符出现的情况</span></div><div class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>)); <span class="comment">//最后生成的文件路径为 dist/avalon.js</span></div><div class="line"></div><div class="line"><span class="comment">//有通配符开始出现的那部分路径为 **/underscore.js</span></div><div class="line">gulp.src(<span class="string">'script/**/underscore.js'</span>)</div><div class="line">    <span class="comment">//假设匹配到的文件为script/util/underscore.js</span></div><div class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>)); <span class="comment">//则最后生成的文件路径为 dist/util/underscore.js</span></div><div class="line"></div><div class="line">gulp.src(<span class="string">'script/*'</span>) <span class="comment">//有通配符出现的那部分路径为 *</span></div><div class="line">    <span class="comment">//假设匹配到的文件为script/zepto.js</span></div><div class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>)); <span class="comment">//则最后生成的文件路径为 dist/zepto.js</span></div></pre></td></tr></table></figure></p>
+<p>通过指定gulp.src()方法配置参数中的base属性，我们可以更灵活的来改变gulp.dest()生成的文件路径。<br>当我们没有在gulp.src()方法中配置base属性时，base的默认值为通配符开始出现之前那部分路径，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp.src(<span class="string">'app/src/**/*.css'</span>) <span class="comment">//此时base的值为 app/src</span></div></pre></td></tr></table></figure></p>
+<p>上面我们说的gulp.dest()所生成的文件路径的规则，其实也可以理解成，用我们给gulp.dest()传入的路径替换掉gulp.src()中的base路径，最终得到生成文件的路径。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.src(<span class="string">'app/src/**/*.css'</span>) <span class="comment">//此时base的值为app/src,也就是说它的base路径为app/src</span></div><div class="line">     <span class="comment">//设该模式匹配到了文件 app/src/css/normal.css</span></div><div class="line">    .pipe(gulp.dest(<span class="string">'dist'</span>)) <span class="comment">//用dist替换掉base路径，最终得到 dist/css/normal.css</span></div></pre></td></tr></table></figure></p>
+<p>所以改变base路径后，gulp.dest()生成的文件路径也会改变</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">gulp.src(script/lib<span class="comment">/*.js) //没有配置base参数，此时默认的base路径为script/lib</span></div><div class="line"><span class="comment">    //假设匹配到的文件为script/lib/jquery.js</span></div><div class="line"><span class="comment">    .pipe(gulp.dest('build')) //生成的文件路径为 build/jquery.js</span></div><div class="line"><span class="comment">gulp.src(script/lib/*.js, &#123;base:'script'&#125;) //配置了base参数，此时base路径为script</span></div><div class="line"><span class="comment">    //假设匹配到的文件为script/lib/jquery.js</span></div><div class="line"><span class="comment">    .pipe(gulp.dest('build')) //此时生成的文件路径为 build/lib/jquery.js</span></div></pre></td></tr></table></figure>
+<p>用gulp.dest()把文件流写入文件后，文件流仍然可以继续使用。</p>
+<h4 id="gulp-watch-glob-opts-tasks"><a href="#gulp-watch-glob-opts-tasks" class="headerlink" title="gulp.watch(glob[,opts],tasks)"></a>gulp.watch(glob[,opts],tasks)</h4><p>gulp.watch()用来监视文件的变化，当文件发生变化后，我们可以利用它来执行相应的任务，例如文件压缩等。<br>glob 为要监视的文件匹配模式，规则和用法与gulp.src()方法中的glob相同。<br>opts 为一个可选的配置对象，通常不需要用到，暂不考虑。<br>tasks 为文件变化后要执行的任务，为一个数组，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'uglify'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//do something</span></div><div class="line">&#125;);</div><div class="line">gulp.task(<span class="string">'reload'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//do something</span></div><div class="line">&#125;);</div><div class="line">gulp.watch(<span class="string">'js/**/*.js'</span>, [<span class="string">'uglify'</span>,<span class="string">'reload'</span>]);</div></pre></td></tr></table></figure></p>
+<p>gulp.watch()还有另外一种使用方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp.watch(glob[, opts, cb])</div></pre></td></tr></table></figure>
+<p>glob和opts参数与第一种用法相同<br>cb参数为一个函数。每当监视的文件发生变化时，就会调用这个函数,并且会给它传入一个对象，该对象包含了文件变化的一些信息，type属性为变化的类型，可以是added,changed,deleted；path属性为发生变化的文件的路径<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gulp.watch(<span class="string">'js/**/*.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(event.type); <span class="comment">//变化类型 added为新增,deleted为删除，changed为改变 </span></div><div class="line">    <span class="built_in">console</span>.log(event.path); <span class="comment">//变化的文件的路径</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="gulp插件的使用"><a href="#gulp插件的使用" class="headerlink" title="gulp插件的使用"></a>gulp插件的使用</h3><p>安装gulp插件都是通过npm安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev xxxxx</div></pre></td></tr></table></figure></p>
+<h4 id="gulp-sourcemaps"><a href="#gulp-sourcemaps" class="headerlink" title="gulp-sourcemaps"></a>gulp-sourcemaps</h4><p>source map是什么？</p>
+<ul>
+<li>从源码转换讲起<br>JavaScript脚本正变得越来越复杂。大部分源码（尤其是各种函数库和框架）都要经过转换，才能投入生产环境。</li>
+</ul>
+<p>常见的源码转换，主要是以下三种情况：</p>
+<ol>
+<li>压缩，减小体积。比如jQuery 1.9的源码，压缩前是252KB，压缩后是32KB。</li>
+<li>多个文件合并，减少HTTP请求数。</li>
+<li>其他语言编译成JavaScript。最常见的例子就是CoffeeScript。<br>这三种情况，都使得实际运行的代码不同于开发代码，除错（debug）变得困难重重。</li>
+</ol>
+<p>通常，JavaScript的解释器会告诉你，第几行第几列代码出错。但是，这对于转换后的代码毫无用处。举例来说，jQuery 1.9压缩后只有3行，每行3万个字符，所有内部变量都改了名字。你看着报错信息，感到毫无头绪，根本不知道它所对应的原始位置。</p>
+<p>这就是Source map想要解决的问题。</p>
+<p>简单说，Source map就是一个信息文件，里面储存着位置信息。也就是说，转换后的代码的每一个位置，所对应的转换前的位置。</p>
+<p>有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码。这无疑给开发者带来了很大方便。</p>
+<h4 id="gulp-uglify"><a href="#gulp-uglify" class="headerlink" title="gulp-uglify"></a>gulp-uglify</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev gulp-uglify</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 压缩js</span></div><div class="line">gulp.task(<span class="string">'jszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.js'</span>),</div><div class="line">            sourcemaps.init(),</div><div class="line">            uglify(&#123;</div><div class="line">                mangle: <span class="literal">true</span>,<span class="comment">//类型：Boolean 默认：true 是否修改变量名</span></div><div class="line">                compress: <span class="literal">true</span><span class="comment">//类型：Boolean 默认：true 是否完全压缩</span></div><div class="line">            &#125;),</div><div class="line">            sourcemaps.write(),</div><div class="line">            <span class="comment">// obfuscate(),</span></div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这其中用到了pump插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install --save-dev pump</div></pre></td></tr></table></figure></p>
+<p>它是用来取代nodejs原生的pipe，主要是它能定位错误信息。</p>
+<h4 id="gulp-clean-css"><a href="#gulp-clean-css" class="headerlink" title="gulp-clean-css"></a>gulp-clean-css</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install --save-dev gulp-clean-css</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//压缩css</span></div><div class="line">gulp.task(<span class="string">'csszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src([<span class="string">'app/**/*.css'</span>]),</div><div class="line">            sourcemaps.init(),</div><div class="line">            minicss(),</div><div class="line">            sourcemaps.write(),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="gulp-htmlmin"><a href="#gulp-htmlmin" class="headerlink" title="gulp-htmlmin"></a>gulp-htmlmin</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install --save-dev gulp-htmlmin</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//压缩html</span></div><div class="line">gulp.task(<span class="string">'htmlzip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.html'</span>),</div><div class="line">            htmlmin(&#123;</div><div class="line">                removeComments: <span class="literal">true</span>,<span class="comment">//清除HTML注释</span></div><div class="line">                collapseWhitespace: <span class="literal">true</span>,<span class="comment">//压缩HTML</span></div><div class="line">                collapseBooleanAttributes: <span class="literal">true</span>,<span class="comment">//省略布尔属性的值 &lt;input checked="true"/&gt; ==&gt; &lt;input /&gt;</span></div><div class="line">                removeEmptyAttributes: <span class="literal">true</span>,<span class="comment">//删除所有空格作属性值 &lt;input id="" /&gt; ==&gt; &lt;input /&gt;</span></div><div class="line">                removeScriptTypeAttributes: <span class="literal">true</span>,<span class="comment">//删除&lt;script&gt;的type="text/javascript"</span></div><div class="line">                removeStyleLinkTypeAttributes: <span class="literal">true</span>,<span class="comment">//删除&lt;style&gt;和&lt;link&gt;的type="text/css"</span></div><div class="line">                minifyJS: <span class="literal">true</span>,<span class="comment">//压缩页面JS</span></div><div class="line">                minifyCSS: <span class="literal">true</span><span class="comment">//压缩页面CSS</span></div><div class="line">            &#125;),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="gulp-imagemin与pngquant"><a href="#gulp-imagemin与pngquant" class="headerlink" title="gulp-imagemin与pngquant"></a>gulp-imagemin与pngquant</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//压缩图片</span></div><div class="line">gulp.task(<span class="string">'imgzip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src([<span class="string">'app/**/*.png'</span>, <span class="string">'app/**/*.jpeg'</span>, <span class="string">'app/**/*.gif'</span>]),</div><div class="line">            imagemin(</div><div class="line">                &#123;</div><div class="line">                    optimizationLevel: <span class="number">5</span>, <span class="comment">//类型：Number  默认：3  取值范围：0-7（优化等级）</span></div><div class="line">                    progressive: <span class="literal">true</span>,</div><div class="line">                    svgoPlugins: [&#123;<span class="attr">removeViewBox</span>: <span class="literal">false</span>&#125;],<span class="comment">//不要移除svg的viewbox属性</span></div><div class="line">                    use: [pngquant()] <span class="comment">//使用pngquant深度压缩png图片的imagemin插件</span></div><div class="line">                &#125;</div><div class="line">            ),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="gulp-sass"><a href="#gulp-sass" class="headerlink" title="gulp-sass"></a>gulp-sass</h4><p>sass是一个css预编译器，这里不做过多介绍。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</div><div class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> <span class="keyword">return</span> gulp.src(<span class="string">'./sass/**/*.scss'</span>)</div><div class="line">  .pipe(sourcemaps.init())</div><div class="line">  .pipe(sass().on(<span class="string">'error'</span>, sass.logError))</div><div class="line">  .pipe(sourcemaps.write(<span class="string">'./maps'</span>))</div><div class="line">  .pipe(gulp.dest(<span class="string">'./css'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="gulp-sequence"><a href="#gulp-sequence" class="headerlink" title="gulp-sequence"></a>gulp-sequence</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> runSequence=<span class="built_in">require</span>(<span class="string">'gulp-sequence'</span>);</div><div class="line"></div><div class="line"><span class="comment">//异步执行压缩任务</span></div><div class="line">gulp.task(<span class="string">'default'</span>,</div><div class="line">    runSequence(<span class="string">'clear'</span>, [<span class="string">'parsezip'</span>, <span class="string">'imgzip'</span>, <span class="string">'htmlzip'</span>, <span class="string">'csszip'</span>, <span class="string">'jszip'</span>, <span class="string">'font'</span>, <span class="string">'doc'</span>], <span class="string">'copy'</span></div><div class="line">    )</div><div class="line">);</div></pre></td></tr></table></figure>
+<h4 id="gulp-concat"><a href="#gulp-concat" class="headerlink" title="gulp-concat"></a>gulp-concat</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//合并js</span></div><div class="line">gulp.task(<span class="string">'parsezip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src([<span class="string">'app/js/json/state-inner.js'</span>,</div><div class="line">                <span class="string">'app/js/json/state-outdoor.js'</span>,</div><div class="line">                <span class="string">'app/js/json/state-basic.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-unit.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-parse-inner.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-parse-outdoor.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-parse-basic.js'</span>,</div><div class="line">                <span class="string">'app/js/json/json-parse-frame.js'</span>,</div><div class="line">                <span class="string">'app/js/json/json-send-frame.js'</span>]),</div><div class="line">            concat(<span class="string">'parsedata.min.js'</span>),</div><div class="line">            gulp.dest(<span class="string">'app/js/json'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="gulp-jsdoc3"><a href="#gulp-jsdoc3" class="headerlink" title="gulp-jsdoc3"></a>gulp-jsdoc3</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//生成注释文档</span></div><div class="line">gulp.task(<span class="string">'doc'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">cb</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./jsdoc-config.json'</span>);</div><div class="line">    gulp.src([<span class="string">'./app/**/*.js'</span>], &#123;<span class="attr">read</span>: <span class="literal">false</span>&#125;)</div><div class="line">        .pipe(jsdoc(config, cb));</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="gulp-jasmine"><a href="#gulp-jasmine" class="headerlink" title="gulp-jasmine"></a>gulp-jasmine</h4><p>这是一个单元测试插件，jasmine是一个单元测试框架，类似的还有Qunit。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jasmineBrowser = <span class="built_in">require</span>(<span class="string">'gulp-jasmine-browser'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'jasmine'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> files = [<span class="string">'./test/src/**/*.js'</span>, <span class="string">'./test/spec/**/*.js'</span>, <span class="string">'app/js/**/*.js'</span>];</div><div class="line">    <span class="keyword">return</span> gulp.src(files)</div><div class="line">        .pipe(watch(files))</div><div class="line">        .pipe(jasmineBrowser.specRunner())</div><div class="line">        .pipe(jasmineBrowser.server(&#123;<span class="attr">port</span>: <span class="number">9199</span>&#125;))</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="gulp-webpack"><a href="#gulp-webpack" class="headerlink" title="gulp-webpack"></a>gulp-webpack</h4><p>gulp是可以和webpack配合的，而且gulp的uglify不能直接压缩ES6的代码。<br>什么，你跟我说gulp-babel？是的，我说的是gulp-babel，实际过程中，gulp-babel也遇上一些问题，不能转码。而且出问题的一些第三方库，又不想去改它，心里想也许切换成webpack的方案来进行转码或许就可以。</p>
+<p>gulp-webpack就是这样的插件，它可以让webpack的配置嵌入到gulp中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'gulp-webpack'</span>);</div><div class="line">gulp.task(<span class="string">'webpack'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'./xxxx.js'</span>)</div><div class="line">    .pipe(webpack(&#123;</div><div class="line">        <span class="built_in">module</span>: &#123;</div><div class="line">        loaders: [</div><div class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">loader</span>: <span class="string">'babel-loader'</span> &#125;,</div><div class="line">        ],</div><div class="line">        &#125;,</div><div class="line">    &#125;</div><div class="line">    ))</div><div class="line">    .pipe(rename(<span class="string">'/xxxx.js'</span>))</div><div class="line">    .pipe(gulp.dest(<span class="string">'./dist'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>同样地，你可以使用<code>webpack.config.js</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> gulp.src(<span class="string">'src/entry.js'</span>)</div><div class="line">  .pipe(webpack( <span class="built_in">require</span>(<span class="string">'./webpack.config.js'</span>) ))</div><div class="line">  .pipe(gulp.dest(<span class="string">'dist/'</span>));</div></pre></td></tr></table></figure>
+<h3 id="jenkins与gulp配合"><a href="#jenkins与gulp配合" class="headerlink" title="jenkins与gulp配合"></a>jenkins与gulp配合</h3><p>jenkins是一个持续集成工具，就是一个监控持续重复工作的工具。</p>
+<h4 id="jenkins安装"><a href="#jenkins安装" class="headerlink" title="jenkins安装"></a>jenkins安装</h4><p>下载地址：<br><a href="https://jenkins.io/download/" target="_blank" rel="external">https://jenkins.io/download/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar jenkins.war</div></pre></td></tr></table></figure>
+<p>静静等待安装完毕。。。</p>
+<h4 id="jenkins配置"><a href="#jenkins配置" class="headerlink" title="jenkins配置"></a>jenkins配置</h4><p>首先，新建一个项目。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_11.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure></p>
+<p>设置源码仓库地址：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_12.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure></p>
+<p>触发器设置：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_13.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure></p>
+<ul>
+<li><em>/10 </em> <em> </em> * 代表每10分钟监测源码库，并执行构建。</li>
+</ul>
+<p>构建环境配置：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_14.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure></p>
+<p>构建配置：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_15.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/gulp_16.png" alt="gulp" title="">
+                </div>
+                <div class="image-caption">gulp</div>
+            </figure></p>
+<p>因为在项目里面有gulpfile.js，所以这里唯一需要的东西就是node环境了。其他都可以用cnpm install然后执行gulp任务即可。</p>
+<p>关于gulp的基本使用到此介绍完毕。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-07-01T02:40:20.279Z" itemprop="dateUpdated">2017-07-01 10:40:20</time>
+</span><br>
+
+
+        
+        © 2017 SakuraWood(Lee Sure) Powered by indigo
+        
+    </div>
+    <footer>
+        <a href="http://sakurawood.github.io">
+            <img src="/img/avatar.jpg" alt="SakuraWood(Lee Sure)">
+            SakuraWood(Lee Sure)
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/06/27/gulp构建工具/&title=《Gulp构建工具》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/27/gulp构建工具/&title=《Gulp构建工具》 — SakuraWood's blogs&source=Gulp构建工具gulp与webpack
+gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，sass编译 替代手工实现自动化工作
+web..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/06/27/gulp构建工具/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Gulp构建工具》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/06/27/gulp构建工具/&via=http://sakurawood.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/06/27/gulp构建工具/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/07/07/位操作/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">位操作</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/25/LRU cache的简单实现/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">LRU cache的简单实现</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>SakuraWood(Lee Sure) &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/06/27/gulp构建工具/&title=《Gulp构建工具》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/27/gulp构建工具/&title=《Gulp构建工具》 — SakuraWood's blogs&source=Gulp构建工具gulp与webpack
+gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，sass编译 替代手工实现自动化工作
+web..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/06/27/gulp构建工具/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Gulp构建工具》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/06/27/gulp构建工具/&via=http://sakurawood.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/06/27/gulp构建工具/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sakurawood.github.io/2017/06/27/gulp构建工具/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

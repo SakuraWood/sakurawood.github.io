@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>No title | SakuraWood&#39;s blogs | Welcome to my personal site!硕硕的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="HTTP协议HTTP Request 协议格式GET/sample.jsp HTTP/1.1Accept:image/gif.image/jpeg,/Accept-Language:zh-cnConnection:Keep-AliveHost:localhostUser-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)Accept-Encodin">
+<meta name="keywords" content="Android Front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://sakurawood.github.io/2017/10/21/http协议笔记/index.html">
+<meta property="og:site_name" content="SakuraWood&#39;s blogs">
+<meta property="og:description" content="HTTP协议HTTP Request 协议格式GET/sample.jsp HTTP/1.1Accept:image/gif.image/jpeg,/Accept-Language:zh-cnConnection:Keep-AliveHost:localhostUser-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)Accept-Encodin">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-06-08T06:55:08.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="HTTP协议HTTP Request 协议格式GET/sample.jsp HTTP/1.1Accept:image/gif.image/jpeg,/Accept-Language:zh-cnConnection:Keep-AliveHost:localhostUser-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)Accept-Encodin">
+    
+        <link rel="alternate" type="application/atom+xml" title="SakuraWood&#39;s blogs" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">SakuraWood(Lee Sure)</h5>
+          <a href="mailto:smartadelesure@gmail.com" title="smartadelesure@gmail.com" class="mail">smartadelesure@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/SakuraWood" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-21T02:37:58.658Z" itemprop="datePublished" class="page-time">
+  2017-10-21
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP协议"><span class="post-toc-number">1.</span> <span class="post-toc-text">HTTP协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTTP-Request"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">HTTP Request</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTTP响应"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">HTTP响应:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Response-Headers"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Response Headers</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Cache-Control："><span class="post-toc-number">1.2.1.1.</span> <span class="post-toc-text">Cache-Control：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Connection："><span class="post-toc-number">1.2.1.2.</span> <span class="post-toc-text">Connection：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Content-Encoding"><span class="post-toc-number">1.2.1.3.</span> <span class="post-toc-text">Content-Encoding:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Content-Type"><span class="post-toc-number">1.2.1.4.</span> <span class="post-toc-text">Content-Type:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date："><span class="post-toc-number">1.2.1.5.</span> <span class="post-toc-text">Date：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Expires"><span class="post-toc-number">1.2.1.6.</span> <span class="post-toc-text">Expires:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Pragma-no-cache"><span class="post-toc-number">1.2.1.7.</span> <span class="post-toc-text">Pragma:no-cache</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Server："><span class="post-toc-number">1.2.1.8.</span> <span class="post-toc-text">Server：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Transfer-Encoding："><span class="post-toc-number">1.2.1.9.</span> <span class="post-toc-text">Transfer-Encoding：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Vary"><span class="post-toc-number">1.2.1.10.</span> <span class="post-toc-text">Vary:</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-http协议笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-21 10:37:58" datetime="2017-10-21T02:37:58.658Z"  itemprop="datePublished">2017-10-21</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h2><ul>
+<li>协议格式<br>GET/sample.jsp HTTP/1.1<br>Accept:image/gif.image/jpeg,<em>/</em><br>Accept-Language:zh-cn<br>Connection:Keep-Alive<br>Host:localhost<br>User-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)<br>Accept-Encoding:gzip,deflate</li>
+</ul>
+<p>username=jinqiao&amp;password=1234</p>
+<p>① 第一行是“方法URL协议版本”<br>GET/sample.jsp HTTP/1.1<br>GET代表请求方法，/sample.jsp表示URI，“HTTP/1.1代表协议和协议版本号”</p>
+<p>请求方法可有多种，HTTP/1.1支持7中请求方式：</p>
+<ol>
+<li>GET  请求获取由 Request-URI 所标识的资源。</li>
+<li>POST  在 Request-URI 所标识的资源后附加新的数据。</li>
+<li>HEAD  请求获取由 Request-URI 所标识的资源的响应消息报头。</li>
+<li>OPTIONS  请求查询服务器的性能，或查询与资源相关的选项和需求。</li>
+<li>PUT  请求服务器存储一个资源，并用 Request-URI 作为其标识。</li>
+<li>DELETE  请求服务器删除由 Request-URI 所标识的资源。</li>
+<li>TRACE  请求服务器回送收到的请求信息，主要用语测试或诊断。<br>其中最常用的是GET和POST。</li>
+</ol>
+<p>② 请求头<br>Accept:image/gif.image/jpeg,<em>/</em><br>Accept-Language:zh-cn<br>Connection:Keep-Alive<br>Host:localhost<br>User-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)<br>Accept-Encoding:gzip,deflate</p>
+<p>③ 请求正文<br>请求头和请求正文之间是一个空行，这个行非常重要，它表示请求头已经结束，接下来的是请求正文。请求正文中可以包含客户提 交的查询字符串信息：</p>
+<p>username=jinqiao&amp;password=1234</p>
+<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应:"></a>HTTP响应:</h2><h3 id="Response-Headers"><a href="#Response-Headers" class="headerlink" title="Response Headers"></a>Response Headers</h3><h4 id="Cache-Control："><a href="#Cache-Control：" class="headerlink" title="Cache-Control："></a>Cache-Control：</h4><p>must-revalidate, no-cache, private。这个值告诉客户端，服务端不希望客户端缓存资源，在下次请求资源时，必须要从新请求服务器，不能从缓存副本中获取资源。<br>Cache-Control是响应头中很重要的信息，当客户端请求头中包含Cache-Control:max-age=0请求，明确表示不会缓存服务器资源时,Cache-Control作为作为回应信息，通常会返回no-cache，意思就是说，“不缓存就不缓存呗”；当客户端在请求头中没有包含Cache-Control时，服务端往往会定,不同的资源不同的缓存策略，比如说oschina在缓存图片资源的策略就是Cache-Control：max-age=86400,这个意思是，从当前时间开始，在86400秒的时间内，客户端可以直接从缓存副本中读取资源，而不需要向服务器请求。</p>
+<h4 id="Connection："><a href="#Connection：" class="headerlink" title="Connection："></a>Connection：</h4><p>keep-alive，</p>
+<p>这个字段作为回应客户端的Connection：keep-alive，告诉客户端服务器的tcp连接也是一个长连接，客户端可以继续使用这个tcp连接发送http请求。关于长连接的更多知识，后面我再详细讲。</p>
+<h4 id="Content-Encoding"><a href="#Content-Encoding" class="headerlink" title="Content-Encoding:"></a>Content-Encoding:</h4><p>gzip</p>
+<p>告诉客户端，服务端发送的资源是采用gzip编码的，客户端看到这个信息后，应该采用gzip对资源进行解码。</p>
+<h4 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type:"></a>Content-Type:</h4><p>text/html;charset=UTF-8</p>
+<p>告诉客户端，资源文件的类型，还有字符编码，客户端通过utf-8对资源进行解码，然后对资源进行html解析。通常我们会看到有些网站是乱码的，往往就是服务器端没有返回正确的编码。</p>
+<h4 id="Date："><a href="#Date：" class="headerlink" title="Date："></a>Date：</h4><p>Sun, 21 Sep 2014 06:18:21 GMT</p>
+<p>这个是服务端发送资源时的服务器时间，刚开始我不知道GMT是格林尼治所在地的标准时间，以为是服务器的时间错了，还去服务器上查看过时间。http协议中发送的时间都是GMT的，这主要是解决在互联网上，不同时区在相互请求资源的时候，时间混乱问题。</p>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires:"></a>Expires:</h4><p>Sun, 1 Jan 2000 01:00:00 GMT</p>
+<p>这个响应头也是跟缓存有关的，告诉客户端在这个时间前，可以直接访问缓存副本，很显然这个值会存在问题，因为客户端和服务器的时间不一定会都是相同的，如果时间不同就会导致问题。所以这个响应头是没有Cache-Control：max-age=<em>*</em>这个响应头准确的，因为max-age=date中的date是个相对时间，不仅更好理解，也更准确。</p>
+<h4 id="Pragma-no-cache"><a href="#Pragma-no-cache" class="headerlink" title="Pragma:no-cache"></a>Pragma:no-cache</h4><p>这个含义与Cache-Control等同。</p>
+<h4 id="Server："><a href="#Server：" class="headerlink" title="Server："></a>Server：</h4><p>Tengine/1.4.6</p>
+<p>这个是服务器和相对应的版本，只是告诉客户端服务器信息，没有更多的意思。</p>
+<h4 id="Transfer-Encoding："><a href="#Transfer-Encoding：" class="headerlink" title="Transfer-Encoding："></a>Transfer-Encoding：</h4><p>chunked</p>
+<p>这个响应头告诉客户端，服务器发送的资源的方式是分块发送的。一般分块发送的资源都是服务器动态生成的，在发送时还不知道发送资源的大小，所以采用分块发送，每一块都是独立的，独立的块都能标示自己的长度，最后一块是0长度的，当客户端读到这个0长度的块时，就可以确定资源已经传输完了。</p>
+<h4 id="Vary"><a href="#Vary" class="headerlink" title="Vary:"></a>Vary:</h4><p>Accept-Encoding</p>
+<p>告诉缓存服务器，缓存压缩文件和非压缩文件两个版本，现在这个字段用处并不大，因为现在的浏览器都是支持压缩的。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-06-08T06:55:08.343Z" itemprop="dateUpdated">2017-06-08 14:55:08</time>
+</span><br>
+
+
+        
+        © 2017 SakuraWood(Lee Sure) Powered by indigo
+        
+    </div>
+    <footer>
+        <a href="http://sakurawood.github.io">
+            <img src="/img/avatar.jpg" alt="SakuraWood(Lee Sure)">
+            SakuraWood(Lee Sure)
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/10/21/http协议笔记/&title=SakuraWood's blogs&pic=http://sakurawood.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/10/21/http协议笔记/&title=SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/10/21/http协议笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=SakuraWood's blogs&url=http://sakurawood.github.io/2017/10/21/http协议笔记/&via=http://sakurawood.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/10/21/http协议笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/21/http/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>SakuraWood(Lee Sure) &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/10/21/http协议笔记/&title=《No title》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/10/21/http协议笔记/&title=《No title》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/10/21/http协议笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/10/21/http协议笔记/&via=http://sakurawood.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/10/21/http协议笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sakurawood.github.io/2017/10/21/http协议笔记/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
