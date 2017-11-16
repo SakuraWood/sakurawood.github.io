@@ -159,14 +159,14 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Hexo+GitHub构建博客"
+            <article id="post-JS语法突击"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
         <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
 
 
 
@@ -177,7 +177,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/Hexo+GitHub构建博客/">Hexo+GitHub构建个人博客</a>
+      <a class="post-title-link" href="/2017/02/12/JS语法突击/">js语法</a>
     </h3>
   
 
@@ -187,25 +187,126 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        什么是Hexo？Hexo是一个快速，简单和强大的博客框架。你可以在短时间内利用markdown标记语言通过Hexo生成一份拥有漂亮主题的博客。
-安装Hexo需要的安装环境安装Hexo非常容易。但是，你需要先安装几个其他的东西：
+        JS 语法突击检查
+知道continue吧？那你知道label语句吗？请说明使用方法。 continue后跟label可以跳出到label所在的循环。
 
-Node.js
-Git
+基本类型有哪些？ Undefined,Null,Boolean,Number,String
 
-安装Node.js最好是通过nvm来安装Node.js。
-cURL:
-$ curl https://raw.githubuserconte...
+js的字符串是引用类型吗？ js的字符串不是，在大多数语言中，字符串被当做对象，是引用类型，但js放弃了这一传统。
+
+函数传参是按什么传递？ 全部...
     
 
-        <a href="/2017/02/12/Hexo+GitHub构建博客/" class="post-more waves-effect waves-button">
+        <a href="/2017/02/12/JS语法突击/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-http"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/http/">http协议（一）</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        http协议http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。
+http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。
+http是无状态的，对于事务处理没有记忆能力。
+http请求消息：
+请求方法 url 协议版本字段名 值空行内容
+响应消息：
+协议版本 状态码 状态值字段名 值空行...
+    
+
+        <a href="/2017/02/12/http/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-单源最短路径"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/单源最短路径/">最短路径算法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        最短路径算法初次接触算法的人，或多或少了解过最短路径算法，也听过迪杰斯特拉算法。
+其实我并不想一上来就直接解释Dijkstra算法，我一开始接触到这算法时，想的是为什么产生了这样的算法？有的算法书上一直说，bfs（广度优先搜索）是基础，它特别重要，事实上，Dijkstra算法也是基于bfs。
+假设一个无权图，让你找它其中的最短路径，该怎么找？很显然，广度优先遍历就可以找出来。而Dijkstr...
+    
+
+        <a href="/2017/02/12/单源最短路径/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     

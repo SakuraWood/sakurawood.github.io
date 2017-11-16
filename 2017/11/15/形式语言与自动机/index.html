@@ -13,25 +13,25 @@
     
     
     
-    <title>http协议（一） | SakuraWood&#39;s blogs | Welcome to my personal site!硕硕的博客</title>
+    <title>形式语言与自动机 | SakuraWood&#39;s blogs | Welcome to my personal site!硕硕的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="http">
-    <meta name="description" content="http协议http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。 http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。 http是无状态的，对于事务处理没有记忆能力。 http请求消息： 请求方法 url 协议版本字段名 值空行内容 响应消息： 协议版本 状态码 状态值字段名 值空行内容">
-<meta name="keywords" content="http">
+    <meta name="keywords" content="自动机">
+    <meta name="description" content="形式语言与自动机 未来一定属于语言的胜利。语言将一统天下（未来AI也会用“最优”的语言来思考）。  一直好奇的是，远古巨神们是怎么发明出计算机的？计算机也肯定是遵循某些理论发展出来的。 阿兰·图灵和冯·诺依曼是公认的两位计算机之父。图灵机从理论上证明了计算机这种东西可行，而冯诺依曼结构则从物理上实现了图灵机的理论。即使到现在，几乎所有计算模型和结构也没能脱离这两者而存在。  什么是形式语言与自动机">
+<meta name="keywords" content="自动机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http协议（一）">
-<meta property="og:url" content="http://sakurawood.github.io/2017/02/12/http/index.html">
+<meta property="og:title" content="形式语言与自动机">
+<meta property="og:url" content="http://sakurawood.github.io/2017/11/15/形式语言与自动机/index.html">
 <meta property="og:site_name" content="SakuraWood&#39;s blogs">
-<meta property="og:description" content="http协议http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。 http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。 http是无状态的，对于事务处理没有记忆能力。 http请求消息： 请求方法 url 协议版本字段名 值空行内容 响应消息： 协议版本 状态码 状态值字段名 值空行内容">
+<meta property="og:description" content="形式语言与自动机 未来一定属于语言的胜利。语言将一统天下（未来AI也会用“最优”的语言来思考）。  一直好奇的是，远古巨神们是怎么发明出计算机的？计算机也肯定是遵循某些理论发展出来的。 阿兰·图灵和冯·诺依曼是公认的两位计算机之父。图灵机从理论上证明了计算机这种东西可行，而冯诺依曼结构则从物理上实现了图灵机的理论。即使到现在，几乎所有计算模型和结构也没能脱离这两者而存在。  什么是形式语言与自动机">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-21T05:49:46.987Z">
+<meta property="og:updated_time" content="2017-11-16T08:06:39.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http协议（一）">
-<meta name="twitter:description" content="http协议http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。 http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。 http是无状态的，对于事务处理没有记忆能力。 http请求消息： 请求方法 url 协议版本字段名 值空行内容 响应消息： 协议版本 状态码 状态值字段名 值空行内容">
+<meta name="twitter:title" content="形式语言与自动机">
+<meta name="twitter:description" content="形式语言与自动机 未来一定属于语言的胜利。语言将一统天下（未来AI也会用“最优”的语言来思考）。  一直好奇的是，远古巨神们是怎么发明出计算机的？计算机也肯定是遵循某些理论发展出来的。 阿兰·图灵和冯·诺依曼是公认的两位计算机之父。图灵机从理论上证明了计算机这种东西可行，而冯诺依曼结构则从物理上实现了图灵机的理论。即使到现在，几乎所有计算模型和结构也没能脱离这两者而存在。  什么是形式语言与自动机">
     
         <link rel="alternate" type="application/atom+xml" title="SakuraWood&#39;s blogs" href="/atom.xml">
     
@@ -120,7 +120,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">http协议（一）</div>
+        <div class="flex-col header-title ellipsis">形式语言与自动机</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,15 +142,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">http协议（一）</h1>
+        <h1 class="title">形式语言与自动机</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-02-12T11:36:07.000Z" itemprop="datePublished" class="page-time">
-  2017-02-12
+                <time datetime="2017-11-15T07:54:07.000Z" itemprop="datePublished" class="page-time">
+  2017-11-15
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机科学/">计算机科学</a></li></ul>
 
             
         </h5>
@@ -167,20 +167,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#http协议"><span class="post-toc-number">1.</span> <span class="post-toc-text">http协议</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#形式语言与自动机"><span class="post-toc-number">1.</span> <span class="post-toc-text">形式语言与自动机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础知识"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基础知识</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
-<article id="post-http"
+<article id="post-形式语言与自动机"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">http协议（一）</h1>
+        <h1 class="post-card-title">形式语言与自动机</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+            <time class="post-time" title="2017-11-15 15:54:07" datetime="2017-11-15T07:54:07.000Z"  itemprop="datePublished">2017-11-15</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/计算机科学/">计算机科学</a></li></ul>
 
 
 
@@ -192,15 +192,31 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h1><p>http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。</p>
-<p>http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。</p>
-<p>http是无状态的，对于事务处理没有记忆能力。</p>
-<p>http请求消息：</p>
-<p>请求方法 url 协议版本<br>字段名 值<br>空行<br>内容</p>
-<p>响应消息：</p>
-<p>协议版本 状态码 状态值<br>字段名 值<br>空行<br>内容</p>
-<p>MIME是描述消息内容类型的因特网标准。</p>
-<p>ALLOW字段表示服务器支持哪些请求方法，比如post，get等<br>Expires表示应该在什么时候认为文档已经过期，从而不再缓存它</p>
+            <h1 id="形式语言与自动机"><a href="#形式语言与自动机" class="headerlink" title="形式语言与自动机"></a>形式语言与自动机</h1><ul>
+<li>未来一定属于语言的胜利。语言将一统天下（未来AI也会用“最优”的语言来思考）。</li>
+</ul>
+<p>一直好奇的是，远古巨神们是怎么发明出计算机的？计算机也肯定是遵循某些理论发展出来的。</p>
+<p>阿兰·图灵和冯·诺依曼是公认的两位计算机之父。图灵机从理论上证明了计算机这种东西可行，而冯诺依曼结构则从物理上实现了图灵机的理论。即使到现在，几乎所有计算模型和结构也没能脱离这两者而存在。</p>
+<ul>
+<li>什么是形式语言与自动机？</li>
+</ul>
+<p>计算机科学有两个主要的部分: 第一, 构成计算系统基础的一些基本概念和模型; 第二, 设计计算系统 (软件和硬件) 的工程技术。形式语言与自动机理论, 就是作为第一部分, 即构成计算基础的基本概念的引论。</p>
+<ul>
+<li>目的是什么？</li>
+</ul>
+<p>学会像前人一样思考，打开通往组成原理和操作系统的两扇大门。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><ul>
+<li>基本概念</li>
+</ul>
+<ol>
+<li><p>字母表</p>
+<p> 众所周知，字母是构成一门语言的基本要素哦，如英文中的A-Z（a-z）。对于计算机而言，其实是{0,1}。</p>
+<p> 定义：有穷非空符号集。例如, Σ = {0, 1}, Σ = {a, b …  z}。</p>
+</li>
+<li><p>字符串</p>
+<p> 某个字母表中符号的有穷序列, 也称字 (words). 例如, 若 Σ = {0, 1}, 则000, 111, 0101,10101 为 Σ 上的字符串.</p>
+</li>
+</ol>
 
         </div>
 
@@ -208,7 +224,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-10-21T05:49:46.987Z" itemprop="dateUpdated">2017-10-21 13:49:46</time>
+    Last updated: <time datetime="2017-11-16T08:06:39.834Z" itemprop="dateUpdated">2017-11-16 16:06:39</time>
 </span><br>
 
 
@@ -233,7 +249,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动机/">自动机</a></li></ul>
 
 
             
@@ -243,7 +259,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/02/12/http/&title=《http协议（一）》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/sakurawood.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/&title=《形式语言与自动机》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/sakurawood.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -253,22 +269,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/02/12/http/&title=《http协议（一）》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/&title=《形式语言与自动机》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/02/12/http/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/11/15/形式语言与自动机/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《http协议（一）》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/02/12/http/&via=http://sakurawood.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《形式语言与自动机》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/&via=http://sakurawood.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/02/12/http/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -288,21 +304,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2017/02/12/JS语法突击/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">js语法</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/02/12/单源最短路径/" id="post-next" class="post-nav-link">
+      <a href="/2017/08/15/gradle学习笔记/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">最短路径算法</h4>
+        <h4 class="title">gradle 学习笔记</h4>
       </a>
     </div>
   
@@ -390,7 +399,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/02/12/http/&title=《http协议（一）》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/sakurawood.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/&title=《形式语言与自动机》 — SakuraWood's blogs&pic=http://sakurawood.github.io/img/sakurawood.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -400,22 +409,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/02/12/http/&title=《http协议（一）》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/&title=《形式语言与自动机》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/02/12/http/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://sakurawood.github.io/2017/11/15/形式语言与自动机/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《http协议（一）》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/02/12/http/&via=http://sakurawood.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《形式语言与自动机》 — SakuraWood's blogs&url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/&via=http://sakurawood.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/02/12/http/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://sakurawood.github.io/2017/11/15/形式语言与自动机/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -426,7 +435,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sakurawood.github.io/2017/02/12/http/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://sakurawood.github.io/2017/11/15/形式语言与自动机/" alt="微信分享二维码">
 </div>
 
 
