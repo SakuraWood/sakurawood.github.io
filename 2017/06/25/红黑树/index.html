@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_300.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_3000.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_30000.png">
-<meta property="og:updated_time" content="2017-10-21T05:51:44.629Z">
+<meta property="og:updated_time" content="2017-11-23T07:39:31.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树">
 <meta name="twitter:description" content="红黑树 红黑树（英语：Red–black tree）是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。它是在1972年由鲁道夫·贝尔发明的，他称之为”对称二叉B树”，它现代的名字是在Leo J. Guibas和Robert Sedgewick于1978年写的一篇论文中获得的。它是复杂的，但它的操作有着良好的最坏情况运行时间，并且在实践中是高效的：它可以在O(lo">
@@ -266,6 +266,7 @@
 <li>没有键值相等的节点。</li>
 </ol>
 <p>如何构造一颗二叉查找树？</p>
+<a id="more"></a>
 <p>首先一颗BST要包含插入、删除和查找等操作。</p>
 <p>先定义一个节点：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k,l=None,r=None,p=None)</span>:</span></div><div class="line">        self.lchild=l</div><div class="line">        self.rchild=r</div><div class="line">        self.parent=p</div><div class="line">        self.key=k</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_left_child</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.lchild</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_right_child</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.rchild</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_left_child</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.parent <span class="keyword">and</span> self.parent.lchild==self</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_right_child</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.parent <span class="keyword">and</span> self.parent.rchild==self</div></pre></td></tr></table></figure></p>
 <p>初始化一棵树：</p>
@@ -287,7 +288,6 @@
 <li>被删节点有右子树但没有左子树</li>
 <li>被删节点左右子树都有</li>
 </ol>
-<a id="more"></a>
 <p>什么？还有被删节点是根节点？嗯，确实，它可以看做是1的一种特殊情况，它本身没有子节点，同时没有父节点。</p>
 <p>首先理解一下前驱和后继的含义。<br>节点key的前驱，就是中序遍历时，比key小的所有节点中最大的那个节点。<br>节点key的后继，就是中序遍历时，比key小的所有节点中最大的那个节点。</p>
 <p>所以，根据定义，被删节点用前驱或者后继替代都是合法的。</p>
@@ -1004,7 +1004,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-10-21T05:51:44.629Z" itemprop="dateUpdated">2017-10-21 13:51:44</time>
+    Last updated: <time datetime="2017-11-23T07:39:31.991Z" itemprop="dateUpdated">2017-11-23 15:39:31</time>
 </span><br>
 
 

@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="SakuraWood&#39;s blogs">
 <meta property="og:description" content="给定整数数组，每个元素出现三次，除了一个出现恰好一次。找到那个单一的。 这道题如果换成“给定整数数组，每个元素出现两次，除了一个出现恰好一次。找到那个单一的。”会简单很多，因为利用异或操作符，可以把两个相同的元素消掉。比如：a^a=0。 但是现在问题是出现了三次,先放上代码： 1234567def singleNumber(A):    ones = 0    twos = 0    for i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-21T05:50:29.189Z">
+<meta property="og:updated_time" content="2017-11-23T07:41:46.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一道位操作题引发的思考">
 <meta name="twitter:description" content="给定整数数组，每个元素出现三次，除了一个出现恰好一次。找到那个单一的。 这道题如果换成“给定整数数组，每个元素出现两次，除了一个出现恰好一次。找到那个单一的。”会简单很多，因为利用异或操作符，可以把两个相同的元素消掉。比如：a^a=0。 但是现在问题是出现了三次,先放上代码： 1234567def singleNumber(A):    ones = 0    twos = 0    for i">
@@ -190,6 +190,7 @@
 <p>但是现在问题是出现了三次,先放上代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(A)</span>:</span></div><div class="line">    ones = <span class="number">0</span></div><div class="line">    twos = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> A:</div><div class="line">        ones = (ones ^ i) &amp; ~twos</div><div class="line">        twos = (twos ^ i) &amp; ~ones</div><div class="line">    <span class="keyword">return</span> ones</div></pre></td></tr></table></figure>
 <p>这代码一看就懵逼。而且对于不熟悉位操作的人，简直就是痛苦。WTF？<br>这段代码看上去很诡异，但其实它是有来头的。</p>
+<a id="more"></a>
 <p>就像异或操作那样，我们把两个相同的元素消掉为0，那为何不想想如何把3个给消掉呢？很遗憾，计算机没有提供这样的操作符。但是你可以自定义。</p>
 <p>如何做呢？我们需要一个像计数器一样的东西，这个东西能记住每一位上1所出现的次数。例如本道题，可以认为出现3次就归零。这个计数器也用位来表示，那么它的状态变化就是00-&gt;01-&gt;10-&gt;00。</p>
 <p>比如一个数组[3,3,3,1],不用想，它的结果为1。在这里我描述一下过程。</p>
@@ -201,7 +202,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-10-21T05:50:29.189Z" itemprop="dateUpdated">2017-10-21 13:50:29</time>
+    Last updated: <time datetime="2017-11-23T07:41:46.378Z" itemprop="dateUpdated">2017-11-23 15:41:46</time>
 </span><br>
 
 
@@ -246,7 +247,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/07/12/一道位操作题引发的思考/&title=《一道位操作题引发的思考》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/07/12/一道位操作题引发的思考/&title=《一道位操作题引发的思考》 — SakuraWood's blogs&source=给定整数数组，每个元素出现三次，除了一个出现恰好一次。找到那个单一的。
+这道题如果换成“给定整数数组，每个元素出现两次，除了一个出现恰好一次。找到那个单一..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -393,7 +395,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/07/12/一道位操作题引发的思考/&title=《一道位操作题引发的思考》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/07/12/一道位操作题引发的思考/&title=《一道位操作题引发的思考》 — SakuraWood's blogs&source=给定整数数组，每个元素出现三次，除了一个出现恰好一次。找到那个单一的。
+这道题如果换成“给定整数数组，每个元素出现两次，除了一个出现恰好一次。找到那个单一..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -20,18 +20,18 @@
     
     
     <meta name="keywords" content="算法">
-    <meta name="description" content="LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。 实现思路链表+哈希表 java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。 1234567891011121314151">
+    <meta name="description" content="LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。 实现思路链表+哈希表 java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LRU cache的简单实现">
 <meta property="og:url" content="http://sakurawood.github.io/2017/06/25/LRU cache的简单实现/index.html">
 <meta property="og:site_name" content="SakuraWood&#39;s blogs">
-<meta property="og:description" content="LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。 实现思路链表+哈希表 java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。 1234567891011121314151">
+<meta property="og:description" content="LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。 实现思路链表+哈希表 java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-21T05:50:05.822Z">
+<meta property="og:updated_time" content="2017-11-23T07:41:11.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LRU cache的简单实现">
-<meta name="twitter:description" content="LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。 实现思路链表+哈希表 java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。 1234567891011121314151">
+<meta name="twitter:description" content="LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。 实现思路链表+哈希表 java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。">
     
         <link rel="alternate" type="application/atom+xml" title="SakuraWood&#39;s blogs" href="/atom.xml">
     
@@ -195,6 +195,7 @@
             <h2 id="LRU是什么"><a href="#LRU是什么" class="headerlink" title="LRU是什么"></a>LRU是什么</h2><p>说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。</p>
 <h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
 <p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.pre=<span class="keyword">None</span></div><div class="line">        self.next=<span class="keyword">None</span></div><div class="line">        self.key=<span class="keyword">None</span></div><div class="line">        self.value=<span class="keyword">None</span></div><div class="line">        </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        :type capacity: int</span></div><div class="line"><span class="string">        """</span></div><div class="line">        self.cache=&#123;&#125;</div><div class="line">        self.volume=capacity</div><div class="line">        self.head=Node()</div><div class="line">        self.tail=Node()</div><div class="line">        self.head.next=self.tail</div><div class="line">        self.tail.pre=self.head</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        :type key: int</span></div><div class="line"><span class="string">        :rtype: int</span></div><div class="line"><span class="string">        """</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            node=self.cache[key]</div><div class="line">        <span class="keyword">except</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">        node.pre.next=node.next</div><div class="line">        node.next.pre=node.pre</div><div class="line">        self.insertNode(node)</div><div class="line">        <span class="keyword">return</span> node.value</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, value)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line"><span class="string">        :type key: int</span></div><div class="line"><span class="string">        :type value: int</span></div><div class="line"><span class="string">        :rtype: void</span></div><div class="line"><span class="string">        """</span></div><div class="line">        node=self.cache.get(key)</div><div class="line">        <span class="keyword">if</span> node:</div><div class="line">            self.deleteNode(node)</div><div class="line">        node=Node()</div><div class="line">        node.key=key</div><div class="line">        node.value=value</div><div class="line">        self.insertNode(node)</div><div class="line">        self.cache[key]=node</div><div class="line">        <span class="keyword">if</span> len(self.cache)&gt;self.volume:</div><div class="line">            self.deleteNode(self.head.next)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteNode</span><span class="params">(self,node)</span>:</span></div><div class="line">        node.pre.next=node.next</div><div class="line">        node.next.pre=node.pre</div><div class="line">        <span class="keyword">del</span> self.cache[node.key]</div><div class="line">        <span class="keyword">del</span> node</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertNode</span><span class="params">(self,node)</span>:</span></div><div class="line">        last=self.tail.pre</div><div class="line">        last.next=node</div><div class="line">        node.pre=last</div><div class="line">        node.next=self.tail</div><div class="line">        self.tail.pre=node</div></pre></td></tr></table></figure>
 
         </div>
@@ -203,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-10-21T05:50:05.822Z" itemprop="dateUpdated">2017-10-21 13:50:05</time>
+    Last updated: <time datetime="2017-11-23T07:41:11.914Z" itemprop="dateUpdated">2017-11-23 15:41:11</time>
 </span><br>
 
 
@@ -248,7 +249,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/25/LRU cache的简单实现/&title=《LRU cache的简单实现》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/25/LRU cache的简单实现/&title=《LRU cache的简单实现》 — SakuraWood's blogs&source=LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recen..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -395,7 +396,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/25/LRU cache的简单实现/&title=《LRU cache的简单实现》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/25/LRU cache的简单实现/&title=《LRU cache的简单实现》 — SakuraWood's blogs&source=LRU是什么说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recen..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="SakuraWood&#39;s blogs">
 <meta property="og:description" content="gulp简单用法不说原理，直接开干 需了解node稍微介绍一下node：  package.json(node项目配置文件)，形式如下：  12345678910111213141516171819202122232425262728293031323334353637   &amp;#123;  &quot;name&quot;: &quot;32000&quot;, //项目名  &quot;version&quot;: &quot;0.0.1&quot;, //版本号  &quot;de">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-21T05:49:25.150Z">
+<meta property="og:updated_time" content="2017-11-23T07:40:09.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp简单用法">
 <meta name="twitter:description" content="gulp简单用法不说原理，直接开干 需了解node稍微介绍一下node：  package.json(node项目配置文件)，形式如下：  12345678910111213141516171819202122232425262728293031323334353637   &amp;#123;  &quot;name&quot;: &quot;32000&quot;, //项目名  &quot;version&quot;: &quot;0.0.1&quot;, //版本号  &quot;de">
@@ -198,6 +198,7 @@
 <li>package.json(node项目配置文件)，形式如下：</li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">   &#123;</div><div class="line"></div><div class="line">  "name": "32000", //项目名</div><div class="line">  "version": "0.0.1", //版本号</div><div class="line">  "description": "vrf project", //项目描述</div><div class="line">  "main": "gulpfile.js",//项目入口文件</div><div class="line">  "scripts": &#123;          //脚本命令，可自定义，像这个，我定义了一个start命令用来指                          //向webpack命令</div><div class="line">    "start": "webpack"</div><div class="line">  &#125;,</div><div class="line">  "repository": &#123;       //git目录</div><div class="line">    "type": "git",</div><div class="line">    "url": "http://greesmartapp02/susan/air-h5.git"</div><div class="line">  &#125;,</div><div class="line">  "keywords": [         //关键词</div><div class="line">    <span class="string">"vrf"</span></div><div class="line">  ],</div><div class="line">  "author": "susan,hwb,leesure",    //作者</div><div class="line">  "license": "ISC",</div><div class="line">  "devDependencies": &#123;              //依赖插件，用到的所有依赖，相当于android                                       //gradle里面的依赖，懂了吧</div><div class="line">    "browser-sync": "^2.18.8",</div><div class="line">    "css-loader": "^0.28.0",</div><div class="line">    "gulp": "^3.9.1",               //gulp也是node的插件，相当于你用的第三方包，                                    //懂？</div><div class="line">    "gulp-concat": "^2.6.1",</div><div class="line">    "gulp-htmlmin": "^3.0.0",</div><div class="line">    "gulp-if": "^2.0.2",</div><div class="line">    "gulp-minify-css": "^1.2.4",</div><div class="line">    "gulp-uglify": "^2.1.2",</div><div class="line">    "gulp-useref": "^3.1.2",</div><div class="line">    "gulp-util": "^3.0.8",</div><div class="line">    "jsx-loader": "^0.13.2",</div><div class="line">    "run-sequence": "^1.2.2",</div><div class="line">    "sass-loader": "^6.0.3",</div><div class="line">    "style-loader": "^0.16.1",</div><div class="line">    "url-loader": "^0.5.8",</div><div class="line">    "webpack-stream": "^3.2.0"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
 <li>接下来再说一下gulpfile.js,这个呢，就是gulp的配置文件；</li>
 </ul>
@@ -212,7 +213,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-10-21T05:49:25.150Z" itemprop="dateUpdated">2017-10-21 13:49:25</time>
+    Last updated: <time datetime="2017-11-23T07:40:09.094Z" itemprop="dateUpdated">2017-11-23 15:40:09</time>
 </span><br>
 
 
@@ -257,7 +258,12 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/04/18/gulp简单用法/&title=《gulp简单用法》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/04/18/gulp简单用法/&title=《gulp简单用法》 — SakuraWood's blogs&source=gulp简单用法不说原理，直接开干
+需了解node稍微介绍一下node：
+
+package.json(node项目配置文件)，形式如下：
+
+1234567..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -404,7 +410,12 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/04/18/gulp简单用法/&title=《gulp简单用法》 — SakuraWood's blogs&source=sharing IT tech & skills , include Android and Front-end" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/04/18/gulp简单用法/&title=《gulp简单用法》 — SakuraWood's blogs&source=gulp简单用法不说原理，直接开干
+需了解node稍微介绍一下node：
+
+package.json(node项目配置文件)，形式如下：
+
+1234567..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

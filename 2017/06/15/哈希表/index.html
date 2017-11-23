@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/hash_2.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/linear_probing.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/quadratic_probing.png">
-<meta property="og:updated_time" content="2017-10-21T05:50:54.764Z">
+<meta property="og:updated_time" content="2017-11-23T07:42:07.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哈希表">
 <meta name="twitter:description" content="哈希表与红黑树哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值">
@@ -198,6 +198,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="哈希表与红黑树"><a href="#哈希表与红黑树" class="headerlink" title="哈希表与红黑树"></a>哈希表与红黑树</h1><h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？</p>
 <h3 id="哈希是什么？"><a href="#哈希是什么？" class="headerlink" title="哈希是什么？"></a>哈希是什么？</h3><p>散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（Hashing algorithms）计算出来的资料指纹（data fingerprint），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia</p>
+<a id="more"></a>
 <h3 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h3><p>所有的哈希函数都具有如下一个基本特性：如果两个散列值是不相同的（根据同一函数），那么这两个散列值的原始输入也是不相同的。这个特性是散列函数具有确定性的结果，具有这种性质的散列函数称为单向散列函数。</p>
 <h3 id="哈希表-1"><a href="#哈希表-1" class="headerlink" title="哈希表"></a>哈希表</h3><ul>
 <li><p>若关键字为k，则其值存放在f(k)的存储位置上。由此，不需比较便可直接取得所查记录。称这个对应关系f为散列函数，按这个思想建立的表为散列表。</p>
@@ -215,7 +216,7 @@
 <p>“这hash函数有点简单啊”<br>是的，它是简单，但简单不代表它不是哈希函数，事实上，它叫直接定址法，是一个线性函数：<br>hash(k)= a*k+b</p>
 <p>“为啥初始化就指定了100容量？”<br>必须要指出的是，这个是必须的。你想通过下标存储并访问，对于数组来说，这不可避免。在JDK源码里，你也可以看到，Java的HashMap的初始容量设成了16。你可能说，你这hash函数，我只要key设为100以上，这程序就废了。是啊，它并不完美。这涉及到扩容的事情，稍后再讲。</p>
 <p>直接定址法的优点很明显，就是它不会产生重复的hash值。但由于它与键值本身有关系，所以当键值分布很散的时候，会浪费大量的存储空间。所以一般是不会用到直接定址法的。</p>
-<a id="more"></a>
+<!-- more -->
 <h4 id="处理冲突"><a href="#处理冲突" class="headerlink" title="处理冲突"></a>处理冲突</h4><p>假如某个hash函数产生了一堆哈希值，而这些哈希值产生了冲突怎么办（实际生产环境中经常发生）？在各种哈希表的实现里，处理冲突是必需的一步。<br>比如你定义了一个hash函数：<br><strong>hash(k)=k mod 10</strong><br>假设key序列为：[15,1,24,32,55,64,42,93,82,76]</p>
 <table>
 <thead>
@@ -539,7 +540,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-10-21T05:50:54.764Z" itemprop="dateUpdated">2017-10-21 13:50:54</time>
+    Last updated: <time datetime="2017-11-23T07:42:07.739Z" itemprop="dateUpdated">2017-11-23 15:42:07</time>
 </span><br>
 
 

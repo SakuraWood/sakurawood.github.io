@@ -50,7 +50,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_200.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_1000.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_5000.png">
-<meta property="og:updated_time" content="2017-10-21T05:50:41.866Z">
+<meta property="og:updated_time" content="2017-11-23T07:41:58.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="八大排序算法（python描述）">
 <meta name="twitter:description" content="八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这个仁者见仁吧。。。  基本思想： 两两比较，然后决定是否交换  代码如下：123456789def bubble_sort(lists):    length=len(lists)    for i in range(0,length):">
@@ -221,6 +221,7 @@
 </ul>
 <p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</div><div class="line">            <span class="keyword">if</span>(lists[i]&gt;lists[j]):</div><div class="line">                temp=lists[i]</div><div class="line">                lists[i]=lists[j]</div><div class="line">                lists[j]=temp</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <p>再来分析一波时间复杂度，嗯，这个时间复杂度应该为：<br>0+1+2+3+······+n-1<br>即n的累加，等于n*(n-1)/2。时间复杂度为O(n²)</p>
+<a id="more"></a>
 <h2 id="直接选择排序"><a href="#直接选择排序" class="headerlink" title="直接选择排序"></a>直接选择排序</h2><p>好吧，我只是单纯认为这个是最简单的排序。<br>设想一下吧，假如给你一套扑克牌，从A到K一共13张乱序的牌，你会怎么把它排好序？<br>我想你应该是这样，先把A选出来，再把2选出来，以此类推，最后把K选出来。<br>你难道不是这样？别告诉我你是按照冒泡那样排的，如果你真那样做的，我服你=。=</p>
 <ul>
 <li>基本思想： 第1趟，在待排序记录r[1] ~ r[n]中选出最小的记录，将它与r[1]交换；<br>第2趟，在待排序记录r[2] ~ r[n]中选出最小的记录，将它与r[2]交换；<br>以此类推，第i趟在待排序记录r[i] ~ r[n]中选出最小的记录，将它与r[i]交换，使有序序列不断增长直到全部排序完毕。</li>
@@ -241,7 +242,7 @@
             </figure>
 <p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,length):</div><div class="line">        j=i<span class="number">-1</span></div><div class="line">        key=lists[i]</div><div class="line">        <span class="keyword">while</span> j&gt;=<span class="number">0</span> <span class="keyword">and</span> lists[j]&gt;key:</div><div class="line">            <span class="comment"># while j&gt;=0:</span></div><div class="line">                <span class="comment"># if(lists[j]&gt;key): 注意了，有些哥们儿是这样写的，但其实这样浪费了比较操作，显得比冒泡还慢</span></div><div class="line">                <span class="comment"># 其实终止条件是遇上前面第一个小的就停止循环，因为之前的都是排好序的</span></div><div class="line">            lists[j+<span class="number">1</span>]=lists[j]</div><div class="line">            lists[j]=key</div><div class="line">            j-=<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <p>时间复杂度：<br>这东西一看，时间复杂度也是O(n²),在最坏的情况下，和冒泡是一样的，但是万一没那么坑爹(不需要每趟都要和之前的所有元素都比较)，<br>它就比冒泡要快一点。</p>
-<a id="more"></a>
+<!-- more -->
 <h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>希尔排序是一个叫希尔的人发明的，它是直接插入排序的进化版本。</p>
 <ul>
 <li>基本思想：对数组按增量分组，组内再进行直接插入排序</li>
@@ -559,7 +560,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-10-21T05:50:41.866Z" itemprop="dateUpdated">2017-10-21 13:50:41</time>
+    Last updated: <time datetime="2017-11-23T07:41:58.642Z" itemprop="dateUpdated">2017-11-23 15:41:58</time>
 </span><br>
 
 
