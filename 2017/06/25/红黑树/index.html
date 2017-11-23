@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_300.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_3000.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_30000.png">
-<meta property="og:updated_time" content="2017-11-23T07:39:31.991Z">
+<meta property="og:updated_time" content="2017-11-23T08:05:07.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树">
 <meta name="twitter:description" content="红黑树 红黑树（英语：Red–black tree）是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。它是在1972年由鲁道夫·贝尔发明的，他称之为”对称二叉B树”，它现代的名字是在Leo J. Guibas和Robert Sedgewick于1978年写的一篇论文中获得的。它是复杂的，但它的操作有着良好的最坏情况运行时间，并且在实践中是高效的：它可以在O(lo">
@@ -298,9 +298,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/bst_1.png" alt="bst" title="">
+                    <img src="/images/bst_1.png" alt="bst-1" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">bst-1</div>
             </figure>
 <p>这俩节点都是属于这种情况，应该直接删掉。</p>
 <ol>
@@ -312,9 +312,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/bst_2.png" alt="bst" title="">
+                    <img src="/images/bst_2.png" alt="bst-2" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">bst-2</div>
             </figure>
 <ol>
 <li>有右子树但没有左子树</li>
@@ -325,9 +325,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/bst_3.jpg" alt="bst" title="">
+                    <img src="/images/bst_3.jpg" alt="bst-3" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">bst-3</div>
             </figure>
 <ol>
 <li>既有左子树又有右子树</li>
@@ -338,9 +338,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/bst_4.png" alt="bst" title="">
+                    <img src="/images/bst_4.png" alt="bst-4" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">bst-4</div>
             </figure>
 <p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_successor</span><span class="params">(self,x)</span>:</span></div><div class="line">        node=self.find(x)</div><div class="line">        current_node=node.rchild</div><div class="line">        <span class="keyword">while</span> current_node.lchild:</div><div class="line">            current_node=current_node.lchild</div><div class="line">        <span class="keyword">return</span> current_node</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_pre</span><span class="params">(self,x)</span>:</span></div><div class="line">    node=self.find(x)</div><div class="line">    current_node=node.lchild</div><div class="line">    <span class="keyword">while</span> current_node.rchild:</div><div class="line">        current_node=current_node.rchild</div><div class="line">    <span class="keyword">return</span> current_node</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self,x)</span>:</span></div><div class="line">    self.delete(x)</div><div class="line">    self.node_size-=<span class="number">1</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete</span><span class="params">(self,x)</span>:</span></div><div class="line">    node=self.find(x)</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="keyword">if</span> node.lchild <span class="keyword">and</span> <span class="keyword">not</span> node.rchild:</div><div class="line">            pre=self.get_pre(node.key)</div><div class="line">            value=pre.key</div><div class="line">            self.delete(value)</div><div class="line">            node.key=value</div><div class="line">        <span class="keyword">elif</span> node.rchild <span class="keyword">and</span> <span class="keyword">not</span> node.lchild:</div><div class="line">            <span class="keyword">if</span> node.is_left_child():</div><div class="line">                node.rchild.parent=node.parent</div><div class="line">                node.parent.lchild=node.rchild</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                node.rchild.parent=node.parent</div><div class="line">                node.parent.rchild=node.rchild</div><div class="line">        <span class="keyword">elif</span> node.lchild <span class="keyword">and</span> node.rchild:</div><div class="line">            successor=self.get_successor(node.key)</div><div class="line">            value=successor.key</div><div class="line">            self.delete(value)</div><div class="line">            node.key=value</div><div class="line">        <span class="keyword">elif</span> <span class="keyword">not</span> node.lchild <span class="keyword">and</span> <span class="keyword">not</span> node.rchild:</div><div class="line">            <span class="keyword">if</span> node.is_left_child():</div><div class="line">                node.parent.lchild=<span class="keyword">None</span></div><div class="line">            <span class="keyword">elif</span> node.is_right_child():</div><div class="line">                node.parent.rchild=<span class="keyword">None</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                self.root=<span class="keyword">None</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">raise</span> AttributeError</div><div class="line">    <span class="keyword">except</span> AttributeError:</div><div class="line">        <span class="keyword">print</span> <span class="string">"The node is not in the tree"</span></div></pre></td></tr></table></figure></p>
 <p>大致思路就是这样，二叉排序树就这样介绍完了。</p>
@@ -354,9 +354,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/tree_rotate.jpg" alt="bst" title="">
+                    <img src="/images/tree_rotate.jpg" alt="avl-1" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">avl-1</div>
             </figure>
 <p>通过上面操作，树趋于平衡。究竟是什么操作？就是通过树旋转操作。</p>
 <p>树旋转操作有四种情况：</p>
@@ -364,9 +364,9 @@
 <li>LL型<br>先来张图体会一下：<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/tree_rotate_ll.jpg" alt="bst" title="">
+                    <img src="/images/tree_rotate_ll.jpg" alt="avl-2" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">avl-2</div>
             </figure>
 </li>
 </ul>
@@ -381,9 +381,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/tree_rotate_rr.jpg" alt="bst" title="">
+                    <img src="/images/tree_rotate_rr.jpg" alt="avl-3" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">avl-3</div>
             </figure>
 <p>同理地，RR型旋转要做的工作：</p>
 <ol>
@@ -394,9 +394,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/tree_rotate_2.png" alt="bst" title="">
+                    <img src="/images/tree_rotate_2.png" alt="avl-4" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">avl-4</div>
             </figure>
 <p>这怎么搞？如果你直接右旋转的话，你会发现将不符合排序树的性质，因为32比23大了。为什么会这样呢，因为32是23的右子树啊。这事情发生在不平衡节点的左子树的右子树上，所以它叫LR型。</p>
 <ul>
@@ -405,17 +405,17 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/tree_rotate_lr.jpg" alt="bst" title="">
+                    <img src="/images/tree_rotate_lr.jpg" alt="avl-5" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">avl-5</div>
             </figure>
 <p>先解决左子树姿势不正确的问题，然后你发现可以直接右旋了。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/tree_rotate_lr_2.jpg" alt="bst" title="">
+                    <img src="/images/tree_rotate_lr_2.jpg" alt="avl-6" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">avl-6</div>
             </figure>
 <ul>
 <li>RL型</li>
@@ -423,9 +423,9 @@
 <p>看懂了LR型，再来看RL型，那就是如法炮制了。<br>先解决右子树姿势问题，再左旋。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/tree_rotate_rl.jpg" alt="bst" title="">
+                    <img src="/images/tree_rotate_rl.jpg" alt="avl-7" title="">
                 </div>
-                <div class="image-caption">bst</div>
+                <div class="image-caption">avl-7</div>
             </figure></p>
 <p>知道怎么解决平衡了。还有一个困扰的问题是，如何检测不平衡的发生，这个事情发生在插入节点甚至删除节点的时候。事实上只需检测不平衡的最小子树就行了，因为不平衡是建立在已平衡基础上的。所以只需要向上查找不平衡的节点就可以了。</p>
 <p>上面的二叉排序树还派的上用场，先改造一下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_balance</span><span class="params">(self,node)</span>:</span>                     <span class="comment">#判断是否平衡</span></div><div class="line">    bf=self.get_bf(node)</div><div class="line">    <span class="keyword">if</span> bf&gt;<span class="number">1</span> <span class="keyword">or</span> bf&lt;<span class="number">-1</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_bf</span><span class="params">(self,node)</span>:</span>                      <span class="comment">#获取一个节点的平衡因子</span></div><div class="line">    lh=self.get_node_h(node.lchild)</div><div class="line">    rh=self.get_node_h(node.rchild)</div><div class="line">    <span class="keyword">return</span> lh-rh</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_node_h</span><span class="params">(self,node)</span>:</span>                  <span class="comment">#获取一个节点的高度,这里的高度不是指节点所在的层数</span></div><div class="line">    <span class="keyword">return</span> self.get_node_h_helper(node)<span class="number">-1</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_node_h_helper</span><span class="params">(self,node)</span>:</span>           <span class="comment">#获取高度的辅助函数</span></div><div class="line">    l,r=<span class="number">0</span>,<span class="number">0</span></div><div class="line">    <span class="keyword">if</span> node:</div><div class="line">        l=self.get_node_h_helper(node.lchild)</div><div class="line">        r=self.get_node_h_helper(node.rchild)</div><div class="line">    <span class="keyword">return</span> l+<span class="number">1</span> <span class="keyword">if</span> l&gt;r <span class="keyword">else</span> r+<span class="number">1</span></div></pre></td></tr></table></figure></p>
@@ -445,16 +445,16 @@
 <p>其实，你在找到第一个不平衡的节点调整完之后，只是局部调整好了。来张图你就懂了：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/avl_delete_1.jpg" alt="avl" title="">
+                    <img src="/images/avl_delete_1.jpg" alt="avl-8" title="">
                 </div>
-                <div class="image-caption">avl</div>
+                <div class="image-caption">avl-8</div>
             </figure></p>
 <p>然后你调整完之后，变成了这样<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/avl_delete_2.jpg" alt="avl" title="">
+                    <img src="/images/avl_delete_2.jpg" alt="avl-9" title="">
                 </div>
-                <div class="image-caption">avl</div>
+                <div class="image-caption">avl-9</div>
             </figure></p>
 <p>“本来就应该这样，这不很好吗？”</p>
 <p>但是你发现这所谓局部的子树，高度已经发生了变化，由5变成了4。<br>你想一下，要是它的爸爸的另一个孩子，也就是它兄弟那边，高度是6（按照定义符合AVL树），造成了爸爸的平衡因子超过2，这可咋整？然后你又要调。<br>更糟糕的是，调完后又发现爷爷又不平衡了，所以继续。。。如此，直到根节点（这是最坏情况）。</p>
@@ -491,18 +491,18 @@
 <p>直接上《算法》里的图：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_1.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_1.png" alt="2-3_tree-1" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-1</div>
             </figure></p>
 <p>一颗完美的2-3树，它到所有null links的距离都是一样的。</p>
 <p>诶，我们要讲就要讲完美的，其他的不谈。</p>
 <h3 id="2-3Tree查找"><a href="#2-3Tree查找" class="headerlink" title="2-3Tree查找"></a>2-3Tree查找</h3><p>查找就不用说了吧？跟BST是一个道理，从祖宗开始往下查，有则有，无则无。<br>《算法》里的图很形象：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_2.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_2.png" alt="2-3_tree-2" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-2</div>
             </figure></p>
 <h3 id="2-3Tree插入"><a href="#2-3Tree插入" class="headerlink" title="2-3Tree插入"></a>2-3Tree插入</h3><p>套路都差不多了，插入都是基于查找。</p>
 <ul>
@@ -512,9 +512,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_3.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_3.png" alt="2-3_tree-3" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-3</div>
             </figure>
 <ul>
 <li>往3-node里插</li>
@@ -526,16 +526,16 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_4.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_4.png" alt="2-3_tree-4" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-4</div>
             </figure>
 <p>然后分割这个4-node，中间那个推上去，把这个4-node变成一颗2-3树：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_5.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_5.png" alt="2-3_tree-5" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-5</div>
             </figure></p>
 <ul>
 <li>插入的3-node的父节点是一个2-node</li>
@@ -544,16 +544,16 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_6.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_6.png" alt="2-3_tree-6" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-6</div>
             </figure>
 <p>然后，分割这个4-node，把中间那个推上去：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_7.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_7.png" alt="2-3_tree-7" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-7</div>
             </figure></p>
 <ul>
 <li>插入的3-node的父节点是一个3-node</li>
@@ -561,24 +561,24 @@
 <p>第一步，把它变成一个4-node：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_8.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_8.png" alt="2-3_tree-8" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-8</div>
             </figure></p>
 <p>然后，分割，推中：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_9.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_9.png" alt="2-3_tree-9" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-9</div>
             </figure></p>
 <p>然后你发现，这一推，父节点也变成4-node了。咋办？那就继续推中：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_10.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_10.png" alt="2-3_tree-10" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-10</div>
             </figure>
 <ul>
 <li>根节点是4-node</li>
@@ -587,9 +587,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_11.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_11.png" alt="2-3_tree-11" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-11</div>
             </figure>
 <p>所以，在插入元素到3-node的时候，暂时生成的4-node“推中”是一个有讲究的操作。总结一下“推中”到底能遇上哪些情况：</p>
 <ul>
@@ -597,9 +597,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_12.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_12.png" alt="2-3_tree-12" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-12</div>
             </figure>
 </li>
 <li><p>“推中”的对象是2-node<br>有两种情况：</p>
@@ -612,9 +612,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_13.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_13.png" alt="2-3_tree-13" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-13</div>
             </figure>
 <ul>
 <li>“推中”的对象是3-node<br>有三种情况：</li>
@@ -627,9 +627,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/2-3_tree_14.png" alt="2-3_tree" title="">
+                    <img src="/images/2-3_tree_14.png" alt="2-3_tree-14" title="">
                 </div>
-                <div class="image-caption">2-3_tree</div>
+                <div class="image-caption">2-3_tree-14</div>
             </figure>
 <p>看完上面的东西，有什么值得注意的吗？<br><strong>可以知道，2-3树在单纯插入的时候高度是不会变的，变是变在“推中”的操作上。而且，它时刻都在保持着完美平衡。因为它完美平衡，所以插入操作始终发生在底部。</strong><br>完美平衡的好处之一就是查找快。这不用说了吧？<br>“AVL也快啊~~”<br>是，我之前说什么来着，AVL它删除可能会很耗时，旋转太多！2-3树一看上去都不用旋转，是不是6翻了？<br>那好吧，就来实现实现。<br>根据以上的规则，可以写出一堆代码出来，它对代码实现不是很友好。你可能觉得挺简单的，但事实上，涉及到了两种节点，在考虑情况的时候就很头疼。能不能只靠一种节点来实现，不要这些什么2-节点、3-节点，甚至4-节点的，写出来就感觉麻烦。</p>
 <h2 id="2-3树到红黑树"><a href="#2-3树到红黑树" class="headerlink" title="2-3树到红黑树"></a>2-3树到红黑树</h2><p>终于到了红黑树了，这次不会再绕弯了。</p>
@@ -639,18 +639,18 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_1.png" alt="rbt" title="">
+                    <img src="/images/rbt_1.png" alt="rbt-1" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-1</div>
             </figure>
 <p>如同书上所说，一个3-node，它变成了两个2-node。<strong>之前的3-node的左元素被抽离出来，变成了3-node的右元素的左节点。</strong>并且这两个2-node由红线相连。把2-3树里的所有3-node都变成这样，就成了一个红黑树的雏形。为什么只是雏形？因为描述边的特点没有描述节点来的方便。我们加点料看看。</p>
 <p>理解刚才那句<strong>“3-node的左元素被抽离出来，变成了3-node的右元素的左节点”</strong>是很重要的。根据书上描述，这里要定义3-node的右元素为h节点：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_2.png" alt="rbt" title="">
+                    <img src="/images/rbt_2.png" alt="rbt-2" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-2</div>
             </figure>
 <p>并且，还有两件重要的事，直接说明了红、黑节点究竟是怎么着色的：</p>
 <ol>
@@ -675,9 +675,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_3.png" alt="rbt" title="">
+                    <img src="/images/rbt_3.png" alt="rbt-3" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-3</div>
             </figure>
 <p>那么接下来，就是红黑树的神级操作。唯一会让你困扰的是，红黑树在处理插入3-node（相对于等价的2-3树）的时候，不是采取“推中”的策略，而是“分裂”的策略（从这里的理解开始，我跟《算法》里的描述可能有些许不一样，但总归来讲思想还是一样的）。</p>
 <p>我要引导的是，如何从2-3树的概念里转换过来：<br>依然像2-3树那样进行插入操作。所以，在下面的描述里，关于2-node，3-node，4-node这些，只是红黑树里等价于对应2-3树的说法。</p>
@@ -685,32 +685,32 @@
 <h4 id="往独立的2-node里面插（只有root节点）"><a href="#往独立的2-node里面插（只有root节点）" class="headerlink" title="往独立的2-node里面插（只有root节点）"></a>往独立的2-node里面插（只有root节点）</h4><p>2-3树的2-node：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_4.png" alt="rbt" title="">
+                    <img src="/images/rbt_4.png" alt="rbt-4" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-4</div>
             </figure><br>红黑树的2-node：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_5.png" alt="rbt" title="">
+                    <img src="/images/rbt_5.png" alt="rbt-5" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-5</div>
             </figure></p>
 <ul>
 <li><p>插入一个相对于b小的元素a：<br>2-3树：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_6.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_6.jpg" alt="rbt-6" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-6</div>
             </figure>
 <p>红黑树：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_7.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_7.jpg" alt="rbt-7" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-7</div>
             </figure>
 <p>这一步，显然，对照一下2-3树，2-3树的2-node变成了3-node，而3-node显然要编码成红黑树的标准。b成为所谓的h节点，a作为它的左节点，当然也就是红线相连，并且a节点标成红色。</p>
 </li>
@@ -718,25 +718,25 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_8.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_8.jpg" alt="rbt-8" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-8</div>
             </figure>
 <p>红黑树：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_9.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_9.jpg" alt="rbt-9" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-9</div>
             </figure>
 <p>“嘿嘿嘿，你怎么乱搞？”<br>这不是乱搞，首先，我们得按照二叉排序树的规定来插入节点。<br>“插入就插入，为啥把它搞成红的？不是说只有左元素才有这个条件吗？”<br>红的是因为要符合红黑树的第五条性质。<br>“那不矛盾了？”<br>先别急，我还得旋转它呢：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_10.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_10.jpg" alt="rbt-10" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-10</div>
             </figure>
 </li>
 </ul>
@@ -746,44 +746,44 @@
 <li>左旋转<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_11.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_11.jpg" alt="rbt-11" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-11</div>
             </figure></li>
 <li><p>右旋转</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_12.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_12.jpg" alt="rbt-12" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-12</div>
             </figure>
-<p>“为什么还会有右旋转？对啊，我也想问。这不是把本来正确的给整成错的了吗？”</p>
+<p>“为什么还会有右旋转？(对啊，我也想问)。这不是把本来正确的给整成错的了吗？”</p>
 </li>
 <li><p>变色<br>呵呵，上面我已经说过，那个所谓的h节点不是不可以变红，当它是4-node的中间节点是，它会是红的，所以这个右旋转其实是起到一个过渡作用，看下面的情况：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_14.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_14.jpg" alt="rbt-13" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-13</div>
             </figure>
 <p>你看，我想插入a（b已经红了），那它就得在b左边，形成一个临时的4-node，而对于临时的4-node，是需要“推中”的，在红黑树里，其实就是LL旋转（b为中心）：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_15.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_15.jpg" alt="rbt-14" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-14</div>
             </figure>
 </li>
 </ul>
 <p>“这下左右都是红的了，还搞毛。。。”<br>忘了4-node怎么拆分的了吗？，把b节点推上去，4-node变成3个2-node，放在红黑树的概念里，自然也就没有所谓的红节点了：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_16.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_16.jpg" alt="rbt-15" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-15</div>
             </figure><br>注意图中的最后一步，我把b节点变红了。你应该可以理解，因为中间状态的时候，这个子树的黑色层级变高了，不符合红黑树的第五条性质。</p>
 <p><strong>但是，在b节点是根节点的情况下，不能变色，而且你即使翻转它的颜色，也是个多余动作。</strong>根节点是红或黑，都影响不到红黑树的第五条性质。而且，你可以想一下，根节点如果设成红色，就没法往下进行了。所以，<strong>保持根节点是黑色的</strong>。这也就是红黑树为什么有第二条性质。</p>
 <p>“b不是根节点的话，如果b节点本身是左边的子节点还好，如果是右边的子节点，又得左旋转。”<br>嗯，是的。这里的插入操作，有时候需要多次旋转，最多三次旋转。<br>至于这些旋转操作，前面已经介绍过AVL树的旋转操作，所以这里不再重复介绍（就多了根红线嘛。。看前面的LL、LR、RR、RL去）</p>
@@ -791,43 +791,43 @@
 <h4 id="往底部的2-node插入"><a href="#往底部的2-node插入" class="headerlink" title="往底部的2-node插入"></a>往底部的2-node插入</h4><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_13.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_13.jpg" alt="rbt-16" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-16</div>
             </figure>
 <p>和在根节点插入差不多，只不过有父节点存在而已。</p>
 <p>下面，往3-node里面插入，和2-3树一样，很多种情况：</p>
 <h4 id="一个单独的3-node"><a href="#一个单独的3-node" class="headerlink" title="一个单独的3-node"></a>一个单独的3-node</h4><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_18.png" alt="rbt" title="">
+                    <img src="/images/rbt_18.png" alt="rbt-17" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-17</div>
             </figure>
 <h4 id="往底部的3-node插入"><a href="#往底部的3-node插入" class="headerlink" title="往底部的3-node插入"></a>往底部的3-node插入</h4><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_17.png" alt="rbt" title="">
+                    <img src="/images/rbt_17.png" alt="rbt-18" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-18</div>
             </figure>
 <p>有时候旋转最多要三次，就是如下这种情况（为啥不是两次？两次也是对的，马上就讲）：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_19.png" alt="rbt" title="">
+                    <img src="/images/rbt_19.png" alt="rbt-19" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-19</div>
             </figure></p>
 <p>好了，我算是把《算法》上的2-3树到红黑树基本复述了一遍。<br>“诶，貌似没讲完，还有删除操作呢？”</p>
 <p>先打断一下，你可能会发现，2-3树概念里的红黑树，虽然处处符合红黑树的5条性质，但总感觉不够。而且你如果之前看过其他的博客，你会发现跟大多数讲的不一样，你肯定会提出质疑：<br>上面实现的红黑树，如果节点没有左子树，往右边插入，就一定会调整到左边，因为它不符合所谓的red link（2-3树）定义。但事实上，红节点在右边又怎么了？没毛病啊，根本不会违背红黑树的性质。红色节点通通都是左节点，强行左转右的操作让你很不爽。<br>所以，你觉得这可能是劣化版的红黑树。</p>
 <p>我当然知道你在想什么，2-3-4树，对不对？是的，2-3-4树才是红黑树的对应版本，为什么不早点说？其实本质是一样的，所以，这里就是个玄学问题（笑）。区别在4-node，看下图：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_20.png" alt="rbt" title="">
+                    <img src="/images/rbt_20.png" alt="rbt-20" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-20</div>
             </figure><br><strong>关键是你怎么看待4-node，2-3树里也会有4-node，只不过它是暂时存在的，“推中”是它的核心操作；对于2-3-4树来说，又是怎样一副景象呢？在遇上4-node的时候，难道还要生成一个临时的5-node吗？并不是，在这个时候，它需要先“分裂”成3个2-node（其实就是2-3树的“推中”）。所以，一切取决于你是选择他“推中”还是“分裂”，英文原话叫“bottom-up 2-3”跟“top-down 2-3-4”。</strong></p>
-<p>事实上，我讲的这个版本的红黑树，它不是劣化版本，反而更加高级。它是红黑树的发明人之一Robert Sedgewick先生为了减少原有红黑树插入/删除需要处理的情况数量，自己改进的算法，它叫<code>Left-leaning red-black trees</code>（LLRBT），即左偏红黑树。在它的世界里，红节点就是要左倾的。它比起一般的RBT，有以下优点：</p>
+<p>事实上，我讲的这个版本的红黑树，它不是劣化版本，反而更加高级。它是红黑树的发明人之一<code>Robert Sedgewick</code>先生为了减少原有红黑树插入/删除需要处理的情况数量，自己改进的算法，它叫<code>Left-leaning red-black trees</code>（LLRBT），即左偏红黑树。在它的世界里，红节点就是要左倾的。它比起一般的RBT，有以下优点：</p>
 <ul>
 <li>它可以与2-3-4树保持完美的一一对应</li>
 <li>它可以保持完美的黑链平衡</li>
@@ -839,25 +839,25 @@
 <li>4-node：三个key，4个孩子<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_23.png" alt="rbt" title="">
+                    <img src="/images/rbt_23.png" alt="rbt-21" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-21</div>
             </figure>
 </li>
 </ul>
 <p>普通RBT编码方式：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_21.png" alt="rbt" title="">
+                    <img src="/images/rbt_21.png" alt="rbt-22" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-22</div>
             </figure><br>3-node的编码方式跟刚才不一样了，红线可以在左，可以在右。4-node作为合法存在，它的两个子节点都可为红。</p>
 <p>LLRBT编码方式：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_25.png" alt="rbt" title="">
+                    <img src="/images/rbt_25.png" alt="rbt-23" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-23</div>
             </figure><br>3-node的编码方式就是我上面讲的，它不允许红节点存在于右边。而关于4-node，你可以看上面讲的变色操作。所以，你明白了，我其实一直在讲的就是这个LLRBT。</p>
 <h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>插入都这么艰难了，删除岂不更加费脑？红黑树的删除包含集中操作？我不会分析那些什么父黑叔红，父红叔红各种情况的，那样只会让人眼花缭乱。明明都讲了2-3树，还要各种记红啊黑什么的，那我讲2-3树有何用？</p>
 <p>在LLRBT里，删除一个节点，比插入还简单，我在这里提供一个策略：</p>
@@ -877,9 +877,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_27.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_27.jpg" alt="rbt-24" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-24</div>
             </figure>
 <p>假如我要删掉这颗树（或者只是颗子树）的最小节点a，就从它的根节点开始往下逐层“加红”（其实就是利用暂时的4-node不断往下迁移），这样做是为了先保持黑链平衡，满足红黑树的第五条性质。等删掉之后，再通过旋转恢复成LLRBT的样子。</p>
 <p>“哪有你这么理想，你这例子全是黑节点啊”</p>
@@ -889,9 +889,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_31.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_31.jpg" alt="rbt-25" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-25</div>
             </figure>
 <p>完美删除，丝毫不影响红黑树的性质。</p>
 <h4 id="查找路线在左子树"><a href="#查找路线在左子树" class="headerlink" title="查找路线在左子树"></a>查找路线在左子树</h4><p>也就是查找时，判断在左子树，需要“左拐”。</p>
@@ -901,9 +901,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_30.png" alt="rbt" title="">
+                    <img src="/images/rbt_30.png" alt="rbt-26" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-26</div>
             </figure>
 <p>到达R节点时，因为查找的节点比R小，所以要左拐，但是看到E是红的，这种情况下，就不需要加红了嘛。直接往下走就行。</p>
 <ul>
@@ -912,9 +912,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_29.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_29.jpg" alt="rbt-27" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-27</div>
             </figure>
 <p>查找依然往左拐，但是看到C是黑的，如果此时直接对C动手，E的黑链就崩坏了，所以要它进行“加红”，公平起见，C和S都要变红。</p>
 <ul>
@@ -924,9 +924,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_32.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_32.jpg" alt="rbt-28" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-28</div>
             </figure>
 <p>就是在给S变红时，S的左儿子是红的，这种情况跟插入时情况很像，只能旋转解决。</p>
 <h4 id="查找路线在右子树"><a href="#查找路线在右子树" class="headerlink" title="查找路线在右子树"></a>查找路线在右子树</h4><p>可能拐着拐着，发现要往右子树拐了：</p>
@@ -936,9 +936,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_28.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_28.jpg" alt="rbt-29" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-29</div>
             </figure>
 <p>按照LLRBT的道理，右节点可能为红吗？反正先不管，先把R的两儿子都变红了再说。但偏偏遇上左节点已经红了，你说把右节点变红吧，黑链又崩坏了。所以就是这种情况，而且发生在根节点上，只需把它左红转换成右红，这样做依然不影响红黑树的性质。</p>
 <ul>
@@ -947,9 +947,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_33.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_33.jpg" alt="rbt-30" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-30</div>
             </figure>
 <p>这种简单，直接变色就行。</p>
 <ul>
@@ -958,9 +958,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/rbt_34.jpg" alt="rbt" title="">
+                    <img src="/images/rbt_34.jpg" alt="rbt-31" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">rbt-31</div>
             </figure>
 <p>这种情况就是你发现当把E的左节点C变红了之后，C的左节点A居然是红的，这一变彻底违反红黑树性质，又得调，旋转，再变色。</p>
 <p>总之，删除中所需要的临时形态就是这么多了，千万记住一点，临时操作虽说是临时，也不是LLRBT的形态，但也不能违背红黑树性质。失去了LLRBT的形态不要紧，只要你熟悉插入操作，那些什么右红变左红，4-node的“推中”，不是分分钟的事嘛。</p>
@@ -972,27 +972,27 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/a_r_pk_300.png" alt="rbt" title="">
+                    <img src="/images/a_r_pk_300.png" alt="test-1" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">test-1</div>
             </figure>
 </li>
 <li><p>随机3000个数据：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/a_r_pk_3000.png" alt="rbt" title="">
+                    <img src="/images/a_r_pk_3000.png" alt="test-2" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">test-2</div>
             </figure>
 </li>
 <li><p>随机30000个数据：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/images/a_r_pk_30000.png" alt="rbt" title="">
+                    <img src="/images/a_r_pk_30000.png" alt="test-3" title="">
                 </div>
-                <div class="image-caption">rbt</div>
+                <div class="image-caption">test-3</div>
             </figure>
 </li>
 </ul>
@@ -1004,7 +1004,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-11-23T07:39:31.991Z" itemprop="dateUpdated">2017-11-23 15:39:31</time>
+    Last updated: <time datetime="2017-11-23T08:05:07.118Z" itemprop="dateUpdated">2017-11-23 16:05:07</time>
 </span><br>
 
 
