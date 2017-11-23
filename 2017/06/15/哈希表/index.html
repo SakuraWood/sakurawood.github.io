@@ -20,21 +20,21 @@
     
     
     <meta name="keywords" content="算法,数据结构">
-    <meta name="description" content="哈希表哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起">
+    <meta name="description" content="哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生">
 <meta name="keywords" content="算法,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="哈希表">
 <meta property="og:url" content="http://sakurawood.github.io/2017/06/15/哈希表/index.html">
 <meta property="og:site_name" content="SakuraWood&#39;s blogs">
-<meta property="og:description" content="哈希表哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起">
+<meta property="og:description" content="哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://sakurawood.github.io/images/hash_2.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/linear_probing.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/quadratic_probing.png">
-<meta property="og:updated_time" content="2017-11-23T07:46:04.254Z">
+<meta property="og:updated_time" content="2017-11-23T07:47:30.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哈希表">
-<meta name="twitter:description" content="哈希表哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起">
+<meta name="twitter:description" content="哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生">
 <meta name="twitter:image" content="http://sakurawood.github.io/images/hash_2.png">
     
         <link rel="alternate" type="application/atom+xml" title="SakuraWood&#39;s blogs" href="/atom.xml">
@@ -130,7 +130,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -171,7 +171,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#哈希表"><span class="post-toc-number">1.</span> <span class="post-toc-text">哈希表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哈希表-1"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">哈希表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#哈希是什么？"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">哈希是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#哈希函数"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">哈希函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#哈希表-2"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">哈希表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#建立哈希表"><span class="post-toc-number">1.1.3.1.</span> <span class="post-toc-text">建立哈希表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#处理冲突"><span class="post-toc-number">1.1.3.2.</span> <span class="post-toc-text">处理冲突</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#开放定址法"><span class="post-toc-number">1.1.3.2.1.</span> <span class="post-toc-text">开放定址法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#链表法"><span class="post-toc-number">1.1.3.2.2.</span> <span class="post-toc-text">链表法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#再散列"><span class="post-toc-number">1.1.3.2.3.</span> <span class="post-toc-text">再散列</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#建立公共溢出区"><span class="post-toc-number">1.1.3.2.4.</span> <span class="post-toc-text">建立公共溢出区</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#哈希表"><span class="post-toc-number">1.</span> <span class="post-toc-text">哈希表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哈希是什么？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">哈希是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哈希函数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">哈希函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哈希表-1"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">哈希表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#建立哈希表"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">建立哈希表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#处理冲突"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">处理冲突</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开放定址法"><span class="post-toc-number">1.3.2.1.</span> <span class="post-toc-text">开放定址法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#链表法"><span class="post-toc-number">1.3.2.2.</span> <span class="post-toc-text">链表法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再散列"><span class="post-toc-number">1.3.2.3.</span> <span class="post-toc-text">再散列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#建立公共溢出区"><span class="post-toc-number">1.3.2.4.</span> <span class="post-toc-text">建立公共溢出区</span></a></li></ol></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -196,11 +196,11 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><h2 id="哈希表-1"><a href="#哈希表-1" class="headerlink" title="哈希表"></a>哈希表</h2><p>使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？</p>
-<h3 id="哈希是什么？"><a href="#哈希是什么？" class="headerlink" title="哈希是什么？"></a>哈希是什么？</h3><p>散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（Hashing algorithms）计算出来的资料指纹（data fingerprint），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia</p>
+            <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？</p>
+<h2 id="哈希是什么？"><a href="#哈希是什么？" class="headerlink" title="哈希是什么？"></a>哈希是什么？</h2><p>散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（Hashing algorithms）计算出来的资料指纹（data fingerprint），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia</p>
 <a id="more"></a>
-<h3 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h3><p>所有的哈希函数都具有如下一个基本特性：如果两个散列值是不相同的（根据同一函数），那么这两个散列值的原始输入也是不相同的。这个特性是散列函数具有确定性的结果，具有这种性质的散列函数称为单向散列函数。</p>
-<h3 id="哈希表-2"><a href="#哈希表-2" class="headerlink" title="哈希表"></a>哈希表</h3><ul>
+<h2 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h2><p>所有的哈希函数都具有如下一个基本特性：如果两个散列值是不相同的（根据同一函数），那么这两个散列值的原始输入也是不相同的。这个特性是散列函数具有确定性的结果，具有这种性质的散列函数称为单向散列函数。</p>
+<h2 id="哈希表-1"><a href="#哈希表-1" class="headerlink" title="哈希表"></a>哈希表</h2><ul>
 <li><p>若关键字为k，则其值存放在f(k)的存储位置上。由此，不需比较便可直接取得所查记录。称这个对应关系f为散列函数，按这个思想建立的表为散列表。</p>
 </li>
 <li><p>对不同的关键字可能得到同一散列地址，即k1≠k2，而f(k1)=f(k2)，这种现象称为冲突。具有相同函数值的关键字对该散列函数来说称做同义词。综上所述，根据散列函数f(k)和处理冲突的方法将一组关键字映射到一个有限的连续的地址集（区间）上，并以关键字在地址集中的“像”作为记录在表中的存储位置，这种表便称为散列表，这一映射过程称为散列造表或散列，所得的存储位置称散列地址。</p>
@@ -208,7 +208,7 @@
 <li><p>若对于关键字集合中的任一个关键字，经散列函数映象到地址集合中任何一个地址的概率是相等的，则称此类散列函数为均匀散列函数（Uniform Hash function），这就是使关键字经过散列函数得到一个“随机的地址”，从而减少冲突。</p>
 </li>
 </ul>
-<h4 id="建立哈希表"><a href="#建立哈希表" class="headerlink" title="建立哈希表"></a>建立哈希表</h4><p>这看了一堆概念，老衲甚为头疼。总的来说，哈希表就是一个具备映射关系的表，你可以通过映射关系由键找到值。有没有现成的例子？当然有，不过你直接用就没意思了。</p>
+<h3 id="建立哈希表"><a href="#建立哈希表" class="headerlink" title="建立哈希表"></a>建立哈希表</h3><p>这看了一堆概念，老衲甚为头疼。总的来说，哈希表就是一个具备映射关系的表，你可以通过映射关系由键找到值。有没有现成的例子？当然有，不过你直接用就没意思了。</p>
 <p>反正就是要实现f(k)，即实现key-value的映射关系。我们试着自己实现以下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Map</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.items=[]</div><div class="line"></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self,k,v)</span>:</span></div><div class="line">        self.items.append((k,v))</div><div class="line">    </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,k)</span>:</span></div><div class="line">        <span class="keyword">for</span> key,value <span class="keyword">in</span> self.items:</div><div class="line">            <span class="keyword">if</span>(k==key):</div><div class="line">                <span class="keyword">return</span> value</div></pre></td></tr></table></figure>
 <p>这样实现的Map，查找的时间复杂度为O(n)。<br>“这看上去与key没什么关系啊，这不是顺序查找么，逗我呢？”<br>这只是一个热身，好吧，下面我们根据定义，来搞一个有映射函数的：</p>
@@ -217,7 +217,7 @@
 <p>“为啥初始化就指定了100容量？”<br>必须要指出的是，这个是必须的。你想通过下标存储并访问，对于数组来说，这不可避免。在JDK源码里，你也可以看到，Java的HashMap的初始容量设成了16。你可能说，你这hash函数，我只要key设为100以上，这程序就废了。是啊，它并不完美。这涉及到扩容的事情，稍后再讲。</p>
 <p>直接定址法的优点很明显，就是它不会产生重复的hash值。但由于它与键值本身有关系，所以当键值分布很散的时候，会浪费大量的存储空间。所以一般是不会用到直接定址法的。</p>
 <!-- more -->
-<h4 id="处理冲突"><a href="#处理冲突" class="headerlink" title="处理冲突"></a>处理冲突</h4><p>假如某个hash函数产生了一堆哈希值，而这些哈希值产生了冲突怎么办（实际生产环境中经常发生）？在各种哈希表的实现里，处理冲突是必需的一步。<br>比如你定义了一个hash函数：<br><strong>hash(k)=k mod 10</strong><br>假设key序列为：[15,1,24,32,55,64,42,93,82,76]</p>
+<h3 id="处理冲突"><a href="#处理冲突" class="headerlink" title="处理冲突"></a>处理冲突</h3><p>假如某个hash函数产生了一堆哈希值，而这些哈希值产生了冲突怎么办（实际生产环境中经常发生）？在各种哈希表的实现里，处理冲突是必需的一步。<br>比如你定义了一个hash函数：<br><strong>hash(k)=k mod 10</strong><br>假设key序列为：[15,1,24,32,55,64,42,93,82,76]</p>
 <table>
 <thead>
 <tr>
@@ -272,7 +272,7 @@
 </tbody>
 </table>
 <p>一趟下来，冲突的元素有四个，下面有几个办法。</p>
-<h5 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h5><p>开放定址法就是产生冲突之后去寻找下一个空闲的空间。函数定义为：</p>
+<h4 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h4><p>开放定址法就是产生冲突之后去寻找下一个空闲的空间。函数定义为：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -520,9 +520,9 @@
 <li><p>伪随机探测<br>di是一个随机数序列。<br>“随机数？那get的时候咋办？也是随机数啊，怎么确保一致？”<br>所以说了，是伪随机数。其实我们在计算机里接触的几乎都是伪随机数，只要是由确定算法生成的，都是伪随机。只要种子确定，生成的序列都是一样的。序列都一样，那不就可以了么=。=</p>
 </li>
 </ul>
-<h5 id="链表法"><a href="#链表法" class="headerlink" title="链表法"></a>链表法</h5><p>这是另外一种类型解决冲突的办法，散列到同一位置的元素，不是继续往下探测，而是在这个位置是一个链表，这些元素则都放到这一个链表上。java的HashMap就采用的是这个。</p>
-<h5 id="再散列"><a href="#再散列" class="headerlink" title="再散列"></a>再散列</h5><p>如果一次不够，就再来一次，直到冲突不再发生。</p>
-<h5 id="建立公共溢出区"><a href="#建立公共溢出区" class="headerlink" title="建立公共溢出区"></a>建立公共溢出区</h5><p>将哈希表分为基本表和溢出表两部分，凡是和基本表发生冲突的元素，一律填入溢出表(注意：在这个方法里面是把元素分开两个表来存储)。</p>
+<h4 id="链表法"><a href="#链表法" class="headerlink" title="链表法"></a>链表法</h4><p>这是另外一种类型解决冲突的办法，散列到同一位置的元素，不是继续往下探测，而是在这个位置是一个链表，这些元素则都放到这一个链表上。java的HashMap就采用的是这个。</p>
+<h4 id="再散列"><a href="#再散列" class="headerlink" title="再散列"></a>再散列</h4><p>如果一次不够，就再来一次，直到冲突不再发生。</p>
+<h4 id="建立公共溢出区"><a href="#建立公共溢出区" class="headerlink" title="建立公共溢出区"></a>建立公共溢出区</h4><p>将哈希表分为基本表和溢出表两部分，凡是和基本表发生冲突的元素，一律填入溢出表(注意：在这个方法里面是把元素分开两个表来存储)。</p>
 <p>说了这么一堆，举个例子，用开放地址法（线性探测）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Map</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.hash_table=[[<span class="keyword">None</span>,<span class="keyword">None</span>]<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">11</span>)]</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self,k,i)</span>:</span></div><div class="line">        h_value=(k+i)%<span class="number">11</span></div><div class="line">        <span class="keyword">if</span> self.hash_table[h_value][<span class="number">0</span>]==k:</div><div class="line">            <span class="keyword">return</span> h_value</div><div class="line">        <span class="keyword">if</span> self.hash_table[h_value][<span class="number">0</span>]!=<span class="keyword">None</span>:</div><div class="line">            i+=<span class="number">1</span></div><div class="line">            h_value=self.hash(k,i)</div><div class="line">        <span class="keyword">return</span> h_value</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self,k,v)</span>:</span></div><div class="line">        hash_v=self.hash(k,<span class="number">0</span>)</div><div class="line">        self.hash_table[hash_v][<span class="number">0</span>]=k</div><div class="line">        self.hash_table[hash_v][<span class="number">1</span>]=v</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,k)</span>:</span></div><div class="line">        hash_v=self.hash(k,<span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> self.hash_table[hash_v][<span class="number">1</span>]</div></pre></td></tr></table></figure>
 <p>“能不能不要定死长度？11个完全不够用啊”</p>
@@ -540,7 +540,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-11-23T07:46:04.254Z" itemprop="dateUpdated">2017-11-23 15:46:04</time>
+    Last updated: <time datetime="2017-11-23T07:47:30.009Z" itemprop="dateUpdated">2017-11-23 15:47:30</time>
 </span><br>
 
 
@@ -585,7 +585,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/15/哈希表/&title=《哈希表》 — SakuraWood's blogs&source=哈希表哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/15/哈希表/&title=《哈希表》 — SakuraWood's blogs&source=哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -700,7 +700,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -732,7 +732,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/15/哈希表/&title=《哈希表》 — SakuraWood's blogs&source=哈希表哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://sakurawood.github.io/2017/06/15/哈希表/&title=《哈希表》 — SakuraWood's blogs&source=哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
