@@ -125,7 +125,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -186,15 +186,77 @@
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         浅谈JS中this关键字指向的对象学习js三个月了，现在来谈一下this关键字，做个总结。
 java中的this因为之前是码java的，所以我想和之前的OO语言做个比较。所以如果之前你敲过java，对这样的代码应该不会陌生：
 1234567public class Test1&#123;    private int i=1;    public void Test1()&#123;    ...
-    
+     -->
 
-        <!-- <a href="/2017/05/06/浅谈this关键字/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h1 id="浅谈JS中this关键字指向的对象"><a href="#浅谈JS中this关键字指向的对象" class="headerlink" title="浅谈JS中this关键字指向的对象"></a>浅谈JS中this关键字指向的对象</h1><p>学习js三个月了，现在来谈一下<code>this</code>关键字，做个总结。</p>
+<h2 id="java中的this"><a href="#java中的this" class="headerlink" title="java中的this"></a>java中的this</h2><p>因为之前是码<code>java</code>的，所以我想和之前的<code>OO</code>语言做个比较。所以如果之前你敲过<code>java</code>，对这样的代码应该不会陌生：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class Test1&#123;</div><div class="line">    private int i=1;</div><div class="line"></div><div class="line">    public void Test1()&#123;</div><div class="line">        this.i++;           //①这里的this指向什么？</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当一个对象创建后，<code>Java</code>虚拟机（<code>JVM</code>）就会给这个对象分配一个引用自身的指针，这个指针的名字就是 <code>this</code>。上个例子中，如果你创建了一个<code>Test</code>的实例对象，那它就是<code>Test</code>对象的引用。</p>
+<p>当然还有这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Test2&#123;</div><div class="line">    private int i=1;</div><div class="line"></div><div class="line">    public void Test2()&#123;</div><div class="line">        this(2);           //②这里的this用来干嘛？</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void Test2(int i)&#123;</div><div class="line">        this.i++;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个例子是用于在构造方法中引用满足指定参数类型的构造器（其实也就是构造方法）。</p>
+<h2 id="js中的this"><a href="#js中的this" class="headerlink" title="js中的this"></a>js中的this</h2><p>因为之前的概念，所以搞了很久才接受<code>js</code>中的<code>this</code>。总之，就是一句话，关键字 <code>this</code> 总是指向调用该方法的对象。这句话，看上去很简单，但我想举几个例子，以便有个更好的记忆。</p>
+<ul>
+<li>example 1：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    this.name=&quot;wtf&quot;;        //①这里的this指的是什么？</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person();</div></pre></td></tr></table></figure>
+<ul>
+<li>example 2:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var Person= &#123;</div><div class="line">  hehe:function () &#123;</div><div class="line">      this.name=&quot;wtf&quot;;        //②这里的this指的是什么？</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Person.hehe();</div></pre></td></tr></table></figure>
+<ul>
+<li>example 3:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">    this.name = &quot;wtf&quot;;        //③这里的this指的是什么？</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person = new Person();</div><div class="line"></div><div class="line">console.log(person.name);</div></pre></td></tr></table></figure>
+<ul>
+<li>example 4:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function hehe() &#123;</div><div class="line">    console.log(this.name);  //④这里的this指的是什么？</div><div class="line">&#125;</div><div class="line"></div><div class="line">node.addEventListener(&apos;click&apos;,hehe);</div></pre></td></tr></table></figure>
+<ul>
+<li>example 5:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Person = &#123;</div><div class="line">    name: &apos;wtf&apos;,</div><div class="line"></div><div class="line">    hehe: function () &#123;</div><div class="line">        console.log(this.name); //⑤这里的this指的是什么？</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">node.addEventListener(&apos;click&apos;,Person.hehe);</div></pre></td></tr></table></figure>
+<ul>
+<li>example 6：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var Person = &#123;</div><div class="line">    name: &apos;wtf&apos;,</div><div class="line"></div><div class="line">    hehe: function () &#123;</div><div class="line">        console.log(this.name); //⑥这里的this指的是什么？</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">node.addEventListener(&apos;click&apos;, function () &#123;</div><div class="line">    Person.hehe();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>先说一下答案：</p>
+<ol>
+<li>global</li>
+<li>Object</li>
+<li>Person</li>
+<li>global</li>
+<li>global</li>
+<li>Object</li>
+</ol>
+<p>始终记住一句话，关键字 <code>this</code> 总是指向调用该方法的对象！你可以像记右手法则来记它，并用它来判断。</p>
+<ul>
+<li><p>首先看第一个，你可以理解为无人调用它（函数调用），如果无人调用，那它指的就是<code>global</code>，就这样。</p>
+</li>
+<li><p>第二个，因为是<code>Person</code>调用了<code>hehe</code>方法（方法调用），<code>Person</code>是一个<code>Object</code>，所以是<code>Object</code>，完毕。</p>
+</li>
+<li><p>第三个，new关键字来了，其实new关键字是做了一些工作的，这里简单说一下，比如var person =new Person(),那么它其实这样做了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var Person=function () &#123;</div><div class="line">    this=Object.create(Person.prototype);  //new的时候创建一个Person的原型对象并返回</div><div class="line">    return this;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>可能你会问怎么能允许给<code>this</code>赋值呢？是的，我们没有这样的能力，但js的解释器是有这样的能力的。<br>所以答案是<code>Person</code>。</p>
+<ul>
+<li><p>第四个，放到一个事件方法里了，有些可能就以为有些“猫腻”了，甚至觉得指向<code>node</code>=。=,其实前面加再多都没卵用，始终一句话，<code>this</code> 总是指向调用该方法的对象。无人调用（函数调用）<code>hehe</code>，那就是<code>global</code>。</p>
+</li>
+<li><p>第五个，还是在一个事件方法里，只不过，<code>hehe</code>前面加了个<code>Person.</code>。所以如果觉得这里的<code>this</code>指的是<code>Person</code>的话，还是先去把<code>方法</code>和<code>方法被调用</code>这两个概念搞清楚。之前码java的，都没接触过方法可以作为参数，但<code>Person.hehe</code>和<code>Person.hehe()</code>不是一码事。</p>
+</li>
+<li><p>最后一个，也许就是就是上一个例子里，你想要的答案=。=，这次不是直接写了，而是放到一个<code>function</code>内，再由<code>Person</code>来调用<code>hehe</code>，这次，没得说了吧，<code>this</code>指的就是<code>Object</code>了。</p>
+</li>
+</ul>
+<p>说了这些，其实都不如这一句话，<code>this</code> 总是指向调用该方法的对象。</p>
+
+        <a href="/2017/05/06/浅谈this关键字/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -235,18 +297,32 @@ java中的this因为之前是码java的，所以我想和之前的OO语言做个
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         gulp简单用法不说原理，直接开干
 需了解node稍微介绍一下node：
 
 package.json(node项目配置文件)，形式如下：
 
 12345678910111213141516171819202122232425262728293031323334353637   &#123;  "name": "32000", //项目名  "version": "0.0.1", //版本号  ...
-    
+     -->
 
-        <!-- <a href="/2017/04/18/gulp简单用法/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h1 id="gulp简单用法"><a href="#gulp简单用法" class="headerlink" title="gulp简单用法"></a>gulp简单用法</h1><p>不说原理，直接开干</p>
+<p><strong>需了解node</strong><br>稍微介绍一下node：</p>
+<ul>
+<li>package.json(node项目配置文件)，形式如下：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">   &#123;</div><div class="line"></div><div class="line">  "name": "32000", //项目名</div><div class="line">  "version": "0.0.1", //版本号</div><div class="line">  "description": "vrf project", //项目描述</div><div class="line">  "main": "gulpfile.js",//项目入口文件</div><div class="line">  "scripts": &#123;          //脚本命令，可自定义，像这个，我定义了一个start命令用来指                          //向webpack命令</div><div class="line">    "start": "webpack"</div><div class="line">  &#125;,</div><div class="line">  "repository": &#123;       //git目录</div><div class="line">    "type": "git",</div><div class="line">    "url": "http://greesmartapp02/susan/air-h5.git"</div><div class="line">  &#125;,</div><div class="line">  "keywords": [         //关键词</div><div class="line">    <span class="string">"vrf"</span></div><div class="line">  ],</div><div class="line">  "author": "susan,hwb,leesure",    //作者</div><div class="line">  "license": "ISC",</div><div class="line">  "devDependencies": &#123;              //依赖插件，用到的所有依赖，相当于android                                       //gradle里面的依赖，懂了吧</div><div class="line">    "browser-sync": "^2.18.8",</div><div class="line">    "css-loader": "^0.28.0",</div><div class="line">    "gulp": "^3.9.1",               //gulp也是node的插件，相当于你用的第三方包，                                    //懂？</div><div class="line">    "gulp-concat": "^2.6.1",</div><div class="line">    "gulp-htmlmin": "^3.0.0",</div><div class="line">    "gulp-if": "^2.0.2",</div><div class="line">    "gulp-minify-css": "^1.2.4",</div><div class="line">    "gulp-uglify": "^2.1.2",</div><div class="line">    "gulp-useref": "^3.1.2",</div><div class="line">    "gulp-util": "^3.0.8",</div><div class="line">    "jsx-loader": "^0.13.2",</div><div class="line">    "run-sequence": "^1.2.2",</div><div class="line">    "sass-loader": "^6.0.3",</div><div class="line">    "style-loader": "^0.16.1",</div><div class="line">    "url-loader": "^0.5.8",</div><div class="line">    "webpack-stream": "^3.2.0"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>接下来再说一下gulpfile.js,这个呢，就是gulp的配置文件；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="comment">//合并文件</span></div><div class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>);</div><div class="line"><span class="comment">//串行执行顺序task</span></div><div class="line"><span class="keyword">var</span> runSequence = <span class="built_in">require</span>(<span class="string">'gulp-sequence'</span>);</div><div class="line"><span class="comment">//webpack插件</span></div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="comment">//深度压缩图片插件</span></div><div class="line"><span class="keyword">var</span> pngquant = <span class="built_in">require</span>(<span class="string">'pngquant'</span>);</div><div class="line"><span class="comment">//删除文件插件</span></div><div class="line"><span class="keyword">var</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>);</div><div class="line"><span class="comment">// 合并stream</span></div><div class="line"><span class="keyword">var</span> mergeStream=<span class="built_in">require</span>(<span class="string">'merge-stream'</span>);</div><div class="line"><span class="comment">//子任务</span></div><div class="line"><span class="keyword">var</span> exec=<span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"></div><div class="line"><span class="comment">//压缩图片</span></div><div class="line"><span class="keyword">var</span> imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>);</div><div class="line"><span class="comment">//压缩html</span></div><div class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>);</div><div class="line"><span class="comment">//压缩css</span></div><div class="line"><span class="keyword">var</span> minicss = <span class="built_in">require</span>(<span class="string">'gulp-clean-css'</span>);</div><div class="line"><span class="comment">//压缩js</span></div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"><span class="comment">//代替pipe</span></div><div class="line"><span class="keyword">var</span> pump = <span class="built_in">require</span>(<span class="string">'pump'</span>);</div><div class="line"><span class="comment">//重命名插件</span></div><div class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>);</div><div class="line"><span class="comment">//文档注释插件</span></div><div class="line"><span class="keyword">var</span> jsdoc = <span class="built_in">require</span>(<span class="string">'gulp-jsdoc3'</span>);</div><div class="line"><span class="comment">//单元测试插件jasmine</span></div><div class="line"><span class="keyword">var</span> jasmineBrowser = <span class="built_in">require</span>(<span class="string">'gulp-jasmine-browser'</span>);</div><div class="line"><span class="comment">//监视文件变化插件</span></div><div class="line"><span class="keyword">var</span> watch = <span class="built_in">require</span>(<span class="string">'gulp-watch'</span>);</div><div class="line"></div><div class="line"><span class="comment">//生成注释文档</span></div><div class="line">gulp.task(<span class="string">'doc'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">cb</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./jsdoc-config.json'</span>);</div><div class="line">    gulp.src([<span class="string">'./app/**/*.js'</span>], &#123;<span class="attr">read</span>: <span class="literal">false</span>&#125;)</div><div class="line">    <span class="comment">// gulp.src(['./app/**/*.js'], &#123;read: false&#125;)</span></div><div class="line">        .pipe(jsdoc(config, cb));</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//压缩图片</span></div><div class="line">gulp.task(<span class="string">'imgzip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src([<span class="string">'app/**/*.png'</span>, <span class="string">'app/**/*.jpeg'</span>, <span class="string">'app/**/*.gif'</span>]),</div><div class="line">            imagemin(</div><div class="line">                &#123;</div><div class="line">                    optimizationLevel: <span class="number">5</span>, <span class="comment">//类型：Number  默认：3  取值范围：0-7（优化等级）</span></div><div class="line">                    progressive: <span class="literal">true</span>,</div><div class="line">                    svgoPlugins: [&#123;<span class="attr">removeViewBox</span>: <span class="literal">false</span>&#125;],<span class="comment">//不要移除svg的viewbox属性</span></div><div class="line">                    use: [pngquant()] <span class="comment">//使用pngquant深度压缩png图片的imagemin插件</span></div><div class="line">                &#125;</div><div class="line">            ),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//压缩html</span></div><div class="line">gulp.task(<span class="string">'htmlzip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.html'</span>),</div><div class="line">            htmlmin(&#123;</div><div class="line">                removeComments: <span class="literal">true</span>,<span class="comment">//清除HTML注释</span></div><div class="line">                collapseWhitespace: <span class="literal">true</span>,<span class="comment">//压缩HTML</span></div><div class="line">                collapseBooleanAttributes: <span class="literal">true</span>,<span class="comment">//省略布尔属性的值 &lt;input checked="true"/&gt; ==&gt; &lt;input /&gt;</span></div><div class="line">                removeEmptyAttributes: <span class="literal">true</span>,<span class="comment">//删除所有空格作属性值 &lt;input id="" /&gt; ==&gt; &lt;input /&gt;</span></div><div class="line">                removeScriptTypeAttributes: <span class="literal">true</span>,<span class="comment">//删除&lt;script&gt;的type="text/javascript"</span></div><div class="line">                removeStyleLinkTypeAttributes: <span class="literal">true</span>,<span class="comment">//删除&lt;style&gt;和&lt;link&gt;的type="text/css"</span></div><div class="line">                minifyJS: <span class="literal">true</span>,<span class="comment">//压缩页面JS</span></div><div class="line">                minifyCSS: <span class="literal">true</span><span class="comment">//压缩页面CSS</span></div><div class="line">            &#125;),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line"></div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//压缩css</span></div><div class="line">gulp.task(<span class="string">'csszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src([<span class="string">'app/**/*.css'</span>]),</div><div class="line">            minicss(),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//压缩js</span></div><div class="line">gulp.task(<span class="string">'jszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.js'</span>),</div><div class="line">            uglify(),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'clear'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> del([<span class="string">'dist'</span>]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//复制字体</span></div><div class="line">gulp.task(<span class="string">'font'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src([<span class="string">'app/**/*.ttf'</span>, <span class="string">'app/**/*.otf'</span>, <span class="string">'app/**/*.jar'</span>, <span class="string">'app/**/*.xml'</span>])</div><div class="line">        .pipe(gulp.dest(<span class="string">'dist'</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//异步执行压缩任务</span></div><div class="line">gulp.task(<span class="string">'default'</span>,</div><div class="line">    runSequence(<span class="string">'clear'</span>,[<span class="string">'parsezip'</span>, <span class="string">'imgzip'</span>, <span class="string">'htmlzip'</span>, <span class="string">'csszip'</span>, <span class="string">'jszip'</span>, <span class="string">'font'</span>,<span class="string">'doc'</span>],<span class="string">'copy'</span></div><div class="line">    )</div><div class="line"></div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">//复制到android工程</span></div><div class="line"><span class="comment">//测试用</span></div><div class="line">gulp.task(<span class="string">'copyto'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src(<span class="string">'app/**/*'</span>)</div><div class="line">        .pipe(gulp.dest(<span class="string">'../assets/release/Plugins/32000'</span>))</div><div class="line">&#125;);</div><div class="line"><span class="comment">//正式用</span></div><div class="line">gulp.task(<span class="string">'copy'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src(<span class="string">'dist/**/*'</span>)</div><div class="line">        .pipe(gulp.dest(<span class="string">'../assets/release/Plugins/32000'</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//单元测试</span></div><div class="line">gulp.task(<span class="string">'jasmine'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> files = [<span class="string">'./test/src/**/*.js'</span>, <span class="string">'./test/spec/**/*.js'</span>, <span class="string">'app/js/**/*.js'</span>];</div><div class="line">    <span class="keyword">return</span> gulp.src(files)</div><div class="line">        .pipe(watch(files))</div><div class="line">        .pipe(jasmineBrowser.specRunner())</div><div class="line">        .pipe(jasmineBrowser.server(&#123;<span class="attr">port</span>: <span class="number">9199</span>&#125;))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//合并json中的js</span></div><div class="line">gulp.task(<span class="string">'parsezip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src([<span class="string">'app/js/json/state-inner.js'</span>,</div><div class="line">                <span class="string">'app/js/json/state-outdoor.js'</span>,</div><div class="line">                <span class="string">'app/js/json/state-basic.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-unit.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-parse-inner.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-parse-outdoor.js'</span>,</div><div class="line">                <span class="string">'app/js/json/hex-parse-basic.js'</span>,</div><div class="line">                <span class="string">'app/js/json/json-parse-frame.js'</span>,</div><div class="line">                <span class="string">'app/js/json/json-send-frame.js'</span>]),</div><div class="line">            concat(<span class="string">'parsedata.min.js'</span>),</div><div class="line">            gulp.dest(<span class="string">'app/js/json'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>执行npm install</li>
+</ul>
+
+        <a href="/2017/04/18/gulp简单用法/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -287,15 +363,27 @@ package.json(node项目配置文件)，形式如下：
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         问题使用Hexo的时候遇到这样一个问题，如何在多台电脑之间同步自己的博客？要知道Hexo在部署博客到GitHub上时，只推了/public文件夹中的内容，如果从办公室回到家中，想要继续写博客，该怎么办呢？
 思路事实上，Hexo博客文件夹里，从.gitignore中可以看到，它刻意屏蔽掉了/public文件夹，如果你懂Git，相信聪明的你已经有解决办法了。
 解决办法从你的本地博客文件夹下，创建...
-    
+     -->
 
-        <!-- <a href="/2017/02/13/完美解决Hexo多台电脑同步问题/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>使用<code>Hexo</code>的时候遇到这样一个问题，如何在多台电脑之间同步自己的博客？<br>要知道<code>Hexo</code>在部署博客到<code>GitHub</code>上时，只推了<code>/public</code>文件夹中的内容，如果从办公室回到家中，<br>想要继续写博客，该怎么办呢？</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>事实上，<code>Hexo</code>博客文件夹里，从<code>.gitignore</code>中可以看到，<br>它刻意屏蔽掉了<code>/public</code>文件夹，如果你懂Git，相信聪明的你已经有解决办法了。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>从你的本地博客文件夹下，创建一个新的分支，随便取个名字，比如：<code>hexo</code>，把它推到远程仓库去。</p>
+<p><code>git checkout hexo</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m &quot;create hexo branch&quot;</code></p>
+<p><code>git push origin hexo</code></p>
+<p>这样，你的远程仓库下就已经有了hexo分支，它是干嘛用的？没错，它就是用来保存你的<br>博客原始文件，而用这些原始文件，你可以通过<br><code>hexo d -g</code><br>来部署博客！这个命令，用过hexo的你一定很熟悉了吧。</p>
+<p>所以你在别的电脑<code>clone</code>了这个仓库之后，以后可以执行：</p>
+<p><code>git pull origin hexo</code></p>
+<p>这样就能更新你的原始文件了，从而生成和部署博客。</p>
+
+        <a href="/2017/02/13/完美解决Hexo多台电脑同步问题/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -336,16 +424,24 @@ package.json(node项目配置文件)，形式如下：
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         安卓中抓包方法5.0 以上机型因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：
 带PIE的tcpdump下载
 前提手机一定要root！
 通过adb将tcpdump拷入手机12adb push tcpdump /system/bin/tcpdump  adb shell chmod 6755 /system...
-    
+     -->
 
-        <!-- <a href="/2017/02/12/安卓中抓包方法/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h1 id="安卓中抓包方法"><a href="#安卓中抓包方法" class="headerlink" title="安卓中抓包方法"></a>安卓中抓包方法</h1><h3 id="5-0-以上机型"><a href="#5-0-以上机型" class="headerlink" title="5.0 以上机型"></a>5.0 以上机型</h3><p>因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：</p>
+<p><a href="http://pan.baidu.com/s/1qXDzPFm" target="_blank" rel="external">带PIE的tcpdump下载</a></p>
+<p>前提手机一定要root！</p>
+<h3 id="通过adb将tcpdump拷入手机"><a href="#通过adb将tcpdump拷入手机" class="headerlink" title="通过adb将tcpdump拷入手机"></a>通过adb将tcpdump拷入手机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb push tcpdump /system/bin/tcpdump  </div><div class="line">adb shell chmod 6755 /system/bin/tcpdump</div></pre></td></tr></table></figure>
+<h3 id="开始抓包"><a href="#开始抓包" class="headerlink" title="开始抓包"></a>开始抓包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell tcpdump -i any -p -s  0  -w /sdcard/capture.pcap</div></pre></td></tr></table></figure>
+<h3 id="提取"><a href="#提取" class="headerlink" title="提取"></a>提取</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb pull /sdcard/capture.pcap output/capture.pcap</div></pre></td></tr></table></figure>
+<p>提取之后，用wireshark打开文件查看</p>
+
+        <a href="/2017/02/12/安卓中抓包方法/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -386,14 +482,51 @@ package.json(node项目配置文件)，形式如下：
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         HTTP协议HTTP Request
 协议格式GET/sample.jsp HTTP/1.1Accept:image/gif.image/jpeg,/Accept-Language:zh-cnConnection:Keep-AliveHost:localhostUser-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)Accept-Enco...
-    
+     -->
 
-        <!-- <a href="/2017/02/12/http协议笔记/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h2><ul>
+<li>协议格式<br>GET/sample.jsp HTTP/1.1<br>Accept:image/gif.image/jpeg,<em>/</em><br>Accept-Language:zh-cn<br>Connection:Keep-Alive<br>Host:localhost<br>User-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)<br>Accept-Encoding:gzip,deflate</li>
+</ul>
+<p>username=jinqiao&amp;password=1234</p>
+<p>① 第一行是“方法URL协议版本”<br>GET/sample.jsp HTTP/1.1<br>GET代表请求方法，/sample.jsp表示URI，“HTTP/1.1代表协议和协议版本号”</p>
+<p>请求方法可有多种，HTTP/1.1支持7中请求方式：</p>
+<ol>
+<li>GET  请求获取由 Request-URI 所标识的资源。</li>
+<li>POST  在 Request-URI 所标识的资源后附加新的数据。</li>
+<li>HEAD  请求获取由 Request-URI 所标识的资源的响应消息报头。</li>
+<li>OPTIONS  请求查询服务器的性能，或查询与资源相关的选项和需求。</li>
+<li>PUT  请求服务器存储一个资源，并用 Request-URI 作为其标识。</li>
+<li>DELETE  请求服务器删除由 Request-URI 所标识的资源。</li>
+<li>TRACE  请求服务器回送收到的请求信息，主要用语测试或诊断。<br>其中最常用的是GET和POST。</li>
+</ol>
+<p>② 请求头<br>Accept:image/gif.image/jpeg,<em>/</em><br>Accept-Language:zh-cn<br>Connection:Keep-Alive<br>Host:localhost<br>User-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)<br>Accept-Encoding:gzip,deflate</p>
+<p>③ 请求正文<br>请求头和请求正文之间是一个空行，这个行非常重要，它表示请求头已经结束，接下来的是请求正文。请求正文中可以包含客户提 交的查询字符串信息：</p>
+<p>username=jinqiao&amp;password=1234</p>
+<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应:"></a>HTTP响应:</h2><h3 id="Response-Headers"><a href="#Response-Headers" class="headerlink" title="Response Headers"></a>Response Headers</h3><h4 id="Cache-Control："><a href="#Cache-Control：" class="headerlink" title="Cache-Control："></a>Cache-Control：</h4><p>must-revalidate, no-cache, private。这个值告诉客户端，服务端不希望客户端缓存资源，在下次请求资源时，必须要从新请求服务器，不能从缓存副本中获取资源。<br>Cache-Control是响应头中很重要的信息，当客户端请求头中包含Cache-Control:max-age=0请求，明确表示不会缓存服务器资源时,Cache-Control作为作为回应信息，通常会返回no-cache，意思就是说，“不缓存就不缓存呗”；当客户端在请求头中没有包含Cache-Control时，服务端往往会定,不同的资源不同的缓存策略，比如说oschina在缓存图片资源的策略就是Cache-Control：max-age=86400,这个意思是，从当前时间开始，在86400秒的时间内，客户端可以直接从缓存副本中读取资源，而不需要向服务器请求。</p>
+<h4 id="Connection："><a href="#Connection：" class="headerlink" title="Connection："></a>Connection：</h4><p>keep-alive，</p>
+<p>这个字段作为回应客户端的Connection：keep-alive，告诉客户端服务器的tcp连接也是一个长连接，客户端可以继续使用这个tcp连接发送http请求。关于长连接的更多知识，后面我再详细讲。</p>
+<h4 id="Content-Encoding"><a href="#Content-Encoding" class="headerlink" title="Content-Encoding:"></a>Content-Encoding:</h4><p>gzip</p>
+<p>告诉客户端，服务端发送的资源是采用gzip编码的，客户端看到这个信息后，应该采用gzip对资源进行解码。</p>
+<h4 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type:"></a>Content-Type:</h4><p>text/html;charset=UTF-8</p>
+<p>告诉客户端，资源文件的类型，还有字符编码，客户端通过utf-8对资源进行解码，然后对资源进行html解析。通常我们会看到有些网站是乱码的，往往就是服务器端没有返回正确的编码。</p>
+<h4 id="Date："><a href="#Date：" class="headerlink" title="Date："></a>Date：</h4><p>Sun, 21 Sep 2014 06:18:21 GMT</p>
+<p>这个是服务端发送资源时的服务器时间，刚开始我不知道GMT是格林尼治所在地的标准时间，以为是服务器的时间错了，还去服务器上查看过时间。http协议中发送的时间都是GMT的，这主要是解决在互联网上，不同时区在相互请求资源的时候，时间混乱问题。</p>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires:"></a>Expires:</h4><p>Sun, 1 Jan 2000 01:00:00 GMT</p>
+<p>这个响应头也是跟缓存有关的，告诉客户端在这个时间前，可以直接访问缓存副本，很显然这个值会存在问题，因为客户端和服务器的时间不一定会都是相同的，如果时间不同就会导致问题。所以这个响应头是没有Cache-Control：max-age=<em>*</em>这个响应头准确的，因为max-age=date中的date是个相对时间，不仅更好理解，也更准确。</p>
+<h4 id="Pragma-no-cache"><a href="#Pragma-no-cache" class="headerlink" title="Pragma:no-cache"></a>Pragma:no-cache</h4><p>这个含义与Cache-Control等同。</p>
+<h4 id="Server："><a href="#Server：" class="headerlink" title="Server："></a>Server：</h4><p>Tengine/1.4.6</p>
+<p>这个是服务器和相对应的版本，只是告诉客户端服务器信息，没有更多的意思。</p>
+<h4 id="Transfer-Encoding："><a href="#Transfer-Encoding：" class="headerlink" title="Transfer-Encoding："></a>Transfer-Encoding：</h4><p>chunked</p>
+<p>这个响应头告诉客户端，服务器发送的资源的方式是分块发送的。一般分块发送的资源都是服务器动态生成的，在发送时还不知道发送资源的大小，所以采用分块发送，每一块都是独立的，独立的块都能标示自己的长度，最后一块是0长度的，当客户端读到这个0长度的块时，就可以确定资源已经传输完了。</p>
+<h4 id="Vary"><a href="#Vary" class="headerlink" title="Vary:"></a>Vary:</h4><p>Accept-Encoding</p>
+<p>告诉缓存服务器，缓存压缩文件和非压缩文件两个版本，现在这个字段用处并不大，因为现在的浏览器都是支持压缩的。</p>
+
+        <a href="/2017/02/12/http协议笔记/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -434,7 +567,7 @@ package.json(node项目配置文件)，形式如下：
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         什么是Hexo？Hexo是一个快速，简单和强大的博客框架。你可以在短时间内利用markdown标记语言通过Hexo生成一份拥有漂亮主题的博客。
 安装Hexo需要的安装环境安装Hexo非常容易。但是，你需要先安装几个其他的东西：
 
@@ -444,11 +577,46 @@ Git
 安装Node.js最好是通过nvm来安装Node.js。
 cURL:
 $ curl https://raw.githubuserconte...
-    
+     -->
 
-        <!-- <a href="/2017/02/12/Hexo+GitHub构建博客/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h2 id="什么是Hexo？"><a href="#什么是Hexo？" class="headerlink" title="什么是Hexo？"></a>什么是Hexo？</h2><p>Hexo是一个快速，简单和强大的博客框架。你可以在短时间内利用markdown标记语言通过Hexo生成一份拥有漂亮主题的博客。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h3 id="需要的安装环境"><a href="#需要的安装环境" class="headerlink" title="需要的安装环境"></a>需要的安装环境</h3><p>安装Hexo非常容易。但是，你需要先安装几个其他的东西：</p>
+<ul>
+<li>Node.js</li>
+<li>Git</li>
+</ul>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>最好是通过nvm来安装Node.js。</p>
+<p>cURL:</p>
+<p><code>$ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh</code></p>
+<p>Wget:</p>
+<p><code>$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh</code></p>
+<p>nvm安装完毕后，重启终端输入以下命令安装Node.js:<br><code>$ nvm install stable</code></p>
+<p>如果你的电脑已经有这些，恭喜你！只需用npm安装Hexo：</p>
+<p><code>$ npm install -g hexo-cli</code></p>
+<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><h3 id="初始化工作"><a href="#初始化工作" class="headerlink" title="初始化工作"></a>初始化工作</h3><p>首先创建一个博客文件夹，比如：<br><code>C:\Users\Administrator\Desktop\blog</code><br>然后对其进行初始化：</p>
+<p><code>hexo init blog</code></p>
+<p>进入博客文件夹：</p>
+<p><code>cd blog</code></p>
+<p>接着安装必须的node依赖库：</p>
+<p><code>npm install</code></p>
+<p>运行：</p>
+<p><code>hexo server</code></p>
+<p>此时打开浏览器<code>localhost:4000</code>可以看到本地的一个运行效果，如果你打不开，有可能是端口冲突，可以通过更改端口解决，比如：</p>
+<p><code>hexo server -p 5000</code></p>
+<h3 id="添加新文章"><a href="#添加新文章" class="headerlink" title="添加新文章"></a>添加新文章</h3><p>可以通过以下命令创建一篇新的文章：</p>
+<p><code>hexo new title</code></p>
+<p>title就是你的文章名字，hexo会在你的博客文件夹/source/_posts/下创建相应的title.md文件。</p>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><p>登录GitHub账号，新建一个仓库，名字格式如下：</p>
+<p><code>yourname.github.io</code></p>
+<p>其中yourname就是你的Git账号名。进入你的博客文件夹，修改_config.yml参数，找到deploy选项，键入以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:yourname/yourname.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>终端输入：</p>
+<p><code>hexo d -g      //d代表部署 g代表生成</code></p>
+<p>完成后等待一段时间，浏览器打开yourname.github.io, 可以看到博库已经部署到GitHub上。</p>
+
+        <a href="/2017/02/12/Hexo+GitHub构建博客/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -489,7 +657,7 @@ $ curl https://raw.githubuserconte...
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         python对比java
 python函数可返回多个
 
@@ -505,11 +673,37 @@ def xxx(*num):
 注意，list和tuple前面加上*也可以表示可变参数
 
 关键字参数def person(name, age, **kw): print ‘name:’, name, ‘age:’, ...
-    
+     -->
 
-        <!-- <a href="/2017/02/12/python/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h1 id="python对比java"><a href="#python对比java" class="headerlink" title="python对比java"></a>python对比java</h1><ol>
+<li>python函数可返回多个</li>
+</ol>
+<p>函数返回的是一个tuple</p>
+<ol>
+<li>函数参数还有默认参数这么一说</li>
+</ol>
+<p>def xxx(a,b=2):<br>    …</p>
+<ol>
+<li>可变参数的写法</li>
+</ol>
+<p>def xxx(*num):</p>
+<p>注意，list和tuple前面加上*也可以表示可变参数</p>
+<ol>
+<li>关键字参数<br>def person(name, age, **kw):<br> print ‘name:’, name, ‘age:’, age, ‘other:’, kw</li>
+</ol>
+<p>参数定义的顺序必须是：必选参数、默认参数、可变参数和关键字参数。<br>默认参数一定要用不可变对象，如果是可变对象，运行会有逻辑错误！</p>
+<ol>
+<li><p>切片<br>太灵活了。<br>举个不同的，L[:10:2]代表前10个，每两个取一个</p>
+</li>
+<li><p>列表生成式</p>
+</li>
+<li><p>生成器generator</p>
+</li>
+</ol>
+
+        <a href="/2017/02/12/python/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -550,18 +744,48 @@ def xxx(*num):
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         无向图的建立和遍历(邻接矩阵法)图的定义图就是由一组顶点和一组能连接各个顶点间的边组成。
 连通图：如果从任意一个顶点都存在一条路径到达另一个任意顶点，就称为连通图，一个非连通图由若干连通的部分组成，都称为极大连通子图。
 无向图：即连接两个顶点的边是没有方向的。
 图的表示图在数据结构上可以用邻接表和邻接矩阵表示。我选择邻接矩阵，为啥？不为啥，就是因为我懒，邻接矩阵简单。
 
           ...
-    
+     -->
 
-        <!-- <a href="/2017/02/12/无向图的建立和遍历/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h1 id="无向图的建立和遍历-邻接矩阵法"><a href="#无向图的建立和遍历-邻接矩阵法" class="headerlink" title="无向图的建立和遍历(邻接矩阵法)"></a>无向图的建立和遍历(邻接矩阵法)</h1><h2 id="图的定义"><a href="#图的定义" class="headerlink" title="图的定义"></a>图的定义</h2><p>图就是由一组顶点和一组能连接各个顶点间的边组成。</p>
+<p>连通图：如果从任意一个顶点都存在一条路径到达另一个任意顶点，就称为连通图，一个非连通图由若干连通的部分组成，都称为极大连通子图。</p>
+<p>无向图：即连接两个顶点的边是没有方向的。</p>
+<h2 id="图的表示"><a href="#图的表示" class="headerlink" title="图的表示"></a>图的表示</h2><p>图在数据结构上可以用邻接表和邻接矩阵表示。我选择邻接矩阵，为啥？不为啥，就是因为我懒，邻接矩阵简单。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/matrix_3x3.png" alt="heap_sort" title="">
+                </div>
+                <div class="image-caption">heap_sort</div>
+            </figure>
+<p>上面就是一个邻接矩阵，它代表了三个点，但没有边。默认顶点到它本身是没有边的，我在此邻接矩阵中用-1表示。此外1表示两顶点间有边，0则表示无。</p>
+<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><p>一般我们说到图的遍历，就会提到深度优先搜索（DFS）和广度优先搜索（BFS）。</p>
+<h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><ul>
+<li>思想：假设初始状态是图中所有顶点均未被访问，则从某个顶点v出发，首先访问该顶点，然后依次从它的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和v有路径相通的顶点都被访问到。 若此时尚有其他顶点未被访问到，则另选一个未被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。显然，深度优先搜索是一个递归的过程。</li>
+</ul>
+<h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><ul>
+<li>思想：从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，直至图中所有已被访问的顶点的邻接点都被访问到。如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。换句话说，广度优先搜索遍历图的过程是以v为起点，由近至远，依次访问和v有路径相通且路径长度为1,2…的顶点。</li>
+</ul>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>拿个例子说，如下的图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/graph_1.png" alt="graph" title="">
+                </div>
+                <div class="image-caption">graph</div>
+            </figure>
+<p>深度优先搜索遍历顺序为： 6,12,25,32,39,17,56<br>广度优先搜索遍历顺序为： 6,12,17,25,32,39,56</p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Graph</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,maps,edgeNum=<span class="number">0</span>)</span>:</span></div><div class="line">        self.map=maps</div><div class="line">        self.nodeNum=len(maps)</div><div class="line">        self.edgeNum=edgeNum</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getNodeNum</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.nodeNum</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getEdgeNum</span><span class="params">(self)</span>:</span></div><div class="line">        self.edgeNum=<span class="number">0</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nodeNum):</div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(self.nodeNum-i):</div><div class="line">                <span class="keyword">if</span> self.map[i][j+i]==<span class="number">1</span>:</div><div class="line">                    self.edgeNum+=<span class="number">1</span></div><div class="line">        <span class="keyword">return</span> self.edgeNum</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertNode</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nodeNum):</div><div class="line">            self.map[i].append(<span class="number">0</span>)</div><div class="line">        self.nodeNum+=<span class="number">1</span></div><div class="line">        ls=[<span class="number">0</span>]*self.nodeNum</div><div class="line">        self.map.append(ls)</div><div class="line"></div><div class="line">    <span class="comment"># 这个没有删除，只是归零，但顶点还在</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteNode</span><span class="params">(self,x)</span>:</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nodeNum):</div><div class="line">            <span class="keyword">if</span> self.map[i][x]==<span class="number">1</span>:</div><div class="line">                self.map[i][x]=<span class="number">0</span></div><div class="line">                self.edgeNum-=<span class="number">1</span></div><div class="line">            <span class="keyword">if</span> self.map[x][i]==<span class="number">1</span>:</div><div class="line">                self.map[x][i]=<span class="number">0</span></div><div class="line">                self.edgeNum-=<span class="number">1</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addEdge</span><span class="params">(self,x,y)</span>:</span></div><div class="line">        <span class="keyword">if</span> x&lt;y:</div><div class="line">            <span class="keyword">if</span> self.map[x][y]==<span class="number">0</span>:</div><div class="line">                self.map[x][y]=<span class="number">1</span></div><div class="line">                self.edgeNum+=<span class="number">1</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">if</span> self.map[y][x]==<span class="number">0</span>:</div><div class="line">                self.map[y][x]=<span class="number">1</span></div><div class="line">                self.edgeNum+=<span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeEdge</span><span class="params">(self,x,y)</span>:</span></div><div class="line">        <span class="keyword">if</span> self.map[x][y]==<span class="number">1</span>:</div><div class="line">            self.map[x][y]=<span class="number">0</span></div><div class="line">            self.edgeNum-=<span class="number">1</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">BFSearch</span><span class="params">(self)</span>:</span></div><div class="line">        visited=[<span class="number">0</span>]*self.nodeNum</div><div class="line">        queue=[]</div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(self,i)</span>:</span></div><div class="line">            <span class="keyword">print</span> i</div><div class="line">            </div><div class="line">            <span class="keyword">if</span>(visited[i]==<span class="number">0</span>):</div><div class="line">                visited[i]=<span class="number">1</span></div><div class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(self.nodeNum):</div><div class="line">                    <span class="keyword">if</span>(self.map[i][j]==<span class="number">1</span> <span class="keyword">and</span> visited[j]==<span class="number">0</span>):</div><div class="line">                        queue.append(j)</div><div class="line">                <span class="keyword">for</span> k <span class="keyword">in</span> queue:</div><div class="line">                    <span class="keyword">if</span>(visited[k]==<span class="number">0</span>):</div><div class="line">                        bfs(self,k)</div><div class="line">                <span class="keyword">del</span> queue[:]</div><div class="line">                </div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nodeNum):</div><div class="line">            <span class="keyword">if</span>(visited[i]==<span class="number">0</span>):</div><div class="line">                bfs(self,i)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DFSearch</span><span class="params">(self)</span>:</span></div><div class="line">        visited=[<span class="number">0</span>]*self.nodeNum</div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,i)</span>:</span></div><div class="line">           <span class="keyword">print</span> i</div><div class="line">           <span class="keyword">if</span>(visited[i]==<span class="number">0</span>):</div><div class="line">               visited[i]=<span class="number">1</span></div><div class="line">               <span class="keyword">for</span> j <span class="keyword">in</span> range(self.nodeNum-i):</div><div class="line">                    <span class="keyword">if</span>(self.map[i][j+i]==<span class="number">1</span> <span class="keyword">and</span> visited[j+i]==<span class="number">0</span>):</div><div class="line">                        dfs(self,j+i)</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.nodeNum):</div><div class="line">            <span class="keyword">if</span>(visited[i]==<span class="number">0</span>):</div><div class="line">                dfs(self,i)</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    maps=[[<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>],</div><div class="line">    [<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>],</div><div class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>]]</div><div class="line">    G=Graph(maps)</div><div class="line">    <span class="keyword">print</span> G.getNodeNum()</div><div class="line">    G.insertNode()</div><div class="line">    G.insertNode()</div><div class="line">    G.insertNode()</div><div class="line">    <span class="keyword">print</span> G.getNodeNum()</div><div class="line">    </div><div class="line">    <span class="keyword">print</span> G.getEdgeNum()</div><div class="line">    G.addEdge(<span class="number">1</span>,<span class="number">4</span>)</div><div class="line">    <span class="keyword">print</span> G.getEdgeNum()</div><div class="line">    G.addEdge(<span class="number">4</span>,<span class="number">1</span>)</div><div class="line"></div><div class="line">    G.addEdge(<span class="number">4</span>,<span class="number">3</span>)</div><div class="line">    G.addEdge(<span class="number">2</span>,<span class="number">5</span>)</div><div class="line">    G.addEdge(<span class="number">4</span>,<span class="number">5</span>)</div><div class="line">    G.addEdge(<span class="number">3</span>,<span class="number">5</span>)</div><div class="line">    <span class="keyword">print</span> G.getEdgeNum()</div><div class="line">    </div><div class="line">    G.DFSearch()</div><div class="line">    G.BFSearch()</div><div class="line">test()</div></pre></td></tr></table></figure>
+        <a href="/2017/02/12/无向图的建立和遍历/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -602,7 +826,7 @@ def xxx(*num):
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         URL- 同一资源定位器语法规则：scheme://host.domain:port/path/filename
 
 scheme - 定义因特网服务的类型。最常见的类型是 http
@@ -610,11 +834,22 @@ host - 定义域主机（http 的默认主机是 www）
 domain - 定义因特网域名，比如 runoob.com
 :port - 定义主机上的端口号（http 的默认端口号是 80）
 path - 定义服...
-    
+     -->
 
-        <!-- <a href="/2017/02/12/URL/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <h1 id="URL-同一资源定位器"><a href="#URL-同一资源定位器" class="headerlink" title="URL- 同一资源定位器"></a>URL- 同一资源定位器</h1><p>语法规则：<br>scheme://host.domain:port/path/filename</p>
+<ul>
+<li>scheme - 定义因特网服务的类型。最常见的类型是 http</li>
+<li>host - 定义域主机（http 的默认主机是 www）</li>
+<li>domain - 定义因特网域名，比如 runoob.com</li>
+<li>:port - 定义主机上的端口号（http 的默认端口号是 80）</li>
+<li>path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。</li>
+<li>filename - 定义文档/资源的名称</li>
+</ul>
+<p>注意，url只能使用ascii字符集。</p>
+
+        <a href="/2017/02/12/URL/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -655,7 +890,7 @@ path - 定义服...
 
     <div class="post-content" id="post-content" itemprop="postContent">
 
-    
+    <!-- 
         OSI七层模型：
 
 物理层
@@ -674,11 +909,29 @@ tcp协议：
 应用层
 
 
-    
+     -->
 
-        <!-- <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a> -->
+    <p>OSI七层模型：</p>
+<ol>
+<li>物理层</li>
+<li>数据链路层</li>
+<li>网络层</li>
+<li>传输层</li>
+<li>会话层</li>
+<li>表示层</li>
+<li>应用层</li>
+</ol>
+<p>tcp协议：</p>
+<ol>
+<li>链路层</li>
+<li>网络层</li>
+<li>传输层</li>
+<li>应用层</li>
+</ol>
+
+        <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
     </div>
     
     <div class="post-footer">
@@ -720,7 +973,7 @@ tcp协议：
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
