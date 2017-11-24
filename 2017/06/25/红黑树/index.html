@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_300.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_3000.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_30000.png">
-<meta property="og:updated_time" content="2017-11-24T04:31:16.194Z">
+<meta property="og:updated_time" content="2017-11-24T05:51:28.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树">
 <meta name="twitter:description" content="红黑树 红黑树（英语：Red–black tree）是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。它是在1972年由鲁道夫·贝尔发明的，他称之为”对称二叉B树”，它现代的名字是在Leo J. Guibas和Robert Sedgewick于1978年写的一篇论文中获得的。它是复杂的，但它的操作有着良好的最坏情况运行时间，并且在实践中是高效的：它可以在O(lo">
@@ -820,7 +820,7 @@
                 <div class="image-caption">rbt-19</div>
             </figure></p>
 <p>好了，我算是把《算法》上的2-3树到红黑树基本复述了一遍。<br>“诶，貌似没讲完，还有删除操作呢？”</p>
-<p>先打断一下，你可能会发现，2-3树概念里的红黑树，虽然处处符合红黑树的5条性质，但总感觉不够。而且你如果之前看过其他的博客，你会发现跟大多数讲的不一样，你肯定会提出质疑：<br>上面实现的红黑树，如果节点没有左子树，往右边插入，就一定会调整到左边，因为它不符合所谓的red link（2-3树）定义。但事实上，红节点在右边又怎么了？没毛病啊，根本不会违背红黑树的性质。红色节点通通都是左节点，强行左转右的操作让你很不爽。<br>所以，你觉得这可能是劣化版的红黑树。</p>
+<p>先打断一下，你可能会发现，2-3树概念里的红黑树，虽然处处符合红黑树的5条性质，但总感觉不够。而且你如果之前看过其他的博客，你会发现跟大多数讲的不一样，你肯定会提出质疑：<br>上面实现的红黑树，如果节点没有左子树，往右边插入，就一定会调整到左边，因为它不符合所谓的red link（2-3树）定义。但事实上，红节点在右边又怎么了？没毛病啊，根本不会违背红黑树的性质。红色节点通通都是左节点，强行右转左的操作让你很不爽。<br>所以，你觉得这可能是劣化版的红黑树。</p>
 <p>我当然知道你在想什么，2-3-4树，对不对？是的，2-3-4树才是红黑树的对应版本，为什么不早点说？其实本质是一样的，所以，这里就是个玄学问题（笑）。区别在4-node，看下图：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -860,7 +860,7 @@
                 </div>
                 <div class="image-caption">rbt-23</div>
             </figure><br>3-node的编码方式就是我上面讲的，它不允许红节点存在于右边。而关于4-node，你可以看上面讲的变色操作。所以，你明白了，我其实一直在讲的就是这个LLRBT。</p>
-<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>插入都这么艰难了，删除岂不更加费脑？红黑树的删除包含集中操作？我不会分析那些什么父黑叔红，父红叔红各种情况的，那样只会让人眼花缭乱。明明都讲了2-3树，还要各种记红啊黑什么的，那我讲2-3树有何用？</p>
+<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>插入都这么艰难了，删除岂不更加费脑？红黑树的删除包含哪几种情况呢？我不会去分析那些什么父黑叔红，父红叔红各种情况的，那样只会让人眼花缭乱。明明都讲了2-3树，还要各种记红啊黑什么的，那我讲2-3树有何用？</p>
 <p>在LLRBT里，删除一个节点，比插入还简单，我在这里提供一个策略：</p>
 <ol>
 <li>找到被删节点的后继节点</li>
@@ -1005,7 +1005,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-11-24T04:31:16.194Z" itemprop="dateUpdated">2017-11-24 12:31:16</time>
+    Last updated: <time datetime="2017-11-24T05:51:28.522Z" itemprop="dateUpdated">2017-11-24 13:51:28</time>
 </span><br>
 
 
