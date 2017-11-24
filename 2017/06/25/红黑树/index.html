@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_300.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_3000.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/a_r_pk_30000.png">
-<meta property="og:updated_time" content="2017-11-24T05:51:28.522Z">
+<meta property="og:updated_time" content="2017-11-24T06:17:20.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树">
 <meta name="twitter:description" content="红黑树 红黑树（英语：Red–black tree）是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。它是在1972年由鲁道夫·贝尔发明的，他称之为”对称二叉B树”，它现代的名字是在Leo J. Guibas和Robert Sedgewick于1978年写的一篇论文中获得的。它是复杂的，但它的操作有着良好的最坏情况运行时间，并且在实践中是高效的：它可以在O(lo">
@@ -689,7 +689,8 @@
                     <img src="/images/rbt_4.png" alt="rbt-4" title="">
                 </div>
                 <div class="image-caption">rbt-4</div>
-            </figure><br>红黑树的2-node：<br><figure class="image-bubble">
+            </figure></p>
+<p>红黑树的2-node：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_5.png" alt="rbt-5" title="">
@@ -697,50 +698,47 @@
                 <div class="image-caption">rbt-5</div>
             </figure></p>
 <ul>
-<li><p>插入一个相对于b小的元素a：<br>2-3树：</p>
-<figure class="image-bubble">
+<li>插入一个相对于b小的元素a：<br>2-3树：<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_6.jpg" alt="rbt-6" title="">
                 </div>
                 <div class="image-caption">rbt-6</div>
             </figure>
-<p>红黑树：</p>
-<figure class="image-bubble">
+</li>
+</ul>
+<p>红黑树：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_7.jpg" alt="rbt-7" title="">
                 </div>
                 <div class="image-caption">rbt-7</div>
-            </figure>
+            </figure></p>
 <p>这一步，显然，对照一下2-3树，2-3树的2-node变成了3-node，而3-node显然要编码成红黑树的标准。b成为所谓的h节点，a作为它的左节点，当然也就是红线相连，并且a节点标成红色。</p>
-</li>
-<li><p>插入一个相对于b大的元素c:<br>2-3树：</p>
-<figure class="image-bubble">
+<ul>
+<li>插入一个相对于b大的元素c:<br>2-3树：<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_8.jpg" alt="rbt-8" title="">
                 </div>
                 <div class="image-caption">rbt-8</div>
             </figure>
-<p>红黑树：</p>
-<figure class="image-bubble">
+</li>
+</ul>
+<p>红黑树：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_9.jpg" alt="rbt-9" title="">
                 </div>
                 <div class="image-caption">rbt-9</div>
-            </figure>
-<p>“嘿嘿嘿，你怎么乱搞？”<br>这不是乱搞，首先，我们得按照二叉排序树的规定来插入节点。<br>“插入就插入，为啥把它搞成红的？不是说只有左元素才有这个条件吗？”<br>红的是因为要符合红黑树的第五条性质。<br>“那不矛盾了？”<br>先别急，我还得旋转它呢：</p>
-<figure class="image-bubble">
+            </figure></p>
+<p>“嘿嘿嘿，你怎么乱搞？”<br>这不是乱搞，首先，我们得按照二叉排序树的规定来插入节点。<br>“插入就插入，为啥把它搞成红的？不是说只有左元素才有这个条件吗？”<br>红的是因为要符合红黑树的第五条性质。<br>“那不矛盾了？”<br>先别急，我还得旋转它呢：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_10.jpg" alt="rbt-10" title="">
                 </div>
                 <div class="image-caption">rbt-10</div>
-            </figure>
-</li>
-</ul>
+            </figure></p>
 <p><strong>明确一点，红黑树的插入操作还是按照二叉排序树的套路来（不然之前复习过的都白费了不是吗=。=），默认插入的节点是红节点。产生冲突了（和红黑树定义违背）再进行树旋转和变色操作。</strong></p>
 <p>上面的例子里，就出现了需要调整的情况，《算法》上总结了两种旋转操作：</p>
 <ul>
@@ -750,42 +748,45 @@
                     <img src="/images/rbt_11.jpg" alt="rbt-11" title="">
                 </div>
                 <div class="image-caption">rbt-11</div>
-            </figure></li>
-<li><p>右旋转</p>
-<figure class="image-bubble">
+            </figure>
+</li>
+</ul>
+<ul>
+<li>右旋转<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_12.jpg" alt="rbt-12" title="">
                 </div>
                 <div class="image-caption">rbt-12</div>
             </figure>
-<p>“为什么还会有右旋转？(对啊，我也想问)。这不是把本来正确的给整成错的了吗？”</p>
 </li>
-<li><p>变色<br>呵呵，上面我已经说过，那个所谓的h节点不是不可以变红，当它是4-node的中间节点是，它会是红的，所以这个右旋转其实是起到一个过渡作用，看下面的情况：</p>
-<figure class="image-bubble">
+</ul>
+<p>“为什么还会有右旋转？(对啊，我也想问)。这不是把本来正确的给整成错的了吗？”</p>
+<ul>
+<li>变色<br>呵呵，上面我已经说过，那个所谓的h节点不是不可以变红，当它是4-node的中间节点是，它会是红的，所以这个右旋转其实是起到一个过渡作用，看下面的情况：<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_14.jpg" alt="rbt-13" title="">
                 </div>
                 <div class="image-caption">rbt-13</div>
             </figure>
-<p>你看，我想插入a（b已经红了），那它就得在b左边，形成一个临时的4-node，而对于临时的4-node，是需要“推中”的，在红黑树里，其实就是LL旋转（b为中心）：</p>
-<figure class="image-bubble">
+</li>
+</ul>
+<p>你看，我想插入a（b已经红了），那它就得在b左边，形成一个临时的4-node，而对于临时的4-node，是需要“推中”的，在红黑树里，其实就是LL旋转（b为中心）：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_15.jpg" alt="rbt-14" title="">
                 </div>
                 <div class="image-caption">rbt-14</div>
-            </figure>
-</li>
-</ul>
+            </figure></p>
 <p>“这下左右都是红的了，还搞毛。。。”<br>忘了4-node怎么拆分的了吗？，把b节点推上去，4-node变成3个2-node，放在红黑树的概念里，自然也就没有所谓的红节点了：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_16.jpg" alt="rbt-15" title="">
                 </div>
                 <div class="image-caption">rbt-15</div>
-            </figure><br>注意图中的最后一步，我把b节点变红了。你应该可以理解，因为中间状态的时候，这个子树的黑色层级变高了，不符合红黑树的第五条性质。</p>
+            </figure></p>
+<p>注意图中的最后一步，我把b节点变红了。你应该可以理解，因为中间状态的时候，这个子树的黑色层级变高了，不符合红黑树的第五条性质。</p>
 <p><strong>但是，在b节点是根节点的情况下，不能变色，而且你即使翻转它的颜色，也是个多余动作。</strong>根节点是红或黑，都影响不到红黑树的第五条性质。而且，你可以想一下，根节点如果设成红色，就没法往下进行了。所以，<strong>保持根节点是黑色的</strong>。这也就是红黑树为什么有第二条性质。</p>
 <p>“b不是根节点的话，如果b节点本身是左边的子节点还好，如果是右边的子节点，又得左旋转。”<br>嗯，是的。这里的插入操作，有时候需要多次旋转，最多三次旋转。<br>至于这些旋转操作，前面已经介绍过AVL树的旋转操作，所以这里不再重复介绍（就多了根红线嘛。。看前面的LL、LR、RR、RL去）</p>
 <h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>上面已经提到过一种插入操作，下面继续，要知道，红黑树的插入除了发生在根节点，就是在叶节点了。</p>
@@ -827,7 +828,8 @@
                     <img src="/images/rbt_20.png" alt="rbt-20" title="">
                 </div>
                 <div class="image-caption">rbt-20</div>
-            </figure><br><strong>关键是你怎么看待4-node，2-3树里也会有4-node，只不过它是暂时存在的，“推中”是它的核心操作；对于2-3-4树来说，又是怎样一副景象呢？在遇上4-node的时候，难道还要生成一个临时的5-node吗？并不是，在这个时候，它需要先“分裂”成3个2-node（其实就是2-3树的“推中”）。所以，一切取决于你是选择他“推中”还是“分裂”，英文原话叫“bottom-up 2-3”跟“top-down 2-3-4”。</strong></p>
+            </figure></p>
+<p><strong>关键是你怎么看待4-node，2-3树里也会有4-node，只不过它是暂时存在的，“推中”是它的核心操作；对于2-3-4树来说，又是怎样一副景象呢？在遇上4-node的时候，难道还要生成一个临时的5-node吗？并不是，在这个时候，它需要先“分裂”成3个2-node（其实就是2-3树的“推中”）。所以，一切取决于你是选择他“推中”还是“分裂”，英文原话叫“bottom-up 2-3”跟“top-down 2-3-4”。</strong></p>
 <p>事实上，我讲的这个版本的红黑树，它不是劣化版本，反而更加高级。它是红黑树的发明人之一<code>Robert Sedgewick</code>先生为了减少原有红黑树插入/删除需要处理的情况数量，自己改进的算法，它叫<code>Left-leaning red-black trees</code>（LLRBT），即左偏红黑树。在它的世界里，红节点就是要左倾的。它比起一般的RBT，有以下优点：</p>
 <ul>
 <li>它可以与2-3-4树保持完美的一一对应</li>
@@ -852,14 +854,16 @@
                     <img src="/images/rbt_21.png" alt="rbt-22" title="">
                 </div>
                 <div class="image-caption">rbt-22</div>
-            </figure><br>3-node的编码方式跟刚才不一样了，红线可以在左，可以在右。4-node作为合法存在，它的两个子节点都可为红。</p>
+            </figure></p>
+<p>3-node的编码方式跟刚才不一样了，红线可以在左，可以在右。4-node作为合法存在，它的两个子节点都可为红。</p>
 <p>LLRBT编码方式：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/rbt_25.png" alt="rbt-23" title="">
                 </div>
                 <div class="image-caption">rbt-23</div>
-            </figure><br>3-node的编码方式就是我上面讲的，它不允许红节点存在于右边。而关于4-node，你可以看上面讲的变色操作。所以，你明白了，我其实一直在讲的就是这个LLRBT。</p>
+            </figure></p>
+<p>3-node的编码方式就是我上面讲的，它不允许红节点存在于右边。而关于4-node，你可以看上面讲的变色操作。所以，你明白了，我其实一直在讲的就是这个LLRBT。</p>
 <h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><p>插入都这么艰难了，删除岂不更加费脑？红黑树的删除包含哪几种情况呢？我不会去分析那些什么父黑叔红，父红叔红各种情况的，那样只会让人眼花缭乱。明明都讲了2-3树，还要各种记红啊黑什么的，那我讲2-3树有何用？</p>
 <p>在LLRBT里，删除一个节点，比插入还简单，我在这里提供一个策略：</p>
 <ol>
@@ -969,8 +973,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k,v,c=RED,l=None,r=None)</span>:</span></div><div class="line">        self.lchild=l</div><div class="line">        self.rchild=r</div><div class="line">        self.key=k</div><div class="line">        self.color=c</div><div class="line">        self.value=v</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Red_black_tree</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.root=<span class="keyword">None</span></div><div class="line">        self.node_size=<span class="number">0</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_red</span><span class="params">(self,node)</span>:</span></div><div class="line">        <span class="keyword">if</span> node:</div><div class="line">            <span class="keyword">return</span> node.color</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self,k,v)</span>:</span></div><div class="line">        node=self.root</div><div class="line">        self.root=self.insert(node,k,v)</div><div class="line">        self.root.color=BLACK</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,k)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.search(self.root,k)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self,node,k,v)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node:</div><div class="line">            <span class="keyword">return</span> Node(k,v)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> k==node.key:</div><div class="line">            node.value=v</div><div class="line">        <span class="keyword">elif</span> k&lt;node.key:</div><div class="line">            node.lchild=self.insert(node.lchild,k,v)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            node.rchild=self.insert(node.rchild,k,v)</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(self.is_red(node.rchild)):           <span class="comment">#右红变左红</span></div><div class="line">            node=self.rotateLeft(node)</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(self.is_red(node.lchild) <span class="keyword">and</span> self.is_red(node.lchild.lchild)):   <span class="comment">#连续左红就要右转</span></div><div class="line">            node=self.rotateRight(node)</div><div class="line">        </div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(self.is_red(node.lchild) <span class="keyword">and</span> self.is_red(node.rchild)):  <span class="comment">#两孩子都红，需要翻转颜色</span></div><div class="line">            self.colorFlip(node)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> node</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self,node,x)</span>:</span></div><div class="line">        current_node=node</div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> current_node:</div><div class="line">                result=<span class="keyword">None</span></div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">elif</span> x&lt;current_node.key:</div><div class="line">                current_node=current_node.lchild</div><div class="line">            <span class="keyword">elif</span> x&gt;current_node.key:</div><div class="line">                current_node=current_node.rchild</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                result=current_node</div><div class="line">                <span class="keyword">break</span></div><div class="line">        <span class="keyword">if</span> result:</div><div class="line">            <span class="keyword">return</span> result.value</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rotateLeft</span><span class="params">(self,h)</span>:</span></div><div class="line">        node=h.rchild</div><div class="line">        h.rchild=node.lchild</div><div class="line">        node.lchild=h</div><div class="line">        node.color=node.lchild.color</div><div class="line">        node.lchild.color=RED</div><div class="line">        <span class="keyword">return</span> node</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rotateRight</span><span class="params">(self,h)</span>:</span></div><div class="line">        node=h.lchild</div><div class="line">        h.lchild=node.rchild</div><div class="line">        node.rchild=h</div><div class="line">        node.color=node.rchild.color</div><div class="line">        node.rchild.color=RED</div><div class="line">        <span class="keyword">return</span> node</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">colorFlip</span><span class="params">(self,h)</span>:</span>  <span class="comment">#翻转颜色函数</span></div><div class="line">        h.color= <span class="keyword">not</span> h.color</div><div class="line">        h.lchild.color=<span class="keyword">not</span> h.lchild.color</div><div class="line">        h.rchild.color=<span class="keyword">not</span> h.rchild.color</div><div class="line">        <span class="keyword">return</span> h</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fixUp</span><span class="params">(self,h)</span>:</span>      <span class="comment">#删除时，用到的往上修复的函数</span></div><div class="line">        <span class="keyword">if</span> self.is_red(h.rchild):</div><div class="line">            h=self.rotateLeft(h)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> self.is_red(h.lchild) <span class="keyword">and</span> self.is_red(h.lchild.lchild):</div><div class="line">            h=self.rotateRight(h)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> self.is_red(h.lchild) <span class="keyword">and</span> self.is_red(h.rchild):</div><div class="line">            h=self.colorFlip(h)</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> h</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">moveRedRight</span><span class="params">(self,h)</span>:</span>   <span class="comment">#删除时右路查询的情况</span></div><div class="line">        self.colorFlip(h)</div><div class="line">        <span class="keyword">if</span> self.is_red(h.lchild.lchild):</div><div class="line">            h=self.rotateRight(h)</div><div class="line">            self.colorFlip(h)</div><div class="line">        <span class="keyword">return</span> h</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">moveRedLeft</span><span class="params">(self,h)</span>:</span>    <span class="comment">#删除时左路查询的情况</span></div><div class="line">        self.colorFlip(h)</div><div class="line">        <span class="keyword">if</span> self.is_red(h.rchild.lchild):</div><div class="line">            h.rchild=self.rotateRight(h.rchild)</div><div class="line">            h=self.rotateLeft(h)</div><div class="line">            self.colorFlip(h)</div><div class="line">        <span class="keyword">return</span> h</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteMin</span><span class="params">(self,h)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> h.lchild:           <span class="comment">##为何，因为不可能出现黑节点在右而左节点为空的情况。而在LLRBT里，红节点一直在左</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> self.is_red(h.lchild) <span class="keyword">and</span> self.is_red(h.lchild.lchild):</div><div class="line">            h=self.moveRedLeft(h)</div><div class="line"></div><div class="line">        h.lchild=self.deleteMin(h.lchild)</div><div class="line">        <span class="keyword">return</span> self.fixUp(h)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span><span class="params">(self,k)</span>:</span></div><div class="line">        self.root = self.delete(self.root, k)</div><div class="line">        self.root.color = BLACK</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete</span><span class="params">(self,h,k)</span>:</span></div><div class="line">        <span class="keyword">if</span> k&lt;h.key:</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">not</span> self.is_red(h.lchild) <span class="keyword">and</span> <span class="keyword">not</span> self.is_red(h.lchild.lchild)):</div><div class="line">                h=self.moveRedLeft(h)</div><div class="line">            h.lchild=self.delete(h.lchild,k)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">if</span> self.is_red(h.lchild):</div><div class="line">                h=self.rotateRight(h)</div><div class="line">            <span class="keyword">if</span> k==h.key <span class="keyword">and</span> h.rchild==<span class="keyword">None</span>:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.is_red(h.rchild) <span class="keyword">and</span> <span class="keyword">not</span> self.is_red(h.rchild.lchild):</div><div class="line">                h=self.moveRedRight(h)</div><div class="line">            <span class="keyword">if</span> k==h.key:</div><div class="line">                h.key=self.min(h.rchild)</div><div class="line">                h.value=self.search(h.rchild,h.key)</div><div class="line">                h.rchild=self.deleteMin(h.rchild)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                h.rchild=self.delete(h.rchild,k)</div><div class="line">        <span class="keyword">return</span> self.fixUp(h)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">min</span><span class="params">(self)</span>:</span>      <span class="comment">#查询最小节点</span></div><div class="line">        <span class="keyword">if</span> (self.root == <span class="keyword">None</span>): </div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="keyword">else</span>:              </div><div class="line">            <span class="keyword">return</span> min(self.root)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">min</span><span class="params">(self, x)</span>:</span>   <span class="comment">#查询某子树的最小节点</span></div><div class="line">        <span class="keyword">if</span> (x.lchild == <span class="keyword">None</span>): </div><div class="line">            <span class="keyword">return</span> x.key</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> self.min(x.lchild)</div></pre></td></tr></table></figure>
 <p>可能想比一下AVL跟LLRBT的性能，那就pk一下，因为实现的有差异，可能不是很客观，仅供娱乐。</p>
 <ul>
-<li><p>随机300个数据：</p>
-<figure class="image-bubble">
+<li>随机300个数据：<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/a_r_pk_300.png" alt="test-1" title="">
@@ -978,8 +981,9 @@
                 <div class="image-caption">test-1</div>
             </figure>
 </li>
-<li><p>随机3000个数据：</p>
-<figure class="image-bubble">
+</ul>
+<ul>
+<li>随机3000个数据：<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/a_r_pk_3000.png" alt="test-2" title="">
@@ -987,8 +991,9 @@
                 <div class="image-caption">test-2</div>
             </figure>
 </li>
-<li><p>随机30000个数据：</p>
-<figure class="image-bubble">
+</ul>
+<ul>
+<li>随机30000个数据：<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/a_r_pk_30000.png" alt="test-3" title="">
@@ -1005,7 +1010,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-11-24T05:51:28.522Z" itemprop="dateUpdated">2017-11-24 13:51:28</time>
+    Last updated: <time datetime="2017-11-24T06:17:20.031Z" itemprop="dateUpdated">2017-11-24 14:17:20</time>
 </span><br>
 
 
