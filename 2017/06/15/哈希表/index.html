@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/hash_2.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/linear_probing.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/quadratic_probing.png">
-<meta property="og:updated_time" content="2017-11-23T07:47:30.009Z">
+<meta property="og:updated_time" content="2017-11-27T08:36:49.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哈希表">
 <meta name="twitter:description" content="哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生">
@@ -531,7 +531,7 @@
 <p>所以当到达一定程度，表的长度是要变的，即resize=。=像java的HashMap，载荷因子被设计为0.75；超过0.8，cpu的cache missing会急剧上升。可以看下这篇讨论：<br><a href="https://www.zhihu.com/question/22911718" target="_blank" rel="external">https://www.zhihu.com/question/22911718</a></p>
 <p>具体扩容多少，一般选择扩到已插入元素数量的两倍，java也是这么做的。</p>
 <p>接着上面，再升级一下我们的map：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Map</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.capacity=<span class="number">11</span></div><div class="line">        self.hash_table=[[<span class="keyword">None</span>,<span class="keyword">None</span>]<span class="keyword">for</span> i <span class="keyword">in</span> range(self.capacity)]</div><div class="line">        self.num=<span class="number">0</span></div><div class="line">        self.load_factor=<span class="number">0.75</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self,k,i)</span>:</span></div><div class="line">        h_value=(k+i)%self.capacity</div><div class="line">        <span class="keyword">if</span> self.hash_table[h_value][<span class="number">0</span>]==k:</div><div class="line">            <span class="keyword">return</span> h_value</div><div class="line">        <span class="keyword">if</span> self.hash_table[h_value][<span class="number">0</span>]!=<span class="keyword">None</span>:</div><div class="line">            i+=<span class="number">1</span></div><div class="line">            h_value=self.hash(k,i)</div><div class="line">        <span class="keyword">return</span> h_value</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">resize</span><span class="params">(self)</span>:</span></div><div class="line">        self.capacity=self.num*<span class="number">2</span> <span class="comment">#扩容到原有元素数量的两倍</span></div><div class="line">        temp=self.hash_table[:]</div><div class="line">        self.hash_table=[[<span class="keyword">None</span>,<span class="keyword">None</span>]<span class="keyword">for</span> i <span class="keyword">in</span> range(self.capacity)] </div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> temp:</div><div class="line">            <span class="keyword">if</span>(i[<span class="number">0</span>]!=<span class="keyword">None</span>):  <span class="comment">#把原来已有的元素存入</span></div><div class="line">                hash_v=self.hash(i[<span class="number">0</span>],<span class="number">0</span>)</div><div class="line">                self.hash_table[hash_v][<span class="number">0</span>]=i[<span class="number">0</span>]</div><div class="line">                self.hash_table[hash_v][<span class="number">1</span>]=i[<span class="number">1</span>]</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self,k,v)</span>:</span></div><div class="line">        hash_v=self.hash(k,<span class="number">0</span>)</div><div class="line">        self.hash_table[hash_v][<span class="number">0</span>]=k</div><div class="line">        self.hash_table[hash_v][<span class="number">1</span>]=v</div><div class="line">        self.num+=<span class="number">1</span>                 <span class="comment">#暂不考虑key重复的情况，具体自己可以优化</span></div><div class="line">        <span class="keyword">if</span>(self.num/len(self.hash_table)&gt;self.load_factor):<span class="comment"># 如果比例大于载荷因子</span></div><div class="line">            self.resize()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,k)</span>:</span></div><div class="line">        hash_v=self.hash(k,<span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> self.hash_table[hash_v][<span class="number">1</span>]</div></pre></td></tr></table></figure></p>
-<p>看上面的函数，可以看到resize是一个比较耗时的操作，更何况我写的不是很好。可以去看一下Java的HashMap的hash方法和resize方法，其中的思路要精妙的多。</p>
+<p>看上面的函数，可以看到resize是一个比较耗时的操作，更何况作为一个python小白的我写的不是很好。可以去看一下Java的HashMap的hash方法和resize方法，其中的思路要精妙的多。</p>
 <p>关于哈希表，原理的东西都基本差不多了。可以看到，它本质要解决的是查找时间的问题。如果顺序查找的话，时间复杂度为O(n)；而哈希表，时间复杂度则为O(1)！直接甩了一个次元有木有，这也就是为什么在大量数据存储查找的时候，哈希表得到大量应用的原因。</p>
 
         </div>
@@ -540,7 +540,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-11-23T07:47:30.009Z" itemprop="dateUpdated">2017-11-23 15:47:30</time>
+    Last updated: <time datetime="2017-11-27T08:36:49.697Z" itemprop="dateUpdated">2017-11-27 16:36:49</time>
 </span><br>
 
 
@@ -623,9 +623,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/06/25/LRU cache的简单实现/" id="post-prev" class="post-nav-link">
+      <a href="/2017/06/25/红黑树/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">LRU cache的简单实现</h4>
+        <h4 class="title">红黑树</h4>
       </a>
     </div>
   

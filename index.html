@@ -402,6 +402,102 @@
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-稍微用另一种姿势看补码（非详解）"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-07-07 15:54:07" datetime="2017-07-07T07:54:07.000Z"  itemprop="datePublished">2017-07-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+
+
+    </div>
+
+    <!-- 
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/07/07/稍微用另一种姿势看补码（非详解）/">位操作</a>
+    </h3>
+  
+
+
+ -->
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="稍微用另一种姿势看补码（非详解）"><a href="#稍微用另一种姿势看补码（非详解）" class="headerlink" title="稍微用另一种姿势看补码（非详解）"></a>稍微用另一种姿势看补码（非详解）</h1><p>大概从接触到计算机开始算起，就知道计算机中存储都是以补码形式，且认为补码就是“符号位不变，取反加一”，貌似它像一个已有的实体一样, 已经不需再形式的去定义它, 如同几何学中对“点”和“线”的概念不加定义一样。但事实上，它背后还是有点故事的，在教材中也有提及，但是几乎都被我们忽略了。</p>
+<h2 id="why-two’s-complement"><a href="#why-two’s-complement" class="headerlink" title="why two’s complement?"></a>why two’s complement?</h2><p>如果你还是第一次听说这个<code>two&#39;s complement</code>的，不妨接下来看看。笔者最近在看自动机方面的书籍，涉及到状态机的时候，经常会拿补码举例子，有时看不懂了，就去<code>google</code>。我就寻思这个补码的英文是什么，结果一搜，<code>two&#39;s complement</code>, 直接意译过来，就是<strong>2的补码</strong>。</p>
+<p><strong>WTF?当年看计算机组成原理好像没听过这玩意儿啊~</strong></p>
+<p>如果世界上没有负数的话，应该轮不到补码出场，至于符号位，那更是没有。但是这不可能。为什么要有补码？而且为什么补码表示才是好的形式？</p>
+<p>先不管，反正我们脑海里已经有根深蒂固的概念了：</p>
+<p><strong>补码：正数的补码与其原码相同；负数的补码是在其原码的基础上, 符号位不变, 其余逐位取反, 最后+1。符号位为最高位，如果为1就代表负数</strong></p>
+<p>举个例子（<code>byte</code>数据，八位），根据上面的姿势你可计算出：</p>
+<p>25的补码：</p>
+<p><code>00011001</code></p>
+<p><code>-25</code>的补码：</p>
+<p><code>11100111</code></p>
+<p>很正确的姿势，下面我们再用另一种姿势计算一遍，同样还是25和-25，<strong>但是这次我们不管符号位了</strong>：</p>
+<p>先来看<code>25</code>，把它加上<code>256</code>，用八位表示看看。</p>
+<p><code>25+256=281</code></p>
+<p>你发现这个数用八位都表示不了，在计算机里也就是溢出：</p>
+<p><code>100011001</code></p>
+<p>所以它被截断了，变成<code>00011001</code>，表示的同样还是<code>25</code>。没毛病吧？</p>
+<p>再来看<code>-25</code>，也把它加上<code>256</code>，用八位表示看看。</p>
+<p><code>-25+256=231</code></p>
+<p>这个数用八位还是能表示的：</p>
+<p><code>11100111</code></p>
+<p><strong>。。。这玩意儿不就是-25的补码么。</strong>  没毛病吧？</p>
+<p>为什么是<code>256</code>？因为这个<code>256</code>是作为八位数的<strong>最小溢出数</strong>。难道不是吗？这个东西很神奇，只要加上这玩意儿，我就能用同一种规则来表示正数、负数和它们在计算机中的运算。</p>
+<p>不信？那就来算一下，我知道你们想算减法，减法也就是加一个负数：</p>
+<p><code>125-25</code>，显而易见，答案就是<code>100</code>。</p>
+<p>用上边的姿势算一遍:</p>
+<p><code>(125+256)+(-25+256)=612</code></p>
+<p>用二进制表示一下：</p>
+<p><code>1001100100</code></p>
+<p>溢出了两位，截断，变成<code>01100100</code>，也就是<code>100</code>。</p>
+<p>再来算一个 <code>25-125</code>:</p>
+<p><code>(25+256)+(-125+256)=412</code></p>
+<p>二进制表示为：</p>
+<p><code>110011100</code></p>
+<p>溢出了一位，截断，变成<code>10011100</code>,你仔细一看，按照补码定义，这个数就是八位数的<code>-100</code>。</p>
+<p>继续，再来一个<code>-25-125</code>:</p>
+<p><code>(-25+256)+(-125+256)=362</code></p>
+<p>二进制表示为：</p>
+<p><code>101101010</code></p>
+<p>依然溢出了一位，截断，变成<code>01101010</code>，答案<code>106</code>。</p>
+<p>老哥，不对啊，答案是-150。</p>
+<p>没错，数学上是<code>-150</code>，但你可能忘了它是一个八位数，<code>-150</code>已经超出了八位数在计算机中所能表示的范围<code>[-128,127]</code>。你可以用<code>Java</code>代码敲一下，结果用<code>byte</code>类型表示，<code>-25-125</code>它得出来的就是<code>106</code>，还是没毛病的。</p>
+<p>玄学？实际上，这里引出了同余的概念（<a href="https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/congruence-modulo）。" target="_blank" rel="external">https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/congruence-modulo）。</a></p>
+<p>即两整数<code>A</code>、<code>B</code>用同一个正整数<code>M</code>(<code>M</code>称为模)去除而所得余数相等，则称<code>A</code>、<code>B</code>对<code>M</code>同余，记作：</p>
+<p><code>A＝B(mod M)</code></p>
+<p>不管是<code>-150</code>还是<code>106</code>，在模<code>256</code>下是同余的（关于取模运算，这个也有点意思，各个语言实现的还不一样，你可以用<code>js</code>跟<code>C</code>语言求一个<code>-5%8</code>，你看得到的结果一样不一样）。</p>
+<p><strong>“符号位参与运算？”</strong>不好意思，我现在不想知道这句话。在我看来，有了上面的过程，才有这个所谓的“符号位参与运算”。或者说，符号位是因为同余才变得有意义。再进一步，<strong>补码就是同余,具有同余关系的两个数为互补关系，其中一个称为另一个的补码。</strong>。像上面的例子，<code>8</code>位下最多能表示<code>256</code>个数，即<code>0</code>到<code>255</code>，可我还想表示一些负数该怎么办？根据同余概念：<code>-1 ≅255</code>，<code>-2 ≅ 254</code>，<code>-3 ≅ 253</code>，等等，然后我再砍掉一半正数，拿它们表示负数，这不就是补码么？所以补码厉害就在，它可以把带符号数和无符号数的加减运算全部都当作无符号数来进行运算，还能自动解决溢出的问题（反码解决了符号问题，但是溢出后要加<code>1</code>，还有<code>-0</code>和<code>+0</code>的问题），简化了计算机中运算器的线路设计，增加了处理器效率，减少了设计制造成本。而这一步转化，已经由编译器完成了，它将你的负数表示成了补码形式，使得计算机能够明白你的意思。</p>
+<p>最后，如果看懂了的话，再抛个问题，补码<code>10000000</code>为什么表示的是<code>-128</code>，而不是<code>-0</code>？真的是规定的吗？</p>
+
+    
+
+    <!--  -->
+        <a href="/2017/07/07/稍微用另一种姿势看补码（非详解）/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-位操作"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -545,6 +641,58 @@
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-LRU cache的简单实现"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-25 15:54:07" datetime="2017-06-25T07:54:07.000Z"  itemprop="datePublished">2017-06-25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+
+
+    </div>
+
+    <!-- 
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/06/25/LRU cache的简单实现/">LRU cache的简单实现</a>
+    </h3>
+  
+
+
+ -->
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="LRU是什么"><a href="#LRU是什么" class="headerlink" title="LRU是什么"></a>LRU是什么</h2><p>说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。</p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
+<p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p>
+    
+
+    <!-- <h2 id="LRU是什么"><a href="#LRU是什么" class="headerlink" title="LRU是什么"></a>LRU是什么</h2><p>说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。</p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
+<p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p> -->
+        <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-红黑树"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -617,58 +765,6 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-LRU cache的简单实现"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-25 15:54:07" datetime="2017-06-25T07:54:07.000Z"  itemprop="datePublished">2017-06-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
-
-
-
-    </div>
-
-    <!-- 
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/25/LRU cache的简单实现/">LRU cache的简单实现</a>
-    </h3>
-  
-
-
- -->
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="LRU是什么"><a href="#LRU是什么" class="headerlink" title="LRU是什么"></a>LRU是什么</h2><p>说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。</p>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
-<p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p>
-    
-
-    <!-- <h2 id="LRU是什么"><a href="#LRU是什么" class="headerlink" title="LRU是什么"></a>LRU是什么</h2><p>说白了就是一种替换策略，在固定容量的缓存中，当存储满了的时候，新的数据插入，该采用何种策略，LRU就是其中一种，LRU(least recently used)，顾名思义就是最近最少使用。当新的插入时，我们要把最近最少使用的给从缓存里拿掉。</p>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
-<p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p> -->
-        <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-哈希表"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -711,64 +807,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-八大排序算法（python实现）"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-06-13 15:54:07" datetime="2017-06-13T07:54:07.000Z"  itemprop="datePublished">2017-06-13</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
-
-
-
-    </div>
-
-    <!-- 
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/06/13/八大排序算法（python实现）/">八大排序算法（python描述）</a>
-    </h3>
-  
-
-
- -->
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="八大排序算法（python描述）"><a href="#八大排序算法（python描述）" class="headerlink" title="八大排序算法（python描述）"></a>八大排序算法（python描述）</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。<br>什么，你说哪个是最简单的？这个仁者见仁吧。。。</p>
-<ul>
-<li>基本思想： 两两比较，然后决定是否交换</li>
-</ul>
-<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</div><div class="line">            <span class="keyword">if</span>(lists[i]&gt;lists[j]):</div><div class="line">                temp=lists[i]</div><div class="line">                lists[i]=lists[j]</div><div class="line">                lists[j]=temp</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
-<p>再来分析一波时间复杂度，嗯，这个时间复杂度应该为：<br>0+1+2+3+······+n-1<br>即n的累加，等于n*(n-1)/2。时间复杂度为O(n²)</p>
-    
-
-    <!-- <h1 id="八大排序算法（python描述）"><a href="#八大排序算法（python描述）" class="headerlink" title="八大排序算法（python描述）"></a>八大排序算法（python描述）</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。<br>什么，你说哪个是最简单的？这个仁者见仁吧。。。</p>
-<ul>
-<li>基本思想： 两两比较，然后决定是否交换</li>
-</ul>
-<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</div><div class="line">            <span class="keyword">if</span>(lists[i]&gt;lists[j]):</div><div class="line">                temp=lists[i]</div><div class="line">                lists[i]=lists[j]</div><div class="line">                lists[j]=temp</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
-<p>再来分析一波时间复杂度，嗯，这个时间复杂度应该为：<br>0+1+2+3+······+n-1<br>即n的累加，等于n*(n-1)/2。时间复杂度为O(n²)</p> -->
-        <a href="/2017/06/13/八大排序算法（python实现）/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     
