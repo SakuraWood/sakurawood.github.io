@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/hash_2.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/linear_probing.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/quadratic_probing.png">
-<meta property="og:updated_time" content="2017-12-04T00:53:48.252Z">
+<meta property="og:updated_time" content="2017-12-04T00:55:12.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哈希表">
 <meta name="twitter:description" content="哈希表使用哈希表可以进行非常快速的查找操作。但是，哈希表究竟是什么玩意儿？很多人避而不谈，虽然知道经常用到，很多语言的内置数据结构像python中的字典，java中的HashMap，都是基于哈希表实现。但哈希表究竟是啥？ 哈希是什么？(如果觉得废话很多，可以直接看建立哈希表) 散列（hashing）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检">
@@ -130,7 +130,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -215,7 +215,7 @@
 <p>这样实现的<code>Map</code>，查找的时间复杂度为<code>O(n)</code>。<br>“这看上去与key没什么关系啊，这不是顺序查找么，逗我呢？”<br>这只是一个热身，好吧，下面我们根据定义，来搞一个有映射函数的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Map</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.items=[<span class="keyword">None</span>]*<span class="number">100</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(self,a)</span>:</span></div><div class="line">        <span class="keyword">return</span> a*<span class="number">1</span>+<span class="number">0</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self,k,v)</span>:</span></div><div class="line">        self.items[hash(k)]=v</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self,k)</span>:</span></div><div class="line">        hashcode=hash(k)</div><div class="line">        <span class="keyword">return</span> self.items[hashcode]</div></pre></td></tr></table></figure>
 <p>“这hash函数有点简单啊”<br>是的，它是简单，但简单不代表它不是哈希函数，事实上，它是由一种叫直接定址法的方法建立的哈希函数，是一个线性函数：<br><strong>hash(k)= a*k+b</strong></p>
-<p>“为啥初始化就指定了<code>100</code>容量？”<br>必须要指出的是，这个是必须的。你想通过下标存储并访问，对于数组来说，这不可避免。在<code>JDK</code>源码里，你也可以看到，<code>Java</code>的<code>HashMap</code>的初始容量设成了<code>16</code>。你可能说，你这<code>hash</code>函数，我只要<code>key</code>设为<code>100</code>以上，这程序就废了。是啊，它并不完美。这涉及到扩容的事情，稍后再讲。</p>
+<p>“为啥初始化就指定了<code>100</code>容量？”<br>要指出的是，这个是必须的。你想通过下标存储并访问，对于数组来说，这不可避免。在<code>JDK</code>源码里，你也可以看到，<code>Java</code>的<code>HashMap</code>的初始容量设成了<code>16</code>。你可能说，你这<code>hash</code>函数，我只要<code>key</code>设为<code>100</code>以上，这程序就废了。是啊，它并不完美。这涉及到扩容的事情，稍后再讲。</p>
 <p>直接定址法的优点很明显，就是它不会产生重复的<code>hash</code>值。但由于它与键值本身有关系，所以当键值分布很散的时候，会浪费大量的存储空间。所以一般是不会用到直接定址法的。</p>
 <!-- more -->
 <h3 id="处理冲突"><a href="#处理冲突" class="headerlink" title="处理冲突"></a>处理冲突</h3><p>假如某个<code>hash</code>函数产生了一堆哈希值，而这些哈希值产生了冲突怎么办（实际生产环境中经常发生）？在各种哈希表的实现里，处理冲突是必需的一步。<br>比如你定义了一个hash函数：<br><strong>hash(k)=k mod 10</strong><br>假设key序列为：[15,1,24,32,55,64,42,93,82,76]</p>
@@ -541,7 +541,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-04T00:53:48.252Z" itemprop="dateUpdated">2017-12-04 08:53:48</time>
+    Last updated: <time datetime="2017-12-04T00:55:12.494Z" itemprop="dateUpdated">2017-12-04 08:55:12</time>
 </span><br>
 
 
@@ -701,7 +701,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
