@@ -125,7 +125,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -208,7 +208,7 @@
 </ul>
 <p>计算机科学有两个主要的部分: 第一, 构成计算系统基础的一些基本概念和模型; 第二, 设计计算系统 (软件和硬件) 的工程技术。形式语言与自动机理论, 就是作为第一部分, 即构成计算基础的基本概念的引论。</p> -->
         <a href="/2017/11/15/形式语言与自动机/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -280,7 +280,7 @@
 <p>我并不想在这里介绍<code>Groovy</code>语言，有闲时间我建议直接看<code>Groovy</code>的官方指南：</p>
 <p><a href="http://groovy-lang.org/documentation.html" target="_blank" rel="external">http://groovy-lang.org/documentation.html</a></p> -->
         <a href="/2017/08/15/gradle学习笔记/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -331,7 +331,7 @@
 
     <!--  -->
         <a href="/2017/08/15/css盒模型/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -387,7 +387,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(A)</span>:</span></div><div class="line">    ones = <span class="number">0</span></div><div class="line">    twos = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> A:</div><div class="line">        ones = (ones ^ i) &amp; ~twos</div><div class="line">        twos = (twos ^ i) &amp; ~ones</div><div class="line">    <span class="keyword">return</span> ones</div></pre></td></tr></table></figure>
 <p>这代码一看就懵逼。而且对于不熟悉位操作的人，简直就是痛苦。WTF？<br>这段代码看上去很诡异，但其实它是有来头的。</p> -->
         <a href="/2017/07/12/一道位操作题引发的思考/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -476,14 +476,14 @@
 <p>即两整数<code>A</code>、<code>B</code>用同一个正整数<code>M</code>(<code>M</code>称为模)去除而所得余数相等，则称<code>A</code>、<code>B</code>对<code>M</code>同余，记作：</p>
 <p><code>A＝B(mod M)</code></p>
 <p>不管是<code>-150</code>还是<code>106</code>，在模<code>256</code>下是同余的（关于取模运算，这个也有点意思，各个语言实现的还不一样，你可以用<code>js</code>跟<code>C</code>语言求一个<code>-5%8</code>，你看得到的结果一样不一样）。</p>
-<p><strong>“符号位参与运算？”</strong>不好意思，我现在不想知道这句话。在我看来，有了上面的过程，才有这个所谓的“符号位参与运算”。或者说，符号位是因为同余才变得有意义。再进一步，<strong>补码就是同余,具有同余关系的两个数为互补关系，其中一个称为另一个的补码。</strong>。像上面的例子，<code>8</code>位下最多能表示<code>256</code>个数，即<code>0</code>到<code>255</code>，可我还想表示一些负数该怎么办？根据同余概念：<code>-1 ≅255</code>，<code>-2 ≅ 254</code>，<code>-3 ≅ 253</code>，等等，然后我再砍掉一半正数，拿它们表示负数，这不就是补码么？所以补码厉害就在，它可以把带符号数和无符号数的加减运算全部都当作无符号数来进行运算，还能自动解决溢出的问题（反码解决了符号问题，但是溢出后要加<code>1</code>，还有<code>-0</code>和<code>+0</code>的问题），简化了计算机中运算器的线路设计，增加了处理器效率，减少了设计制造成本。而这一步转化，已经由编译器完成了，它将你的负数表示成了补码形式，使得计算机能够明白你的意思。</p>
+<p><strong>“符号位参与运算？”</strong>不好意思，我现在不想知道这句话。在我看来，有了上面的过程，才有这个所谓的“符号位参与运算”。或者说，符号位是因为同余才变得有意义。再进一步，<strong>补码就是同余,具有同余关系的两个数为互补关系，其中一个称为另一个的补码。</strong>。像上面的例子，<code>8</code>位下最多能表示<code>256</code>个数，即<code>0</code>到<code>255</code>，可我还想表示一些负数该怎么办？根据同余概念：<code>-1 ≅ 255</code>，<code>-2 ≅ 254</code>，<code>-3 ≅ 253</code>，等等，然后我再砍掉一半正数，拿它们表示负数，这不就是补码么？所以补码厉害就在，它可以把带符号数和无符号数的加减运算全部都当作无符号数来进行运算，还能自动解决溢出的问题（反码解决了符号问题，但是溢出后要加<code>1</code>，还有<code>-0</code>和<code>+0</code>的问题），简化了计算机中运算器的线路设计，增加了处理器效率，减少了设计制造成本。而这一步转化，已经由编译器完成了，它将你的负数表示成了补码形式，使得计算机能够明白你的意思。</p>
 <p>最后，如果看懂了的话，再抛个问题，补码<code>10000000</code>为什么表示的是<code>-128</code>，而不是<code>-0</code>？真的是规定的吗？</p>
 
     
 
     <!--  -->
         <a href="/2017/07/07/稍微用另一种姿势看补码（非详解）/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -542,7 +542,7 @@
 
     <!--  -->
         <a href="/2017/07/07/位操作/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -626,7 +626,7 @@
 <p>“你说强大就强大，理由呢？”</p>
 <p>当初的node还不叫nodejs，还在那纠结到底放到哪个语言上比较好。当时的语言，一遍观望下来，几乎都自带了一套I/O接口，而且是阻塞式的。<br>node的设计者对这些都不太满意，但他们又不想重新发明一种语言，然后他们瞄上了js，js几乎是完美的选择，天然的异步方式，加上没有I/O接口，node果断加入了js阵营。异步非阻塞的模型是nodejs强大的根本原因。</p> -->
         <a href="/2017/06/27/gulp构建工具/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -678,7 +678,7 @@
 <h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
 <p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p> -->
         <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -750,7 +750,7 @@
 </ol>
 <p>如何构造一颗二叉查找树？</p> -->
         <a href="/2017/06/25/红黑树/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -802,7 +802,7 @@
 <h2 id="哈希是什么？"><a href="#哈希是什么？" class="headerlink" title="哈希是什么？"></a>哈希是什么？</h2><p>(如果觉得废话很多，可以直接看建立哈希表)</p>
 <p>散列（<code>hashing</code>）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（<code>Hashing algorithms</code>）计算出来的资料指纹（<code>data fingerprint</code>），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia</p> -->
         <a href="/2017/06/15/哈希表/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -845,7 +845,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">

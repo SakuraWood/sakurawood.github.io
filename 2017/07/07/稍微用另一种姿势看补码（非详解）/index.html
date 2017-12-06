@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="SakuraWood&#39;s blogs">
 <meta property="og:description" content="稍微用另一种姿势看补码（非详解）大概从接触到计算机开始算起，就知道计算机中存储都是以补码形式，且认为补码就是“符号位不变，取反加一”，貌似它像一个已有的实体一样, 已经不需再形式的去定义它, 如同几何学中对“点”和“线”的概念不加定义一样。但事实上，它背后还是有点故事的，在教材中也有提及，但是几乎都被我们忽略了。 why two’s complement?如果你还是第一次听说这个two&amp;#39;s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T07:15:02.832Z">
+<meta property="og:updated_time" content="2017-12-06T01:04:25.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位操作">
 <meta name="twitter:description" content="稍微用另一种姿势看补码（非详解）大概从接触到计算机开始算起，就知道计算机中存储都是以补码形式，且认为补码就是“符号位不变，取反加一”，貌似它像一个已有的实体一样, 已经不需再形式的去定义它, 如同几何学中对“点”和“线”的概念不加定义一样。但事实上，它背后还是有点故事的，在教材中也有提及，但是几乎都被我们忽略了。 why two’s complement?如果你还是第一次听说这个two&amp;#39;s">
@@ -126,7 +126,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -238,7 +238,7 @@
 <p>即两整数<code>A</code>、<code>B</code>用同一个正整数<code>M</code>(<code>M</code>称为模)去除而所得余数相等，则称<code>A</code>、<code>B</code>对<code>M</code>同余，记作：</p>
 <p><code>A＝B(mod M)</code></p>
 <p>不管是<code>-150</code>还是<code>106</code>，在模<code>256</code>下是同余的（关于取模运算，这个也有点意思，各个语言实现的还不一样，你可以用<code>js</code>跟<code>C</code>语言求一个<code>-5%8</code>，你看得到的结果一样不一样）。</p>
-<p><strong>“符号位参与运算？”</strong>不好意思，我现在不想知道这句话。在我看来，有了上面的过程，才有这个所谓的“符号位参与运算”。或者说，符号位是因为同余才变得有意义。再进一步，<strong>补码就是同余,具有同余关系的两个数为互补关系，其中一个称为另一个的补码。</strong>。像上面的例子，<code>8</code>位下最多能表示<code>256</code>个数，即<code>0</code>到<code>255</code>，可我还想表示一些负数该怎么办？根据同余概念：<code>-1 ≅255</code>，<code>-2 ≅ 254</code>，<code>-3 ≅ 253</code>，等等，然后我再砍掉一半正数，拿它们表示负数，这不就是补码么？所以补码厉害就在，它可以把带符号数和无符号数的加减运算全部都当作无符号数来进行运算，还能自动解决溢出的问题（反码解决了符号问题，但是溢出后要加<code>1</code>，还有<code>-0</code>和<code>+0</code>的问题），简化了计算机中运算器的线路设计，增加了处理器效率，减少了设计制造成本。而这一步转化，已经由编译器完成了，它将你的负数表示成了补码形式，使得计算机能够明白你的意思。</p>
+<p><strong>“符号位参与运算？”</strong>不好意思，我现在不想知道这句话。在我看来，有了上面的过程，才有这个所谓的“符号位参与运算”。或者说，符号位是因为同余才变得有意义。再进一步，<strong>补码就是同余,具有同余关系的两个数为互补关系，其中一个称为另一个的补码。</strong>。像上面的例子，<code>8</code>位下最多能表示<code>256</code>个数，即<code>0</code>到<code>255</code>，可我还想表示一些负数该怎么办？根据同余概念：<code>-1 ≅ 255</code>，<code>-2 ≅ 254</code>，<code>-3 ≅ 253</code>，等等，然后我再砍掉一半正数，拿它们表示负数，这不就是补码么？所以补码厉害就在，它可以把带符号数和无符号数的加减运算全部都当作无符号数来进行运算，还能自动解决溢出的问题（反码解决了符号问题，但是溢出后要加<code>1</code>，还有<code>-0</code>和<code>+0</code>的问题），简化了计算机中运算器的线路设计，增加了处理器效率，减少了设计制造成本。而这一步转化，已经由编译器完成了，它将你的负数表示成了补码形式，使得计算机能够明白你的意思。</p>
 <p>最后，如果看懂了的话，再抛个问题，补码<code>10000000</code>为什么表示的是<code>-128</code>，而不是<code>-0</code>？真的是规定的吗？</p>
 
         </div>
@@ -247,7 +247,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-12-02T07:15:02.832Z" itemprop="dateUpdated">2017-12-02 15:15:02</time>
+    最後更新時間：<time datetime="2017-12-06T01:04:25.603Z" itemprop="dateUpdated">2017-12-06 09:04:25</time>
 </span><br>
 
 
@@ -407,7 +407,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
