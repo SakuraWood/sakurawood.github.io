@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/gulp_14.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/gulp_15.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/gulp_16.png">
-<meta property="og:updated_time" content="2017-10-21T05:49:18.370Z">
+<meta property="og:updated_time" content="2017-12-06T01:26:36.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gulp构建工具">
 <meta name="twitter:description" content="Gulp构建工具gulp与webpack gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，sass编译 替代手工实现自动化工作 webpack是文件打包工具，可以把项目的各种js文、css文件等打包合并成一个或多个文件，主要用于模块化方案，预编译模块的方案  其实webpack很多功能gulp都能做，gulp甚至能够配置webpack，所以这两者之间是没有冲突的。 举个例子，说">
@@ -140,7 +140,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -214,6 +214,7 @@
 <p>举个例子，说到js压缩，现在的人都用uglify，如果有多个要压缩的文件，咋办？你总不能一个一个去压缩吧。所以好事者就写脚本，写个.sh或者.bat什么的。幸运的是，gulp有uglify的插件，你就不用重复造轮子了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 压缩js</span></div><div class="line">gulp.task(<span class="string">'jszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.js'</span>),</div><div class="line">            uglify(&#123;</div><div class="line">                mangle: <span class="literal">true</span>,<span class="comment">//类型：Boolean 默认：true 是否修改变量名</span></div><div class="line">                compress: <span class="literal">true</span><span class="comment">//类型：Boolean 默认：true 是否完全压缩</span></div><div class="line">            &#125;),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>上面就是一个例子，把app文件夹下的js文件都压缩并打包到dist文件夹里。是不是很方便？</p>
+<a id="more"></a>
 <p>“看上去很牛逼，倒是讲讲怎么安装啊”</p>
 <h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><p>先稍微聊聊nodejs。gulp是基于nodejs的，而nodejs的流非常强大。</p>
 <figure class="image-bubble">
@@ -225,7 +226,6 @@
             </figure>
 <p>“你说强大就强大，理由呢？”</p>
 <p>当初的node还不叫nodejs，还在那纠结到底放到哪个语言上比较好。当时的语言，一遍观望下来，几乎都自带了一套I/O接口，而且是阻塞式的。<br>node的设计者对这些都不太满意，但他们又不想重新发明一种语言，然后他们瞄上了js，js几乎是完美的选择，天然的异步方式，加上没有I/O接口，node果断加入了js阵营。异步非阻塞的模型是nodejs强大的根本原因。</p>
-<a id="more"></a>
 <h3 id="I-O（题外话）"><a href="#I-O（题外话）" class="headerlink" title="I/O（题外话）"></a>I/O（题外话）</h3><p>“异步非阻塞怎么就强大了？wtf？”</p>
 <p>我想问的是，你明白I/O吗？<br>“I/O不就是输入输出嘛，有什么大不了的。”<br>所以说，写操作系统的人是真正的大神，深藏功与名，因为他们已经为你准备好了一切。</p>
 <p>从gulp讲到了I/O，感觉完全跑题了。。。呃，我本来就不是为了单纯介绍gulp构建工具，有兴趣的可以看看，再说，复习复习I/O没什么不好，不是吗=。=</p>
@@ -451,7 +451,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-10-21T05:49:18.370Z" itemprop="dateUpdated">2017-10-21 13:49:18</time>
+    Last updated: <time datetime="2017-12-06T01:26:36.821Z" itemprop="dateUpdated">2017-12-06 09:26:36</time>
 </span><br>
 
 
@@ -613,7 +613,7 @@ web..." data-title=" QQ">
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

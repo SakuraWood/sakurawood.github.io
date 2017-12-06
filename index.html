@@ -125,7 +125,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -208,7 +208,7 @@
 </ul>
 <p>计算机科学有两个主要的部分: 第一, 构成计算系统基础的一些基本概念和模型; 第二, 设计计算系统 (软件和硬件) 的工程技术。形式语言与自动机理论, 就是作为第一部分, 即构成计算基础的基本概念的引论。</p> -->
         <a href="/2017/11/15/形式语言与自动机/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -280,7 +280,7 @@
 <p>我并不想在这里介绍<code>Groovy</code>语言，有闲时间我建议直接看<code>Groovy</code>的官方指南：</p>
 <p><a href="http://groovy-lang.org/documentation.html" target="_blank" rel="external">http://groovy-lang.org/documentation.html</a></p> -->
         <a href="/2017/08/15/gradle学习笔记/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -331,7 +331,7 @@
 
     <!--  -->
         <a href="/2017/08/15/css盒模型/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -387,7 +387,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(A)</span>:</span></div><div class="line">    ones = <span class="number">0</span></div><div class="line">    twos = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> A:</div><div class="line">        ones = (ones ^ i) &amp; ~twos</div><div class="line">        twos = (twos ^ i) &amp; ~ones</div><div class="line">    <span class="keyword">return</span> ones</div></pre></td></tr></table></figure>
 <p>这代码一看就懵逼。而且对于不熟悉位操作的人，简直就是痛苦。WTF？<br>这段代码看上去很诡异，但其实它是有来头的。</p> -->
         <a href="/2017/07/12/一道位操作题引发的思考/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -439,7 +439,7 @@
 <h2 id="why-two’s-complement"><a href="#why-two’s-complement" class="headerlink" title="why two’s complement?"></a>why two’s complement?</h2><p>如果你还是第一次听说这个<code>two&#39;s complement</code>的，不妨接下来看看。笔者最近在看自动机方面的书籍，涉及到状态机的时候，经常会拿补码举例子，有时看不懂了，就去<code>google</code>。我就寻思这个补码的英文是什么，结果一搜，<code>two&#39;s complement</code>, 直接意译过来，就是<strong>2的补码</strong>。</p>
 <p><strong>WTF?当年看计算机组成原理好像没听过这玩意儿啊~</strong></p> -->
         <a href="/2017/07/07/稍微用另一种姿势看补码（非详解）/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -498,7 +498,7 @@
 
     <!--  -->
         <a href="/2017/07/07/位操作/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -549,17 +549,6 @@
 <p>举个例子，说到js压缩，现在的人都用uglify，如果有多个要压缩的文件，咋办？你总不能一个一个去压缩吧。所以好事者就写脚本，写个.sh或者.bat什么的。幸运的是，gulp有uglify的插件，你就不用重复造轮子了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 压缩js</span></div><div class="line">gulp.task(<span class="string">'jszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.js'</span>),</div><div class="line">            uglify(&#123;</div><div class="line">                mangle: <span class="literal">true</span>,<span class="comment">//类型：Boolean 默认：true 是否修改变量名</span></div><div class="line">                compress: <span class="literal">true</span><span class="comment">//类型：Boolean 默认：true 是否完全压缩</span></div><div class="line">            &#125;),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>上面就是一个例子，把app文件夹下的js文件都压缩并打包到dist文件夹里。是不是很方便？</p>
-<p>“看上去很牛逼，倒是讲讲怎么安装啊”</p>
-<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><p>先稍微聊聊nodejs。gulp是基于nodejs的，而nodejs的流非常强大。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/gulp_1.jpg" alt="gulp" title="">
-                </div>
-                <div class="image-caption">gulp</div>
-            </figure>
-<p>“你说强大就强大，理由呢？”</p>
-<p>当初的node还不叫nodejs，还在那纠结到底放到哪个语言上比较好。当时的语言，一遍观望下来，几乎都自带了一套I/O接口，而且是阻塞式的。<br>node的设计者对这些都不太满意，但他们又不想重新发明一种语言，然后他们瞄上了js，js几乎是完美的选择，天然的异步方式，加上没有I/O接口，node果断加入了js阵营。异步非阻塞的模型是nodejs强大的根本原因。</p>
     
 
     <!-- <h1 id="Gulp构建工具"><a href="#Gulp构建工具" class="headerlink" title="Gulp构建工具"></a>Gulp构建工具</h1><h2 id="gulp与webpack"><a href="#gulp与webpack" class="headerlink" title="gulp与webpack"></a>gulp与webpack</h2><ul>
@@ -569,20 +558,9 @@
 <p>其实webpack很多功能gulp都能做，gulp甚至能够配置webpack，所以这两者之间是没有冲突的。</p>
 <p>举个例子，说到js压缩，现在的人都用uglify，如果有多个要压缩的文件，咋办？你总不能一个一个去压缩吧。所以好事者就写脚本，写个.sh或者.bat什么的。幸运的是，gulp有uglify的插件，你就不用重复造轮子了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 压缩js</span></div><div class="line">gulp.task(<span class="string">'jszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.js'</span>),</div><div class="line">            uglify(&#123;</div><div class="line">                mangle: <span class="literal">true</span>,<span class="comment">//类型：Boolean 默认：true 是否修改变量名</span></div><div class="line">                compress: <span class="literal">true</span><span class="comment">//类型：Boolean 默认：true 是否完全压缩</span></div><div class="line">            &#125;),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上面就是一个例子，把app文件夹下的js文件都压缩并打包到dist文件夹里。是不是很方便？</p>
-<p>“看上去很牛逼，倒是讲讲怎么安装啊”</p>
-<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><p>先稍微聊聊nodejs。gulp是基于nodejs的，而nodejs的流非常强大。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/gulp_1.jpg" alt="gulp" title="">
-                </div>
-                <div class="image-caption">gulp</div>
-            </figure>
-<p>“你说强大就强大，理由呢？”</p>
-<p>当初的node还不叫nodejs，还在那纠结到底放到哪个语言上比较好。当时的语言，一遍观望下来，几乎都自带了一套I/O接口，而且是阻塞式的。<br>node的设计者对这些都不太满意，但他们又不想重新发明一种语言，然后他们瞄上了js，js几乎是完美的选择，天然的异步方式，加上没有I/O接口，node果断加入了js阵营。异步非阻塞的模型是nodejs强大的根本原因。</p> -->
+<p>上面就是一个例子，把app文件夹下的js文件都压缩并打包到dist文件夹里。是不是很方便？</p> -->
         <a href="/2017/06/27/gulp构建工具/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -634,7 +612,7 @@
 <h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
 <p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p> -->
         <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -706,7 +684,7 @@
 </ol>
 <p>如何构造一颗二叉查找树？</p> -->
         <a href="/2017/06/25/红黑树/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -758,7 +736,7 @@
 <h2 id="哈希是什么？"><a href="#哈希是什么？" class="headerlink" title="哈希是什么？"></a>哈希是什么？</h2><p>(如果觉得废话很多，可以直接看建立哈希表)</p>
 <p>散列（<code>hashing</code>）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（<code>Hashing algorithms</code>）计算出来的资料指纹（<code>data fingerprint</code>），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia</p> -->
         <a href="/2017/06/15/哈希表/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -801,7 +779,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
