@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="SakuraWood&#39;s blogs">
 <meta property="og:description" content="稍微用另一种姿势看补码（非详解）大概从接触到计算机开始算起，就知道计算机中存储都是以补码形式，且认为补码就是“符号位不变，取反加一”，貌似它像一个已有的实体一样, 已经不需再形式的去定义它, 如同几何学中对“点”和“线”的概念不加定义一样。但事实上，它背后还是有点故事的，在教材中也有提及，但是几乎都被我们忽略了。 why two’s complement?如果你还是第一次听说这个two&amp;#39;s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-06T01:04:25.603Z">
+<meta property="og:updated_time" content="2017-12-06T01:09:59.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位操作">
 <meta name="twitter:description" content="稍微用另一种姿势看补码（非详解）大概从接触到计算机开始算起，就知道计算机中存储都是以补码形式，且认为补码就是“符号位不变，取反加一”，貌似它像一个已有的实体一样, 已经不需再形式的去定义它, 如同几何学中对“点”和“线”的概念不加定义一样。但事实上，它背后还是有点故事的，在教材中也有提及，但是几乎都被我们忽略了。 why two’s complement?如果你还是第一次听说这个two&amp;#39;s">
@@ -126,7 +126,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -234,7 +234,7 @@
 <p>依然溢出了一位，截断，变成<code>01101010</code>，答案<code>106</code>。</p>
 <p>老哥，不对啊，答案是-150。</p>
 <p>没错，数学上是<code>-150</code>，但你可能忘了它是一个八位数，<code>-150</code>已经超出了八位数在计算机中所能表示的范围<code>[-128,127]</code>。你可以用<code>Java</code>代码敲一下，结果用<code>byte</code>类型表示，<code>-25-125</code>它得出来的就是<code>106</code>，还是没毛病的。</p>
-<p>玄学？实际上，这里引出了同余的概念（<a href="https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/congruence-modulo）。" target="_blank" rel="external">https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/congruence-modulo）。</a></p>
+<p>玄学？实际上，这里引出了同余的概念<a href="https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/congruence-modulo" target="_blank" rel="external">https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/congruence-modulo</a>。</p>
 <p>即两整数<code>A</code>、<code>B</code>用同一个正整数<code>M</code>(<code>M</code>称为模)去除而所得余数相等，则称<code>A</code>、<code>B</code>对<code>M</code>同余，记作：</p>
 <p><code>A＝B(mod M)</code></p>
 <p>不管是<code>-150</code>还是<code>106</code>，在模<code>256</code>下是同余的（关于取模运算，这个也有点意思，各个语言实现的还不一样，你可以用<code>js</code>跟<code>C</code>语言求一个<code>-5%8</code>，你看得到的结果一样不一样）。</p>
@@ -247,7 +247,7 @@
     <div class="content">
         
 <span class="post-time">
-    最後更新時間：<time datetime="2017-12-06T01:04:25.603Z" itemprop="dateUpdated">2017-12-06 09:04:25</time>
+    Last updated: <time datetime="2017-12-06T01:09:59.928Z" itemprop="dateUpdated">2017-12-06 09:09:59</time>
 </span><br>
 
 
@@ -407,7 +407,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
