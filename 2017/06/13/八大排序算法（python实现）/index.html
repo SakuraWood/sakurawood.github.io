@@ -50,7 +50,7 @@
 <meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_200.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_1000.png">
 <meta property="og:image" content="http://sakurawood.github.io/images/sort_pk_5000.png">
-<meta property="og:updated_time" content="2017-11-23T07:41:58.642Z">
+<meta property="og:updated_time" content="2017-12-12T08:40:03.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="八大排序算法（python描述）">
 <meta name="twitter:description" content="八大排序算法（python描述）冒泡排序冒泡排序是最简单的排序？其实我并不觉得，只是在学算法的时候第一个接触的恰恰是冒泡排序。什么，你说哪个是最简单的？这个仁者见仁吧。。。  基本思想： 两两比较，然后决定是否交换  代码如下：123456789def bubble_sort(lists):    length=len(lists)    for i in range(0,length):">
@@ -131,7 +131,7 @@
               </a>
             </li>
         
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=446512123&auto=1&height=66"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=34200632&auto=1&height=66"></iframe>
       </ul>
     </div>
   </div>
@@ -519,10 +519,10 @@
 <p>得到结果：[2,4,5,11,21,22,23,24,33,52,54,56,341,663,3234,3432]</p>
 <p>基数排序一看，就跟其他排序不一样，它属于“分配式”排序，根据数组元素数值上的部分信息在当前阶段分配到有序的桶里，再通过不同阶段的分配后使数组有序。</p>
 <p>让我们分析一下它的时间复杂度，假设有n个元素，那么每个阶段分配到桶里时间就是n。那究竟跑了多少趟？这个显然与数组中的最大数值的位数有关。假设为k，那么就是k<em>n。当然还有一个时间是收集时间，从桶里面把元素拿出来再组成一个一维数组，这个又与桶的数量有关，假设桶的数量为d,那么就是k</em>d。所以时间复杂度为：O(k*(n+d))。</p>
-<p>哎哟，这么一看，这基排还挺不错的，貌似比之前的都要强啊。但是基排也有缺点，就是空间开销比较大，你看它申请的这个桶数组还是二次元的，不是一维的，除此之外还有一个额外的数组用来收集。空间复杂度为O(kd+n)。</p>
+<p>哎哟，这么一看，这基排还挺不错的，貌似比之前的都要强啊。但是基排也有缺点，就是空间开销比较大，你看它申请的这个桶数组还是二维的，不是一维的，除此之外还有一个额外的数组用来收集。空间复杂度为O(kd+n)。</p>
 <p>直接上程序吧：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> math</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">radix_sort</span><span class="params">(lists,radix=<span class="number">2</span>)</span>:</span></div><div class="line">    bits=int(math.ceil(math.log(max(lists),radix)))</div><div class="line">    bucket=[[]<span class="keyword">for</span> i <span class="keyword">in</span> range(radix)]</div><div class="line">    index=<span class="number">0</span></div><div class="line">    <span class="keyword">while</span> index&lt;bits:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> lists:</div><div class="line">            bucket[i&gt;&gt;index&amp;<span class="number">0x1</span>].append(i)</div><div class="line">        <span class="keyword">del</span> lists[:]</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> bucket:</div><div class="line">            lists+=j</div><div class="line">            <span class="keyword">del</span> j[:]</div><div class="line">        index+=<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure>
-<p>后来我分析了一下，我这个基排为什么会快一些，是因为我只分配了两个桶，即0和1，我把所有数都当做二进制数，这本来也是计算机喜欢的处理方式。然后按照移位处理，便可获取到位数上的值（0或1）进行对号入座。</p>
+<p>后来我分析了一下，我这个基排为什么会快一些，是因为我只分配了两个桶，即0和1，我把所有数都当做二进制数的方式进行处理，这本来也是计算机的处理方式。然后按照移位处理，便可获取到位数上的值（0或1）进行对号入座。</p>
 <h1 id="PK"><a href="#PK" class="headerlink" title="PK"></a>PK</h1><p>写了这么些排序函数，还是来PK一下吧：</p>
 <p>无序数组（随机，长度50）：<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -560,7 +560,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-11-23T07:41:58.642Z" itemprop="dateUpdated">2017-11-23 15:41:58</time>
+    Last updated: <time datetime="2017-12-12T08:40:03.696Z" itemprop="dateUpdated">2017-12-12 16:40:03</time>
 </span><br>
 
 
@@ -724,7 +724,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>SakuraWood(Lee Sure) &copy; 2017</span>
+        <p><span>SakuraWood(Lee Sure) &copy; 2017 - 2018</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
