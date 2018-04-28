@@ -125,7 +125,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -196,7 +196,7 @@
 <h2 id="哈希是什么？"><a href="#哈希是什么？" class="headerlink" title="哈希是什么？"></a>哈希是什么？</h2><p>(如果觉得废话很多，可以直接看建立哈希表)</p>
 <p>散列（<code>hashing</code>）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（<code>Hashing algorithms</code>）计算出来的资料指纹（<code>data fingerprint</code>），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia</p> -->
         <a href="/2017/06/15/哈希表/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -254,7 +254,7 @@
 <p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</div><div class="line">            <span class="keyword">if</span>(lists[i]&gt;lists[j]):</div><div class="line">                temp=lists[i]</div><div class="line">                lists[i]=lists[j]</div><div class="line">                lists[j]=temp</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <p>再来分析一波时间复杂度，嗯，这个时间复杂度应该为：<br>0+1+2+3+······+n-1<br>即n的累加，等于n*(n-1)/2。时间复杂度为O(n²)</p> -->
         <a href="/2017/06/13/八大排序算法（python实现）/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -306,7 +306,7 @@
 <h2 id="java中的this"><a href="#java中的this" class="headerlink" title="java中的this"></a>java中的this</h2><p>因为之前是码<code>java</code>的，所以我想和之前的<code>OO</code>语言做个比较。所以如果之前你敲过<code>java</code>，对这样的代码应该不会陌生：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class Test1&#123;</div><div class="line">    private int i=1;</div><div class="line"></div><div class="line">    public void Test1()&#123;</div><div class="line">        this.i++;           //①这里的this指向什么？</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure> -->
         <a href="/2017/05/06/浅谈this关键字/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -364,7 +364,7 @@
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">   &#123;</div><div class="line"></div><div class="line">  "name": "32000", //项目名</div><div class="line">  "version": "0.0.1", //版本号</div><div class="line">  "description": "vrf project", //项目描述</div><div class="line">  "main": "gulpfile.js",//项目入口文件</div><div class="line">  "scripts": &#123;          //脚本命令，可自定义，像这个，我定义了一个start命令用来指                          //向webpack命令</div><div class="line">    "start": "webpack"</div><div class="line">  &#125;,</div><div class="line">  "repository": &#123;       //git目录</div><div class="line">    "type": "git",</div><div class="line">    "url": "http://greesmartapp02/susan/air-h5.git"</div><div class="line">  &#125;,</div><div class="line">  "keywords": [         //关键词</div><div class="line">    <span class="string">"vrf"</span></div><div class="line">  ],</div><div class="line">  "author": "susan,hwb,leesure",    //作者</div><div class="line">  "license": "ISC",</div><div class="line">  "devDependencies": &#123;              //依赖插件，用到的所有依赖，相当于android                                       //gradle里面的依赖，懂了吧</div><div class="line">    "browser-sync": "^2.18.8",</div><div class="line">    "css-loader": "^0.28.0",</div><div class="line">    "gulp": "^3.9.1",               //gulp也是node的插件，相当于你用的第三方包，                                    //懂？</div><div class="line">    "gulp-concat": "^2.6.1",</div><div class="line">    "gulp-htmlmin": "^3.0.0",</div><div class="line">    "gulp-if": "^2.0.2",</div><div class="line">    "gulp-minify-css": "^1.2.4",</div><div class="line">    "gulp-uglify": "^2.1.2",</div><div class="line">    "gulp-useref": "^3.1.2",</div><div class="line">    "gulp-util": "^3.0.8",</div><div class="line">    "jsx-loader": "^0.13.2",</div><div class="line">    "run-sequence": "^1.2.2",</div><div class="line">    "sass-loader": "^6.0.3",</div><div class="line">    "style-loader": "^0.16.1",</div><div class="line">    "url-loader": "^0.5.8",</div><div class="line">    "webpack-stream": "^3.2.0"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure> -->
         <a href="/2017/04/18/gulp简单用法/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -416,7 +416,7 @@
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>事实上，<code>Hexo</code>博客文件夹里，从<code>.gitignore</code>中可以看到，<br>它刻意屏蔽掉了<code>/public</code>文件夹，如果你懂Git，相信聪明的你已经有解决办法了。</p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>从你的本地博客文件夹下，创建一个新的分支，随便取个名字，比如：<code>hexo</code>，把它推到远程仓库去。</p> -->
         <a href="/2017/02/13/完美解决Hexo多台电脑同步问题/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -490,7 +490,7 @@
 </li>
 </ol> -->
         <a href="/2017/02/12/JS语法突击/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -547,7 +547,7 @@
 
     <!--  -->
         <a href="/2017/02/12/http/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -623,7 +623,7 @@
 <li>TRACE  请求服务器回送收到的请求信息，主要用语测试或诊断。<br>其中最常用的是GET和POST。</li>
 </ol> -->
         <a href="/2017/02/12/http协议笔记/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -688,7 +688,7 @@
 
     <!--  -->
         <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -760,7 +760,7 @@
 <p>上面就是一个邻接矩阵，它代表了三个点，但没有边。默认顶点到它本身是没有边的，我在此邻接矩阵中用-1表示。此外1表示两顶点间有边，0则表示无。</p>
 <h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><p>一般我们说到图的遍历，就会提到深度优先搜索（DFS）和广度优先搜索（BFS）。</p> -->
         <a href="/2017/02/12/无向图的建立和遍历/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -803,7 +803,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

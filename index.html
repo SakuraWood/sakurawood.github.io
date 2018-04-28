@@ -125,7 +125,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -208,7 +208,7 @@
 </ul>
 <p>计算机科学有两个主要的部分: 第一, 构成计算系统基础的一些基本概念和模型; 第二, 设计计算系统 (软件和硬件) 的工程技术。形式语言与自动机理论, 就是作为第一部分, 即构成计算基础的基本概念的引论。</p> -->
         <a href="/2017/11/15/形式语言与自动机/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -259,7 +259,7 @@
 
     <!--  -->
         <a href="/2017/08/15/css盒模型/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -307,7 +307,7 @@
 
     <!--  -->
         <a href="/2017/08/15/単源最短路径——Dijkstra算法/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -379,7 +379,7 @@
 <p>我并不想在这里介绍<code>Groovy</code>语言，有闲时间我建议直接看<code>Groovy</code>的官方指南：</p>
 <p><a href="http://groovy-lang.org/documentation.html" target="_blank" rel="external">http://groovy-lang.org/documentation.html</a></p> -->
         <a href="/2017/08/15/gradle学习笔记/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -435,7 +435,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(A)</span>:</span></div><div class="line">    ones = <span class="number">0</span></div><div class="line">    twos = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> A:</div><div class="line">        ones = (ones ^ i) &amp; ~twos</div><div class="line">        twos = (twos ^ i) &amp; ~ones</div><div class="line">    <span class="keyword">return</span> ones</div></pre></td></tr></table></figure>
 <p>这代码一看就懵逼。而且对于不熟悉位操作的人，简直就是痛苦。WTF？<br>这段代码看上去很诡异，但其实它是有来头的。</p> -->
         <a href="/2017/07/12/一道位操作题引发的思考/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -494,7 +494,7 @@
 
     <!--  -->
         <a href="/2017/07/07/位操作/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -546,7 +546,7 @@
 <h2 id="why-two’s-complement"><a href="#why-two’s-complement" class="headerlink" title="why two’s complement?"></a>why two’s complement?</h2><p>如果你还是第一次听说这个<code>two&#39;s complement</code>的，不妨接下来看看。笔者最近在看自动机方面的书籍，涉及到状态机的时候，经常会拿补码举例子，有时看不懂了，就去<code>google</code>。我就寻思这个补码的英文是什么，结果一搜，<code>two&#39;s complement</code>, 直接意译过来，就是<strong>2的补码</strong>。</p>
 <p><strong>WTF?当年看计算机组成原理好像没听过这玩意儿啊~</strong></p> -->
         <a href="/2017/07/07/稍微用另一种姿势看补码（非详解）/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -608,7 +608,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 压缩js</span></div><div class="line">gulp.task(<span class="string">'jszip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    pump(</div><div class="line">        [</div><div class="line">            gulp.src(<span class="string">'app/**/*.js'</span>),</div><div class="line">            uglify(&#123;</div><div class="line">                mangle: <span class="literal">true</span>,<span class="comment">//类型：Boolean 默认：true 是否修改变量名</span></div><div class="line">                compress: <span class="literal">true</span><span class="comment">//类型：Boolean 默认：true 是否完全压缩</span></div><div class="line">            &#125;),</div><div class="line">            gulp.dest(<span class="string">'dist'</span>)</div><div class="line">        ],</div><div class="line">        callback</div><div class="line">    );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>上面就是一个例子，把app文件夹下的js文件都压缩并打包到dist文件夹里。是不是很方便？</p> -->
         <a href="/2017/06/27/gulp构建工具/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -680,7 +680,7 @@
 </ol>
 <p>如何构造一颗二叉查找树？</p> -->
         <a href="/2017/06/25/红黑树/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -732,7 +732,7 @@
 <h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>链表+哈希表</p>
 <p>java中可以使用LinkedHashMap来实现，但我这里只给个简单的实现。</p> -->
         <a href="/2017/06/25/LRU cache的简单实现/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -775,7 +775,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
