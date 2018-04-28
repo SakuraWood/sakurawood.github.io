@@ -125,7 +125,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -196,7 +196,7 @@
 <h2 id="哈希是什么？"><a href="#哈希是什么？" class="headerlink" title="哈希是什么？"></a>哈希是什么？</h2><p>(如果觉得废话很多，可以直接看建立哈希表)</p>
 <p>散列（<code>hashing</code>）是电脑科学中一种对资料的处理方法，通过某种特定的函数/算法（称为散列函数/算法）将要检索的项与用来检索的索引（称为散列，或者散列值）关联起来，生成一种便于搜索的数据结构（称为散列表）。也译为散列。旧译哈希（误以为是人名而采用了音译）。它也常用作一种资讯安全的实作方法，由一串资料中经过散列算法（<code>Hashing algorithms</code>）计算出来的资料指纹（<code>data fingerprint</code>），经常用来识别档案与资料是否有被窜改，以保证档案与资料确实是由原创者所提供。      —-Wikipedia</p> -->
         <a href="/2017/06/15/哈希表/" class="post-more waves-effect waves-button">
-            阅读全文…
+            閱讀全文…
         </a>
     </div>
     
@@ -254,7 +254,7 @@
 <p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(lists)</span>:</span></div><div class="line">    length=len(lists)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,length):</div><div class="line">            <span class="keyword">if</span>(lists[i]&gt;lists[j]):</div><div class="line">                temp=lists[i]</div><div class="line">                lists[i]=lists[j]</div><div class="line">                lists[j]=temp</div><div class="line">    <span class="keyword">return</span> lists</div></pre></td></tr></table></figure></p>
 <p>再来分析一波时间复杂度，嗯，这个时间复杂度应该为：<br>0+1+2+3+······+n-1<br>即n的累加，等于n*(n-1)/2。时间复杂度为O(n²)</p> -->
         <a href="/2017/06/13/八大排序算法（python实现）/" class="post-more waves-effect waves-button">
-            阅读全文…
+            閱讀全文…
         </a>
     </div>
     
@@ -306,7 +306,7 @@
 <h2 id="java中的this"><a href="#java中的this" class="headerlink" title="java中的this"></a>java中的this</h2><p>因为之前是码<code>java</code>的，所以我想和之前的<code>OO</code>语言做个比较。所以如果之前你敲过<code>java</code>，对这样的代码应该不会陌生：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class Test1&#123;</div><div class="line">    private int i=1;</div><div class="line"></div><div class="line">    public void Test1()&#123;</div><div class="line">        this.i++;           //①这里的this指向什么？</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure> -->
         <a href="/2017/05/06/浅谈this关键字/" class="post-more waves-effect waves-button">
-            阅读全文…
+            閱讀全文…
         </a>
     </div>
     
@@ -364,7 +364,7 @@
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">   &#123;</div><div class="line"></div><div class="line">  "name": "32000", //项目名</div><div class="line">  "version": "0.0.1", //版本号</div><div class="line">  "description": "vrf project", //项目描述</div><div class="line">  "main": "gulpfile.js",//项目入口文件</div><div class="line">  "scripts": &#123;          //脚本命令，可自定义，像这个，我定义了一个start命令用来指                          //向webpack命令</div><div class="line">    "start": "webpack"</div><div class="line">  &#125;,</div><div class="line">  "repository": &#123;       //git目录</div><div class="line">    "type": "git",</div><div class="line">    "url": "http://greesmartapp02/susan/air-h5.git"</div><div class="line">  &#125;,</div><div class="line">  "keywords": [         //关键词</div><div class="line">    <span class="string">"vrf"</span></div><div class="line">  ],</div><div class="line">  "author": "susan,hwb,leesure",    //作者</div><div class="line">  "license": "ISC",</div><div class="line">  "devDependencies": &#123;              //依赖插件，用到的所有依赖，相当于android                                       //gradle里面的依赖，懂了吧</div><div class="line">    "browser-sync": "^2.18.8",</div><div class="line">    "css-loader": "^0.28.0",</div><div class="line">    "gulp": "^3.9.1",               //gulp也是node的插件，相当于你用的第三方包，                                    //懂？</div><div class="line">    "gulp-concat": "^2.6.1",</div><div class="line">    "gulp-htmlmin": "^3.0.0",</div><div class="line">    "gulp-if": "^2.0.2",</div><div class="line">    "gulp-minify-css": "^1.2.4",</div><div class="line">    "gulp-uglify": "^2.1.2",</div><div class="line">    "gulp-useref": "^3.1.2",</div><div class="line">    "gulp-util": "^3.0.8",</div><div class="line">    "jsx-loader": "^0.13.2",</div><div class="line">    "run-sequence": "^1.2.2",</div><div class="line">    "sass-loader": "^6.0.3",</div><div class="line">    "style-loader": "^0.16.1",</div><div class="line">    "url-loader": "^0.5.8",</div><div class="line">    "webpack-stream": "^3.2.0"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure> -->
         <a href="/2017/04/18/gulp简单用法/" class="post-more waves-effect waves-button">
-            阅读全文…
+            閱讀全文…
         </a>
     </div>
     
@@ -416,85 +416,13 @@
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>事实上，<code>Hexo</code>博客文件夹里，从<code>.gitignore</code>中可以看到，<br>它刻意屏蔽掉了<code>/public</code>文件夹，如果你懂Git，相信聪明的你已经有解决办法了。</p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>从你的本地博客文件夹下，创建一个新的分支，随便取个名字，比如：<code>hexo</code>，把它推到远程仓库去。</p> -->
         <a href="/2017/02/13/完美解决Hexo多台电脑同步问题/" class="post-more waves-effect waves-button">
-            阅读全文…
+            閱讀全文…
         </a>
     </div>
     
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-python"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
-
-
-
-    </div>
-
-    <!-- 
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/python/">python与java比较</a>
-    </h3>
-  
-
-
- -->
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="python对比java"><a href="#python对比java" class="headerlink" title="python对比java"></a>python对比java</h1><ol>
-<li>python函数可返回多个</li>
-</ol>
-<p>函数返回的是一个tuple</p>
-<ol>
-<li>函数参数还有默认参数这么一说</li>
-</ol>
-<p>def xxx(a,b=2):<br>    …</p>
-<ol>
-<li>可变参数的写法</li>
-</ol>
-<p>def xxx(*num):</p>
-<p>注意，list和tuple前面加上*也可以表示可变参数</p>
-    
-
-    <!-- <h1 id="python对比java"><a href="#python对比java" class="headerlink" title="python对比java"></a>python对比java</h1><ol>
-<li>python函数可返回多个</li>
-</ol>
-<p>函数返回的是一个tuple</p>
-<ol>
-<li>函数参数还有默认参数这么一说</li>
-</ol>
-<p>def xxx(a,b=2):<br>    …</p>
-<ol>
-<li>可变参数的写法</li>
-</ol>
-<p>def xxx(*num):</p>
-<p>注意，list和tuple前面加上*也可以表示可变参数</p> -->
-        <a href="/2017/02/12/python/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-java/">python java</a></li></ul>
 
     </div>
     
@@ -562,13 +490,211 @@
 </li>
 </ol> -->
         <a href="/2017/02/12/JS语法突击/" class="post-more waves-effect waves-button">
-            阅读全文…
+            閱讀全文…
         </a>
     </div>
     
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-http"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+
+
+
+    </div>
+
+    <!-- 
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/http/">http协议（一）</a>
+    </h3>
+  
+
+
+ -->
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h1><p>http是无连接的协议，指的是每次连接只处理一个请求，服务器处理完客户请求后，并得到客户的应答之后，就断开连接。</p>
+<p>http是媒体独立的，即只要客户端和服务器知道如何处理数据内容，任何类型的数据都可以通过http发送。</p>
+<p>http是无状态的，对于事务处理没有记忆能力。</p>
+<p>http请求消息：</p>
+<p>请求方法 url 协议版本<br>字段名 值<br>空行<br>内容</p>
+<p>响应消息：</p>
+<p>协议版本 状态码 状态值<br>字段名 值<br>空行<br>内容</p>
+<p>MIME是描述消息内容类型的因特网标准。</p>
+<p>ALLOW字段表示服务器支持哪些请求方法，比如post，get等<br>Expires表示应该在什么时候认为文档已经过期，从而不再缓存它</p>
+
+    
+
+    <!--  -->
+        <a href="/2017/02/12/http/" class="post-more waves-effect waves-button">
+            閱讀全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-http协议笔记"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+
+
+
+    </div>
+
+    <!-- 
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/http协议笔记/">http协议（二）</a>
+    </h3>
+  
+
+
+ -->
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h2><ul>
+<li>协议格式<br>GET/sample.jsp HTTP/1.1<br>Accept:image/gif.image/jpeg,<em>/</em><br>Accept-Language:zh-cn<br>Connection:Keep-Alive<br>Host:localhost<br>User-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)<br>Accept-Encoding:gzip,deflate</li>
+</ul>
+<p>username=jinqiao&amp;password=1234</p>
+<p>① 第一行是“方法URL协议版本”<br>GET/sample.jsp HTTP/1.1<br>GET代表请求方法，/sample.jsp表示URI，“HTTP/1.1代表协议和协议版本号”</p>
+<p>请求方法可有多种，HTTP/1.1支持7中请求方式：</p>
+<ol>
+<li>GET  请求获取由 Request-URI 所标识的资源。</li>
+<li>POST  在 Request-URI 所标识的资源后附加新的数据。</li>
+<li>HEAD  请求获取由 Request-URI 所标识的资源的响应消息报头。</li>
+<li>OPTIONS  请求查询服务器的性能，或查询与资源相关的选项和需求。</li>
+<li>PUT  请求服务器存储一个资源，并用 Request-URI 作为其标识。</li>
+<li>DELETE  请求服务器删除由 Request-URI 所标识的资源。</li>
+<li>TRACE  请求服务器回送收到的请求信息，主要用语测试或诊断。<br>其中最常用的是GET和POST。</li>
+</ol>
+    
+
+    <!-- <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP Request"></a>HTTP Request</h2><ul>
+<li>协议格式<br>GET/sample.jsp HTTP/1.1<br>Accept:image/gif.image/jpeg,<em>/</em><br>Accept-Language:zh-cn<br>Connection:Keep-Alive<br>Host:localhost<br>User-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0)<br>Accept-Encoding:gzip,deflate</li>
+</ul>
+<p>username=jinqiao&amp;password=1234</p>
+<p>① 第一行是“方法URL协议版本”<br>GET/sample.jsp HTTP/1.1<br>GET代表请求方法，/sample.jsp表示URI，“HTTP/1.1代表协议和协议版本号”</p>
+<p>请求方法可有多种，HTTP/1.1支持7中请求方式：</p>
+<ol>
+<li>GET  请求获取由 Request-URI 所标识的资源。</li>
+<li>POST  在 Request-URI 所标识的资源后附加新的数据。</li>
+<li>HEAD  请求获取由 Request-URI 所标识的资源的响应消息报头。</li>
+<li>OPTIONS  请求查询服务器的性能，或查询与资源相关的选项和需求。</li>
+<li>PUT  请求服务器存储一个资源，并用 Request-URI 作为其标识。</li>
+<li>DELETE  请求服务器删除由 Request-URI 所标识的资源。</li>
+<li>TRACE  请求服务器回送收到的请求信息，主要用语测试或诊断。<br>其中最常用的是GET和POST。</li>
+</ol> -->
+        <a href="/2017/02/12/http协议笔记/" class="post-more waves-effect waves-button">
+            閱讀全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-网络层次结构"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
+
+
+
+    </div>
+
+    <!-- 
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/12/网络层次结构/">OSI网络模型</a>
+    </h3>
+  
+
+
+ -->
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>OSI七层模型：</p>
+<ol>
+<li>物理层</li>
+<li>数据链路层</li>
+<li>网络层</li>
+<li>传输层</li>
+<li>会话层</li>
+<li>表示层</li>
+<li>应用层</li>
+</ol>
+<p>tcp协议：</p>
+<ol>
+<li>链路层</li>
+<li>网络层</li>
+<li>传输层</li>
+<li>应用层</li>
+</ol>
+
+    
+
+    <!--  -->
+        <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
+            閱讀全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
 
     </div>
     
@@ -634,132 +760,13 @@
 <p>上面就是一个邻接矩阵，它代表了三个点，但没有边。默认顶点到它本身是没有边的，我在此邻接矩阵中用-1表示。此外1表示两顶点间有边，0则表示无。</p>
 <h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><p>一般我们说到图的遍历，就会提到深度优先搜索（DFS）和广度优先搜索（BFS）。</p> -->
         <a href="/2017/02/12/无向图的建立和遍历/" class="post-more waves-effect waves-button">
-            阅读全文…
+            閱讀全文…
         </a>
     </div>
     
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-安卓中抓包方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android开发/">Android开发</a></li></ul>
-
-
-
-    </div>
-
-    <!-- 
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/安卓中抓包方法/">android抓包方法</a>
-    </h3>
-  
-
-
- -->
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="安卓中抓包方法"><a href="#安卓中抓包方法" class="headerlink" title="安卓中抓包方法"></a>安卓中抓包方法</h1><h3 id="5-0-以上机型"><a href="#5-0-以上机型" class="headerlink" title="5.0 以上机型"></a>5.0 以上机型</h3><p>因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：</p>
-<p><a href="http://pan.baidu.com/s/1qXDzPFm" target="_blank" rel="external">带PIE的tcpdump下载</a></p>
-<p>前提手机一定要root！</p>
-<h3 id="通过adb将tcpdump拷入手机"><a href="#通过adb将tcpdump拷入手机" class="headerlink" title="通过adb将tcpdump拷入手机"></a>通过adb将tcpdump拷入手机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb push tcpdump /system/bin/tcpdump  </div><div class="line">adb shell chmod 6755 /system/bin/tcpdump</div></pre></td></tr></table></figure>
-    
-
-    <!-- <h1 id="安卓中抓包方法"><a href="#安卓中抓包方法" class="headerlink" title="安卓中抓包方法"></a>安卓中抓包方法</h1><h3 id="5-0-以上机型"><a href="#5-0-以上机型" class="headerlink" title="5.0 以上机型"></a>5.0 以上机型</h3><p>因为android L 之后，强制要求二进制文件支持PIE提高系统安全性， 所以网上的很多tcpdump文件并不能用，这里给个下载地址：</p>
-<p><a href="http://pan.baidu.com/s/1qXDzPFm" target="_blank" rel="external">带PIE的tcpdump下载</a></p>
-<p>前提手机一定要root！</p>
-<h3 id="通过adb将tcpdump拷入手机"><a href="#通过adb将tcpdump拷入手机" class="headerlink" title="通过adb将tcpdump拷入手机"></a>通过adb将tcpdump拷入手机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb push tcpdump /system/bin/tcpdump  </div><div class="line">adb shell chmod 6755 /system/bin/tcpdump</div></pre></td></tr></table></figure> -->
-        <a href="/2017/02/12/安卓中抓包方法/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-网络层次结构"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-12 19:36:07" datetime="2017-02-12T11:36:07.000Z"  itemprop="datePublished">2017-02-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络/">网络</a></li></ul>
-
-
-
-    </div>
-
-    <!-- 
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/02/12/网络层次结构/">OSI网络模型</a>
-    </h3>
-  
-
-
- -->
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>OSI七层模型：</p>
-<ol>
-<li>物理层</li>
-<li>数据链路层</li>
-<li>网络层</li>
-<li>传输层</li>
-<li>会话层</li>
-<li>表示层</li>
-<li>应用层</li>
-</ol>
-<p>tcp协议：</p>
-<ol>
-<li>链路层</li>
-<li>网络层</li>
-<li>传输层</li>
-<li>应用层</li>
-</ol>
-
-    
-
-    <!--  -->
-        <a href="/2017/02/12/网络层次结构/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
 
     </div>
     
@@ -796,7 +803,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
